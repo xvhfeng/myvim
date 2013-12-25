@@ -54,6 +54,10 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-k>'
 let g:multi_cursor_quit_key='<Esc>'
 
+"the cref vim
+if !hasmapto('<Plug>CRV_CRefVimInvoke')
+    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
+endif
 :nmap <c-e> $
 :imap <c-e><c-b> <END><Left>
 
