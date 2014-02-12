@@ -28,6 +28,7 @@ Bundle 'snipMate'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Yggdroot/indentLine'
 Bundle 'a.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 " golang
 " Go
@@ -702,6 +703,10 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+"for YCM
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 
 " Let's gofmt it before saving it
 " autocmd BufWritePre *.go :Fmt
