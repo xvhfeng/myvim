@@ -708,8 +708,8 @@ let g:tagbar_type_go = {
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gi :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <leader>yd :YcmDiags<CR>
 
