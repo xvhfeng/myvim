@@ -713,8 +713,8 @@ nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <leader>yd :YcmDiags<CR>
 let g:ycm_key_invoke_completion = '<c-x><c-o>'
-let g:ycm_cache_omnifunc = 0
-let g:ycm_auto_trigger = 0
+let g:ycm_cache_omnifunc = 1
+let g:ycm_auto_trigger = 1
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_echo_current_diagnostic = 1
