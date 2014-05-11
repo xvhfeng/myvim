@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle "vundle"
 Bundle 'genutils'
 Bundle 'c.vim'
-Bundle 'The-NERD-Commenter'
+" Bundle 'The-NERD-Commenter'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'EasyMotion'
 Bundle 'FencView.vim'
@@ -29,6 +29,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Yggdroot/indentLine'
 Bundle 'a.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'terryma/vim-expand-region'
+Bundle 'tpope/vim-commentary'
 
 " golang
 " Go
@@ -37,15 +39,15 @@ Bundle 'Valloric/YouCompleteMe'
 " With goimports, you can add missing imports automatically.
 " To install goimport:
 "   go get github.com/bradfitz/goimports
-Bundle 'cespare/vim-golang'
+" Bundle 'cespare/vim-golang'
 " To install godef:
 "   go get code.google.com/p/rog-go/exp/cmd/godef
-Bundle 'dgryski/vim-godef'
+" Bundle 'dgryski/vim-godef'
 " To install gocode:
 "   go get github.com/nsf/gocode
-Bundle 'Blackrush/vim-gocode'
+" Bundle 'Blackrush/vim-gocode'
 
-Bundle 'bradfitz/goimports'
+" Bundle 'bradfitz/goimports'
 
 let g:multi_cursor_use_default_mapping=1
 
@@ -326,8 +328,8 @@ nmap K i<cr><esc>
 "设置c语言的header和c文件转换
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
 
-nmap <silent> do :call append('.', '')<CR>j
-nmap <silent> uo :call append(line('.')-1, '')<CR>k
+nmap <silent> do :call append('.', '')<CR>j<ESC>
+nmap <silent> uo :call append(line('.')-1, '')<CR>k<ESC>
 
 nmap <c-e>i <esc>guiw
 nmap <c-e>u <esc>gUiw
@@ -380,11 +382,6 @@ let Tlist_Auto_Update = 1
 map <F8> <ESC>:TlistToggle<cr>
 
 
-"给函数注释
-let g:DoxygenToolkit_briefTag_pre="@Remark:" 
-let g:DoxygenToolkit_paramTag_pre="@Param:" 
-let g:DoxygenToolkit_returnTag="@Returns:"
-map <c-x>f <ESC>:Dox<cr>
 
 "ctags文件
 set tags+=/opt/symbol/ctags/systags

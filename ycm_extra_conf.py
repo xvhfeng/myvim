@@ -67,7 +67,7 @@ flags = [
 # '/System/Library/Frameworks/Python.framework/Headers',
 '-isystem',
 # '../llvm/include',
-'/opt/sys/pkg/clang_llvm/include',
+# '/opt/sys/pkg/clang_llvm/include',
 # '-isystem',
 # '../llvm/tools/clang/include',
 '-I',
@@ -87,9 +87,9 @@ flags = [
 '-isystem',
 '/usr/local/include',
 '-isystem',
-'/opt/source/spxlib/src/headers',
+'/Users/Seapeak/src/spx/src/headers'
 '-isystem',
-'/opt/source/spxlib/src',
+'/Users/Seapeak/src/spx/src/'
 # '-isystem',
 # '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 # '-isystem',
