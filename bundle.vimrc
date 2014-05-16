@@ -292,8 +292,11 @@ Bundle 'SQLComplete.vim'
 let g:sql_type_default = 'mysql'
 "SQLSetType mysql
 
+"the markdown editer
+Bundle 'plasticboy/vim-markdown'
+"
 " golang
-" Go
+" " Go
 " We are using cespare's modification,
 " which uses bradfitz's goimports instead of gofmt.
 " With goimports, you can add missing imports automatically.

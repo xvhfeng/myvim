@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -36,4 +37,4 @@
 ehthumbs.db
 Thumbs.db
 bundle
-pyc
+
