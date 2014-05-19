@@ -157,8 +157,8 @@ let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python�
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 Bundle 'terryma/vim-expand-region'
-map = <Plug>(expand_region_expand)
-map - <Plug>(expand_region_shrink)
+map + <Plug>(expand_region_expand)
+map _ <Plug>(expand_region_shrink)
 
 Bundle 'tpope/vim-commentary'
 
