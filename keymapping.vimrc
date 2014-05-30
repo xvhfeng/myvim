@@ -122,7 +122,7 @@ nmap ws     <C-w>s     " 水平分割当前窗口
 "set listchars=tab:./ ,trail:.   " 将制表符显示为'.   '
 
 "范围折叠
-noremap <M-z> <esc>zf%
+noremap <c-x>z <esc>zf%
 
 " 用空格键来开关折叠
 nmap <space> za

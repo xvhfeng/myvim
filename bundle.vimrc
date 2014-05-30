@@ -19,6 +19,8 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Bundle 'genutils'
 
 Bundle 'c.vim'
+map <c-x>c \cc
+map <c-x>u \co
 
 " Bundle 'The-NERD-Commenter'
 Bundle 'ShowTrailingWhitespace'
