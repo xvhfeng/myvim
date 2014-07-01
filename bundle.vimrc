@@ -18,7 +18,7 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 Bundle 'genutils'
 
-Bundle 'c.vim'
+Bundle 'xvhfeng/c.vim'
 map <c-x>c \cc
 map <c-x>u \co
 
@@ -296,6 +296,12 @@ let g:sql_type_default = 'mysql'
 
 "the markdown editer
 Bundle 'plasticboy/vim-markdown'
+
+"the properties file editor
+Bundle 'kamichidu/vim-edit-properties'
+
+
+
 "
 " golang
 " " Go

@@ -87,9 +87,13 @@ flags = [
 '-isystem',
 '/usr/local/include',
 '-isystem',
-'/Users/Seapeak/src/spx/src/headers'
+'/Users/Seapeak/src/spx/src/headers',
 '-isystem',
-'/Users/Seapeak/src/spx/src/'
+'/Users/Seapeak/src/spx/src/',
+'-isystem',
+'/Users/Seapeak/src/spx/src/include',
+'-isystem',
+'/Users/Seapeak/src/ydb/common/src/',
 # '-isystem',
 # '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 # '-isystem',
