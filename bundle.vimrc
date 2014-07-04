@@ -300,8 +300,16 @@ Bundle 'plasticboy/vim-markdown'
 "the properties file editor
 Bundle 'kamichidu/vim-edit-properties'
 
+"auto input the right ) ] or }
+Bundle 'jiangmiao/auto-pairs'
 
-
+"undo tree
+Bundle 'mbbill/undotree'
+nnoremap <F12> :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir='~/.vim/undodir/'
+    set undofile
+endif
 "
 " golang
 " " Go
