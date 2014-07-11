@@ -155,7 +155,7 @@ set foldenable
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-set foldmethod=syntax
+set foldmethod=marker
 set foldlevel=1
 
 " 缩进配置

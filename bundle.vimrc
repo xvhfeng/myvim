@@ -136,14 +136,12 @@ Bundle 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <leader>yd :YcmDiags<CR>
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_identifier_candidate_chars = 0
 " 直接触发自动补全
 let g:ycm_key_invoke_completion = '<c-x><c-o>'
 let g:ycm_cache_omnifunc = 1
-let g:ycm_auto_trigger = 1
+let g:ycm_auto_trigger = 0
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_echo_current_diagnostic = 1
@@ -157,6 +155,12 @@ let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
 let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 let g:ycm_collect_identifiers_from_tags_files = 1
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <leader>yd :YcmDiags<CR>
+nmap <F11> :YcmRestartServer<CR>
+
 
 Bundle 'terryma/vim-expand-region'
 map + <Plug>(expand_region_expand)
@@ -301,7 +305,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'kamichidu/vim-edit-properties'
 
 "auto input the right ) ] or }
-Bundle 'jiangmiao/auto-pairs'
+"Bundle 'jiangmiao/auto-pairs'
 
 "undo tree
 Bundle 'mbbill/undotree'
