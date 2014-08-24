@@ -110,7 +110,7 @@ endfunction
 map <leader>ch :call SetColorColumn()<CR>
 
 " 定义函数AutoSetFileHead，自动插入文件头
-autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+autocmd BufNewFile *.sh,*.py,*.md exec ":call AutoSetFileHead()"
 function! AutoSetFileHead()
     "如果文件类型为.sh文件
     if &filetype == 'sh'
@@ -121,6 +121,21 @@ function! AutoSetFileHead()
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
         call append(1, "\# encoding: utf-8")
+    endif
+
+    if &filetype == 'mkd' || &filetype == 'md'
+        call setline('.',"---")
+        normal ==o
+        call setline('.',"layout: post")
+        normal ==o
+        call setline('.',"category: \" \"")
+        normal ==o
+        call setline('.',"title: \" \"")
+        normal ==o
+        call setline('.',"tags: []")
+        normal ==o
+        call setline('.',"---")
+        normal ==o
     endif
 
     normal G
