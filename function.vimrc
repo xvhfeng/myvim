@@ -128,7 +128,7 @@ function! AutoSetFileHead()
         normal ==o
         call setline('.',"layout: post")
         normal ==o
-        call setline('.',"category: \" \"")
+        call setline('.',"categories: []")
         normal ==o
         call setline('.',"title: \" \"")
         normal ==o
