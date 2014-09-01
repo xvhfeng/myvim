@@ -206,7 +206,10 @@ function InsertHeadDefN()
     let firstLine = 1
     let lastLine = line('$')
     let n=1
-    while n < 20
+    "50 is the magic number
+    "if you file init context size is more than 50,
+    "plesae set  larger again.
+    while n < 50
         let line = getline(n)
         if n==1
             if line =~ '^\/\*.*$'
