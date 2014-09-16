@@ -84,11 +84,11 @@ function! DeleteLines()
     echo "delete lines begin:" . begin_idx . " end:" . end_idx
 endfunction
 
-noremap <leader>xg :call GetCurrentCursor()<cr>
-noremap <leader>xc :cal ClearCurrentCursor()<cr>
-noremap <leader>xy :call CopyLinesToSystem()<cr>
-noremap <leader>xd :call DeleteLines()<cr>
-noremap <leader>xr :call ReName()<cr>
+noremap <leader>fg :call GetCurrentCursor()<cr>
+noremap <leader>fc :cal ClearCurrentCursor()<cr>
+noremap <leader>fy :call CopyLinesToSystem()<cr>
+noremap <leader>fd :call DeleteLines()<cr>
+noremap <leader>fr :call ReName()<cr>
 
 
 nmap <M-g> :call GetCurrentCursor()<cr>

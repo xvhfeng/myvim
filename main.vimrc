@@ -25,6 +25,7 @@ if filereadable(expand("~/.vim/myvim/function.vimrc"))
   source ~/.vim/myvim/function.vimrc
 endif
 
+
 "自动启用vimrc配置
 autocmd! bufwritepost .vimrc source ~/.vimrc
 :set switchbuf=useopen

@@ -122,7 +122,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 Bundle 'Yggdroot/indentLine'
 "config for indentLine
-let g:indentLine_indentLevel = 5
+let g:indentLine_indentLevel = 7
 let g:indentLine_enabled = 1
 "hi Conceal ctermfg=red ctermbg=red
 "let g:indentLine_char = '|'
@@ -175,8 +175,8 @@ Bundle 'tpope/vim-commentary'
 "Bundle 'snipMate'
 
 Bundle 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
 " 定义存放代码片段的文件夹 .vim/additional_snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
 let g:UltiSnipsSnippetDirectories=["additional_snippets", 'UltiSnips']
 
