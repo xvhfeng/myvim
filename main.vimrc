@@ -8,21 +8,26 @@
 " Include vimrc 读取子vimrc
 """""""""""""""""""""""""""""""""""""""""""
 " install Vundle bundles
-if filereadable(expand("~/.vim/myvim/bundle.vimrc"))
-  source ~/.vim/myvim/bundle.vimrc
+
+if filereadable(expand("./env.vimrc"))
+  source ./env.vimrc
+endif
+
+if filereadable(expand(g:spx_bundle_file_path))
+  exec ":source ".g:spx_bundle_file_path
 endif
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 
 "loading key-mapping
-if filereadable(expand("~/.vim/myvim/keymapping.vimrc"))
-  source ~/.vim/myvim/keymapping.vimrc
+if filereadable(expand(g:spx_keymapping_file_path))
+  exec ":source ".g:spx_keymapping_file_path
 endif
 
 "loading function
-if filereadable(expand("~/.vim/myvim/function.vimrc"))
-  source ~/.vim/myvim/function.vimrc
+if filereadable(expand(g:spx_function_file_path))
+  exec ":source ".g:spx_function_file_path
 endif
 
 
