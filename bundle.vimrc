@@ -346,6 +346,7 @@ endif
 "hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=darkgrey
 
+Bundle 'trotter/autojump.vim'
 
 filetype on
 "filetype plugin indent on
