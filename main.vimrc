@@ -9,8 +9,8 @@
 """""""""""""""""""""""""""""""""""""""""""
 " install Vundle bundles
 
-if filereadable(expand("./env.vimrc"))
-  source ./env.vimrc
+if filereadable(expand("~/.env.vimrc"))
+  source ~/.env.vimrc
 endif
 
 if filereadable(expand(g:spx_bundle_file_path))

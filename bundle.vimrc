@@ -108,7 +108,7 @@ let Tlist_Auto_Update = 1
 map <F8> <ESC>:TlistToggle<cr>
 
 
-Bundle 'vmark.vim--Visual-Bookmarking'
+"Bundle 'vmark.vim--Visual-Bookmarking'
 
 
 Bundle 'terryma/vim-multiple-cursors'
@@ -242,7 +242,7 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 40
 let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
@@ -348,3 +348,4 @@ endif
 
 
 filetype on
+"filetype plugin indent on
