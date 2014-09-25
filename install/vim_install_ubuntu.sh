@@ -33,7 +33,7 @@ echo "config vim"
 ./configure --with-features=huge --enable-pythoninterp=yes --enable-gui=gnome2
 --enable-cscope --enable-fontset --enable-perlinterp --enable-rubyinterp
 --enable-luainterp --enable-perlinterp --enable-multibyte --enable-sniff --prefix=/usr
-
+--with-python-config-dir=/usr/lib/python2.6/config 
 echo "cmplite vim"
 make
 echo "install vim"
