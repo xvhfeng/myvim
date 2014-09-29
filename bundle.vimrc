@@ -230,7 +230,7 @@ Bundle 'lucapette/vim-jquery-doc'
 "--------------------
 " for html, haml, sass
 "--------------------
-Bundle 'concise/vim-html5-fix'
+"Bundle 'concise/vim-html5-fix'
 Bundle 'tpope/vim-haml'
 " 自动补全html/xml标签
 Bundle 'docunext/closetag.vim'
