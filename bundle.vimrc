@@ -31,6 +31,8 @@ Bundle 'FencView.vim'
 
 Bundle 'auto_mkdir'
 
+Bundle 'trotter/autojump.vim'
+
 Bundle 'bufexplorer.zip'
 :vmap <c-x>b <esc>:w!<esc>,be
 :nmap <c-x>b <esc>:w!<esc>,be
@@ -343,4 +345,20 @@ let g:html_indent_style1 = "inc"
 " Bundle 'Blackrush/vim-gocode'
 
 " Bundle 'bradfitz/goimports'
+
+" Bundle 'UltiSnips'
+"Bundle 'AutoClose' -- this plug change the timeout and ttimeout fuck.
+" 代码缩进
+" https://github.com/nathanaelkane/vim-indent-guides
+"Bundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+"hi IndentGuidesOdd  guibg=red   ctermbg=3
+"hi IndentGuidesEven guibg=green ctermbg=4
+"hi IndentGuidesOdd  ctermbg=black
+"hi IndentGuidesEven ctermbg=darkgrey
+
+
 filetype on
+"filetype plugin indent on
