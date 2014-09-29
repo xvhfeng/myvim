@@ -210,3 +210,10 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+
+:command W w
+:command WQ wq
+:command Wq wq
+:command Q q
+:command Qa qa
+:command QA qa
