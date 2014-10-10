@@ -56,6 +56,7 @@ Bundle 'ShowMarks'
 "Bundle 'statusline.vim'
 Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 0
+let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
 
 Bundle 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=1
