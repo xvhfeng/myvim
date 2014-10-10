@@ -32,6 +32,7 @@ Bundle 'FencView.vim'
 Bundle 'auto_mkdir'
 
 Bundle 'trotter/autojump.vim'
+:cnoremap j J<SPACE>
 
 Bundle 'bufexplorer.zip'
 :vmap <c-x>b <esc>:w!<esc>,be
@@ -52,7 +53,9 @@ Bundle 'grep.vim'
 :nmap <c-g> <ESC>:Grep<CR>
 
 Bundle 'ShowMarks'
-Bundle 'statusline.vim'
+"Bundle 'statusline.vim'
+Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 0
 
 Bundle 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=1
@@ -209,7 +212,7 @@ Bundle 'kamichidu/vim-edit-properties'
 
 "undo tree
 Bundle 'mbbill/undotree'
-nnoremap <F12> :UndotreeToggle<cr>
+nnoremap <leader>ut :UndotreeToggle<cr>
 if has("persistent_undo")
     set undodir='~/.vim/undodir/'
     set undofile
