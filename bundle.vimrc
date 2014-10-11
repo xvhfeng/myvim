@@ -32,7 +32,7 @@ Bundle 'FencView.vim'
 Bundle 'auto_mkdir'
 
 Bundle 'trotter/autojump.vim'
-:cnoremap j J<SPACE>
+nmap <c-j> :J<SPACE>
 
 Bundle 'bufexplorer.zip'
 :vmap <c-x>b <esc>:w!<esc>,be
