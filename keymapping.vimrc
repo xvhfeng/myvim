@@ -57,10 +57,11 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 
 "tab 缩进
-:nmap <tab>  v><esc>
-:nmap <s-tab> v<<esc>
+":nmap <tab>  v><esc>
+":nmap <s-tab> v<<esc>
 :vmap <tab> >gv
 :vmap <s-tab> <gv
+nmap <tab> %
 "Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
 " 在visual模式下缩进 (无限可重复)
 :vnoremap < <gv
