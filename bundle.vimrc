@@ -188,11 +188,12 @@ let g:pyflakes_use_quickfix = 0
 Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
+Bundle 'klen/python-mode'
+
 
 "###### Markdown #########
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
-
 
 "###### Jinja2 #########
 Bundle 'Glench/Vim-Jinja2-Syntax'
