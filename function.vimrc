@@ -1,3 +1,8 @@
+"==========================================
+" Base Settings  基本设置
+" all function by myself
+"==========================================
+
 function! RunShell(Msg, Shell)
 	echo a:Msg . '...'
 	call system(a:Shell)
@@ -90,16 +95,33 @@ noremap <leader>fy :call CopyLinesToSystem()<cr>
 noremap <leader>fd :call DeleteLines()<cr>
 noremap <leader>fr :call ReName()<cr>
 
-
 nmap <M-g> :call GetCurrentCursor()<cr>
 nmap <M-c> :call ClearCurrentCursor()<cr>
 nmap <M-y> :call CopyLinesToSystem()<cr>
 nmap <M-d> :call DeleteLines()<cr>
 nmap <M-r> :call ReName()<cr>
 
+
+function! DeleteShiftLines()
+    let lines = input("input above lines count:")
+    if 0 == lines
+        return
+    endif
+    exec "normal ".lines."k"
+    exec "normal ".lines."dd"
+endfunction
+noremap <leader>sd :call DeleteShiftLines()<cr>
+
+
 "设定当前列高亮
-function! SetColorColumn()
-    let col_num = virtcol(".")
+function! SetColorColumn(cnum)
+    let col_num = 0
+    if 0 < a:cnum
+        let col_num = a:cnum
+        echo col_num
+    else
+        let col_num = virtcol(".")
+    endif
     let cc_list = split(&cc, ',')
     if count(cc_list, string(col_num)) <= 0
         execute "set cc+=".col_num
@@ -107,7 +129,8 @@ function! SetColorColumn()
         execute "set cc-=".col_num
     endif
 endfunction
-map <leader>ch :call SetColorColumn()<CR>
+map <leader>ch :call SetColorColumn(0)<CR>
+autocmd BufNewFile *.c,*.py,*.md exec ":call SetColorColumn(80)"
 
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py,*.md exec ":call AutoSetFileHead()"
