@@ -52,7 +52,7 @@ map <c-x>f <ESC>:Dox<cr>
 Bundle 'grep.vim'
 :nmap <c-g> <ESC>:Grep<CR>
 
-Bundle 'ShowMarks'
+"Bundle 'ShowMarks'
 "Bundle 'statusline.vim'
 Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 0
@@ -100,6 +100,9 @@ let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
 let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+
+
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -115,6 +118,9 @@ Bundle 'tpope/vim-commentary'
 
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 "let g:UltiSnipsExpandTrigger = '<tab>'
 "let g:UltiSnipsJumpForwardTrigger = '<tab>'
 " 定义存放代码片段的文件夹 .vim/additional_snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
