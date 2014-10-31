@@ -194,7 +194,7 @@ function! NumberToggle()
 endfunc
 nnoremap <C-t> :call NumberToggle()<cr>
 
-function InsertHeadDef(firstLine, lastLine)
+function! SpxInsertHeadDef(firstLine, lastLine)
     if a:firstLine <1 || a:lastLine> line('$')
         echoerr 'InsertHeadDef : Range overflow !(FirstLine:'.a:firstLine.';LastLine:'.a:lastLine.';ValidRange:1~'.line('$').')'
         return ''
@@ -225,7 +225,8 @@ function InsertHeadDef(firstLine, lastLine)
     let goLn = a:firstLine+2
     exe 'normal =='.goLn.'G'
 endfunction
-function InsertHeadDefN()
+
+function! SpxInsertHeadDefN()
     let firstLine = 1
     let lastLine = line('$')
     let n=1
@@ -248,7 +249,7 @@ function InsertHeadDefN()
         endif
         let n = n + 1
     endwhile
-    call InsertHeadDef(firstLine, lastLine)
+    call SpxInsertHeadDef(firstLine, lastLine)
 endfunction
-nmap ha :call InsertHeadDefN()<CR>
+nmap ha :call SpxInsertHeadDefN()<CR>
 
