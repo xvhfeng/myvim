@@ -54,7 +54,11 @@ function! CopyLinesToSystem()
     endif
     let list = getline(begin_idx,end_idx)
     let lines = join(list,"\n")
-    call setreg("+",lines)
+    if "xterm" == &term
+        call setreg("",lines)
+    else
+        call setreg("+",lines)
+    endif
     echo "copy lines to system begin:" . begin_idx . " end:" . end_idx
 endfunction
 

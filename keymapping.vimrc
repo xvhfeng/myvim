@@ -81,8 +81,14 @@ noremap vy yiw
 noremap Y y$
 
 "设置复制使用window粘贴板
-:nmap <C-p> "+p
-:vmap <C-y> "+y
+if "xterm" == &term
+    :nmap <C-p> "*p
+    :vmap <C-y> "*y
+else
+    :nmap <C-p> "+p
+    :vmap <C-y> "+y
+endif
+
 :nmap Y y$
 :vmap Y y$
 " y$ -> Y Make Y behave like other capitals
