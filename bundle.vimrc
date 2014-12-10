@@ -18,7 +18,6 @@ Plugin 'jlanzarotta/bufexplorer'
 :nmap <c-x>b <esc>:w! <esc>:BufExplorerVerticalSplit<cr>
 
 Plugin 'trotter/autojump.vim'
-nmap <c-j> :J<SPACE>
 
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=1

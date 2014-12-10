@@ -113,6 +113,7 @@ map Y y$
 
 nmap <leader>w :w!<cr>
 nmap <leader>e :e<SPACE>
+nmap <leader>j :J<SPACE>
 nmap <leader>s i<space><esc>
 nmap K i<cr><esc>
 
