@@ -14,8 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'genutils'
 
 Plugin 'jlanzarotta/bufexplorer'
-:vmap <c-x>b <esc>:w! <exc>:BufExplorerVerticalSplit<cr>
-:nmap <c-x>b <esc>:w! <esc>:BufExplorerVerticalSplit<cr>
+:vmap <c-x>b <esc>:w! <exc>:BufExplorer<cr>
+:nmap <c-x>b <esc>:w! <esc>:BufExplorer<cr>
 
 Plugin 'trotter/autojump.vim'
 
