@@ -13,6 +13,9 @@ Plugin 'gmarik/Vundle.vim'
 "--------------------
 Plugin 'genutils'
 
+Plugin 'vim-scripts/ZoomWin'
+
+
 Plugin 'jlanzarotta/bufexplorer'
 :vmap <c-x>b <esc>:w! <exc>:BufExplorer<cr>
 :nmap <c-x>b <esc>:w! <esc>:BufExplorer<cr>
