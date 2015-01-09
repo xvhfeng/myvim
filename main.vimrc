@@ -109,7 +109,7 @@ set magic
 " Display Settings 展示/排版等界面格式设置
 "==========================================
 "设置一行字数
-set tw=78
+"set tw=78
 "折行
 set lbr
 "中文折行不断字
@@ -171,7 +171,6 @@ set copyindent
 " never add copyindent, case error   " copy the previous indentation on autoindenting
 "c程序可以在v模式中按=格式化
 set cin
-set cursorline
 
 " tab相关变更
 set tabstop=4     " 设置Tab键的宽度        [等同的空格个数]

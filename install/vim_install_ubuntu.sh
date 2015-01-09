@@ -40,5 +40,6 @@ echo "install vim"
 make install
 echo "success!"
 
+vim -u bundle.vimrc -c BundleInstall -c qa!
 
 
