@@ -31,6 +31,7 @@ if filereadable(expand(g:spx_function_file_path))
 endif
 
 
+
 "自动启用vimrc配置
 autocmd! bufwritepost .vimrc source ~/.vimrc
 :set switchbuf=useopen
