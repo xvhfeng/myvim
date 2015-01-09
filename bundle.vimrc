@@ -89,6 +89,10 @@ if !hasmapto('<Plug>CRV_CRefVimInvoke')
 endif
 
 Plugin 'a.vim'
+if (!exists('g:alternateSearchPath'))
+  let g:alternateSearchPath = 'sfr:./,sfr:include/,sfr:../,sfr:header/,sfr:../src,sfr:../include,sfr:../header'
+endif
+
 "设置c语言的header和c文件转换
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
 
