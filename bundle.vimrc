@@ -194,6 +194,12 @@ Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 
+"---------------------
+"for ReST
+"_____________________
+Bundle 'Rykka/riv.vim'
+Bundle 'Rykka/InstantRst'
+
 "--------------------
 " for python
 "--------------------
