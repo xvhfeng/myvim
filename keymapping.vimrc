@@ -204,6 +204,8 @@ nnoremap U <C-r>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+nmap <silent> <leader>p :set paste<CR>
+
 " 搜索相关
 " 进入搜索Use sane regexes"
 nnoremap / /\v
