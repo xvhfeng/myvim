@@ -17,8 +17,8 @@ Plugin 'vim-scripts/ZoomWin'
 
 
 Plugin 'jlanzarotta/bufexplorer'
-:vmap <c-x>b <esc>:w! <exc>:BufExplorer<cr>
-:nmap <c-x>b <esc>:w! <esc>:BufExplorer<cr>
+:vmap <c-x>b <esc>:BufExplorer<cr>
+:nmap <c-x>b <esc>:BufExplorer<cr>
 
 Plugin 'trotter/autojump.vim'
 
@@ -270,6 +270,13 @@ Plugin 'vim-scripts/JSON.vim'
 
 Plugin 'SQLComplete.vim'
 let g:sql_type_default = 'mysql'
+
+
+"--------------------
+" for shell
+"--------------------
+Plugin 'lrvick/Conque-Shell'
+
 
 call vundle#end()
 filetype plugin indent on
