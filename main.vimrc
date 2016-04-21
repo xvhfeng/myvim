@@ -71,7 +71,7 @@ set shortmess=atI
 set novisualbell         " don't beep
 set noerrorbells
 "自动切换当前目录为当前文件所在目录
-set autochdir
+"set autochdir
 "打开时忽略文件名后缀
 set wildignore+=*.o,*.obj,*.pyc,*.db,*.swp,*.bak,*.class
 "默认就是全buffer搜索
@@ -151,7 +151,7 @@ set ignorecase
 " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
 " 有一个或以上大写字母时仍大小写敏感
-set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+"set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 " 代码折叠
 set foldenable

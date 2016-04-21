@@ -294,7 +294,8 @@ nnoremap <space>c :Unite bookmark<CR>
 "nnoremap <space>m :Unite file_mru<CR>
 nnoremap <space>f :UniteWithBufferDir -buffer-name=files file<CR>
 
-
+Plugin 'Shougo/vimfiler.vim'
+Plugin 'Shougo/unite-outline'
 
 call vundle#end()
 filetype plugin indent on
