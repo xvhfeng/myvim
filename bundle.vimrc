@@ -276,6 +276,24 @@ let g:sql_type_default = 'mysql'
 " for shell
 "--------------------
 Plugin 'lrvick/Conque-Shell'
+let g:ConqueTerm_TERM ='xterm'
+nmap <Leader>sh :ConqueTerm bash<CR>
+
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+let g:unite_source_file_async_command = "ls -las"
+  let g:unite_ignore_source_files = ['*.o']
+let g:unite_source_history_yank_enable = 1
+"nnoremap <Leader>p :Unite file_rec/async -auto-preview<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>q :Unite -quick-match buffer<cr>
+nnoremap <space>b :Unite buffer<cr>
+nnoremap <space>a :UniteBookmarkAdd <cr>
+nnoremap <space>c :Unite bookmark<CR>
+"nnoremap <space>m :Unite file_mru<CR>
+nnoremap <space>f :UniteWithBufferDir -buffer-name=files file<CR>
+
 
 
 call vundle#end()
