@@ -281,6 +281,7 @@ nmap <Leader>sh :ConqueTerm bash<CR>
 
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
+let g:unite_enable_split_vertically = 1
 let g:unite_source_file_async_command = "ls -las"
   let g:unite_ignore_source_files = ['*.o']
 let g:unite_source_history_yank_enable = 1

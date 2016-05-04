@@ -151,6 +151,7 @@ set ignorecase
 " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
 " 有一个或以上大写字母时仍大小写敏感
+" 这句千万不能要，要了命令行大小写敏感了
 "set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 " 代码折叠
