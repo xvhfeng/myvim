@@ -294,6 +294,7 @@ nnoremap <space>a :UniteBookmarkAdd <cr>
 nnoremap <space>c :Unite bookmark<CR>
 "nnoremap <space>m :Unite file_mru<CR>
 nnoremap <space>f :UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <space>l :Unite outline<CR>
 
 Plugin 'Shougo/vimfiler.vim'
 Plugin 'Shougo/unite-outline'
