@@ -16,9 +16,9 @@ Plugin 'genutils'
 Plugin 'vim-scripts/ZoomWin'
 
 
-Plugin 'jlanzarotta/bufexplorer'
-:vmap <c-x>b <esc>:BufExplorer<cr>
-:nmap <c-x>b <esc>:BufExplorer<cr>
+"Plugin 'jlanzarotta/bufexplorer'
+":vmap <c-x>b <esc>:BufExplorer<cr>
+":nmap <c-x>b <esc>:BufExplorer<cr>
 
 Plugin 'trotter/autojump.vim'
 
@@ -66,10 +66,14 @@ let g:indentLine_enabled = 1
 "undo tree
 Plugin 'mbbill/undotree'
 nnoremap <leader>ut :UndotreeToggle<cr>
+:nmap <c-x>u <ESC>:UndotreeToggle<CR>
+:nmap <c-x>u <ESC>:UndotreeToggle<CR>
 if has("persistent_undo")
     set undodir='~/.vim/undodir/'
     set undofile
 endif
+let g:undotree_WindowLayout = 2
+let g:undotree_SetFocusWhenToggle = 1
 
 Plugin 'grep.vim'
 :nmap <c-g> <ESC>:Grep<CR>
@@ -82,10 +86,10 @@ Plugin 'grep.vim'
 Plugin 'xvhfeng/c.vim'
 "let g:C_GlobalTemplateFile	= 'usr/share/vim/vimfile/c-support/templates/Templates'
 "let g:C_GlobalTemplateDir		= 'usr/share/vim/vimfile/c-support/templates'
-let g:C_LocalTemplateFile		= '~/.vim/bundle/c.vim/c-support/templates/Templates'
-let g:C_LocalTemplateDir		= '~/.vim/bundle/c.vim/c-support/templates'
+let g:C_LocalTemplateFile		= '/Users/xuhaifeng/.vim/bundle/c.vim/c-support/templates/Templates'
+let g:C_LocalTemplateDir		= '/Users/xuhaifeng/.vim/bundle/c.vim/c-support/templates'
 map <c-x>c \cc
-map <c-x>u \co
+map <c-x>cc \co
 
 Plugin 'CRefVim'
 if !hasmapto('<Plug>CRV_CRefVimInvoke')
@@ -182,7 +186,7 @@ Plugin 'DoxygenToolkit.vim'
 let g:DoxygenToolkit_briefTag_pre="@Remark:"
 let g:DoxygenToolkit_paramTag_pre="@Param:"
 let g:DoxygenToolkit_returnTag="@Returns:"
-map <c-x>f <ESC>:Dox<cr>
+map <c-x><c-f> <ESC>:Dox<cr>
 
 
 "--------------------
@@ -277,7 +281,7 @@ let g:sql_type_default = 'mysql'
 "--------------------
 Plugin 'lrvick/Conque-Shell'
 let g:ConqueTerm_TERM ='xterm'
-nmap <Leader>sh :ConqueTerm bash<CR>
+nmap <c-x>s :ConqueTerm bash<CR>
 
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
@@ -286,18 +290,19 @@ let g:unite_source_file_async_command = "ls -las"
   let g:unite_ignore_source_files = ['*.o']
 let g:unite_source_history_yank_enable = 1
 "nnoremap <Leader>p :Unite file_rec/async -auto-preview<cr>
-nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <c-x>/ :Unite grep:.<cr>
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>q :Unite -quick-match buffer<cr>
-nnoremap <space>b :Unite buffer<cr>
+nnoremap <c-x>b :Unite buffer<cr>
 nnoremap <space>a :UniteBookmarkAdd <cr>
 nnoremap <space>c :Unite bookmark<CR>
 "nnoremap <space>m :Unite file_mru<CR>
-nnoremap <space>f :UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <space>l :Unite outline<CR>
 
 Plugin 'Shougo/vimfiler.vim'
+nnoremap <c-x>f :VimFilerExplorer<CR>
+
 Plugin 'Shougo/unite-outline'
+nnoremap <c-x>l :Unite outline<CR>
 
 call vundle#end()
 filetype plugin indent on

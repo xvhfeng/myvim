@@ -256,5 +256,5 @@ function! SpxInsertHeadDefN()
     call SpxInsertHeadDef(firstLine, lastLine)
 endfunction
 nmap ha :call SpxInsertHeadDefN()<CR>
-
+autocmd BufNewFile *.h :call SpxInsertHeadDefN()
 
