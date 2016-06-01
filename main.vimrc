@@ -78,6 +78,7 @@ set wildignore+=*.o,*.obj,*.pyc,*.db,*.swp,*.bak,*.class
 set gdefault
 "切换到当前tab打开文件的路径下
 autocmd BufEnter * cd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 "检测文件类型
 filetype on
 "针对不同的文件类型采用不同的缩进格式
@@ -188,10 +189,9 @@ set autoindent shiftwidth=4
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set hidden
 set autowrite
-"set wildmode=list,longest,full
 set wildmode=list,full
 "开启命令行忽略大小写
-set wic
+set wildignorecase
 set ttyfast
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制

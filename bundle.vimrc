@@ -105,11 +105,15 @@ endif
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
 
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/Users/xuhaifeng/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_min_num_identifier_candidate_chars = 0
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
+
 " 直接触发自动补全
 let g:ycm_key_invoke_completion = '<c-x><c-o>'
 let g:ycm_cache_omnifunc = 1
@@ -218,6 +222,10 @@ let g:pyflakes_use_quickfix = 0
 "Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
 
+"Plugin 'pyflakes/pyflakes'
+
+" Plugin 'mitechie/pyflakes-pathogen' " deprecated
+"  Plugin 'pyflakes.vim' " deprecated
 
 "--------------------
 " for subject
@@ -299,17 +307,13 @@ nnoremap <space>c :Unite bookmark<CR>
 "nnoremap <space>m :Unite file_mru<CR>
 
 Plugin 'Shougo/vimfiler.vim'
-nnoremap <c-x>f :VimFilerExplorer<CR>
+let g:vimfiler_safe_mode_by_default = 0
+nnoremap <c-x>f :VimFilerBufferDir<CR>
 
 Plugin 'Shougo/unite-outline'
 nnoremap <c-x>l :Unite outline<CR>
 
 Plugin 'ervandew/supertab'
-
-
-
-
-
 call vundle#end()
 filetype plugin indent on
 filetype on
