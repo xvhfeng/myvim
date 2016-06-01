@@ -69,7 +69,7 @@ nnoremap <leader>ut :UndotreeToggle<cr>
 :nmap <c-x>u <ESC>:UndotreeToggle<CR>
 :nmap <c-x>u <ESC>:UndotreeToggle<CR>
 if has("persistent_undo")
-    set undodir= spx_home + '/.vim/undodir/'
+    "set undodir = '/Users/xuhaifeng/.vim/undodir/'
     set undofile
 endif
 let g:undotree_WindowLayout = 2
@@ -86,8 +86,8 @@ Plugin 'grep.vim'
 Plugin 'xvhfeng/c.vim'
 "let g:C_GlobalTemplateFile	= 'usr/share/vim/vimfile/c-support/templates/Templates'
 "let g:C_GlobalTemplateDir		= 'usr/share/vim/vimfile/c-support/templates'
-let g:C_LocalTemplateFile		= spx_home + '/.vim/bundle/c.vim/c-support/templates/Templates'
-let g:C_LocalTemplateDir		= spx_home + '/.vim/bundle/c.vim/c-support/templates'
+let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 map <c-x>c \cc
 map <c-x>cc \co
 
