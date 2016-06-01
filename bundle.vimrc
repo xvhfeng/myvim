@@ -69,7 +69,7 @@ nnoremap <leader>ut :UndotreeToggle<cr>
 :nmap <c-x>u <ESC>:UndotreeToggle<CR>
 :nmap <c-x>u <ESC>:UndotreeToggle<CR>
 if has("persistent_undo")
-    "set undodir = '/Users/xuhaifeng/.vim/undodir/'
+    let undodir = g:spx_home.'/.vim/undodir/'
     set undofile
 endif
 let g:undotree_WindowLayout = 2
