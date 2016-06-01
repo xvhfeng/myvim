@@ -105,7 +105,7 @@ endif
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
 
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = spx_home + '/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
 let g:ycm_min_num_of_chars_for_completion = 2
