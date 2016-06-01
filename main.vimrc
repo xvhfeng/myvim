@@ -189,7 +189,9 @@ set autoindent shiftwidth=4
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set hidden
 set autowrite
-set wildmode=longest,list,full
+set wildmode=list,full
+"开启命令行忽略大小写
+set wildignorecase
 set ttyfast
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
