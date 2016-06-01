@@ -208,14 +208,14 @@ Bundle 'Rykka/InstantRst'
 " for python
 "--------------------
 "###### Python #########
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
-Plugin 'kevinw/pyflakes-vim'
+"Plugin 'kevinw/pyflakes-vim'
 let g:pyflakes_use_quickfix = 0
 
 " for python.vim syntax highlight
-Plugin 'hdima/python-syntax'
+"Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
 
 
@@ -303,6 +303,12 @@ nnoremap <c-x>f :VimFilerExplorer<CR>
 
 Plugin 'Shougo/unite-outline'
 nnoremap <c-x>l :Unite outline<CR>
+
+Plugin 'ervandew/supertab'
+
+
+
+
 
 call vundle#end()
 filetype plugin indent on
