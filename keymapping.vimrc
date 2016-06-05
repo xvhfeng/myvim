@@ -211,8 +211,8 @@ nmap <silent> <leader>p :set paste<CR>
 
 " 搜索相关
 " 进入搜索Use sane regexes"
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
