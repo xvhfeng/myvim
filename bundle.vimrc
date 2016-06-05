@@ -71,7 +71,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 "单行快速定位
-Plugin 'unblevable/quick-scope'
+"Plugin 'unblevable/quick-scope'
 "let g:qs_highlight_on_keys = ['f', 'b']
 
 "多字节支持
@@ -110,8 +110,8 @@ let g:gundo_close_on_revert  = 1
 "let g:undotree_WindowLayout = 2
 "let g:undotree_SetFocusWhenToggle = 1
 
-Plugin 'grep.vim'
-:nmap <c-c>g <ESC>:Grep<CR>
+"Plugin 'grep.vim'
+":nmap <c-c>g <ESC>:Grep<CR>
 
 "--------------------
 " for c
@@ -369,8 +369,19 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'ervandew/supertab'
 
 "搜索插件
-let g:ctrlsf_debug_mode = 1
+"let g:ctrlsf_debug_mode = 1
+"1. Search in a specific sub-directory
+":CtrlSF {pattern} /path/to/dir
+"2. Search case-insensitively
+":CtrlSF -I {pattern}
+"3. Search with regular expression
+":CtrlSF -R {regex}
+"4. Show result with specific context setting
+":CtrlSF -A 3 -B 1 {pattern}
+"5. Search in files with specific extension
+":CtrlSF -G .*\.cpp {pattern}"
 Plugin 'dyng/ctrlsf.vim'
+:nmap <c-c>g <ESC>:CtrlSF <CR>
 
 
 
