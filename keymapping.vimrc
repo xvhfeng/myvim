@@ -161,6 +161,7 @@ map <c-x> <ESC>
 :cnoremap <Esc><C-F> <S-Right>
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
+cnoremap <C-g> <ESC>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳

@@ -76,7 +76,7 @@ let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 
 Plugin 'grep.vim'
-:nmap <c-g> <ESC>:Grep<CR>
+:nmap <c-c>g <ESC>:Grep<CR>
 
 
 
@@ -295,23 +295,41 @@ Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
 let g:unite_enable_split_vertically = 1
 let g:unite_source_file_async_command = "ls -las"
-  let g:unite_ignore_source_files = ['*.o']
+let g:unite_ignore_source_files = ['*.o']
 let g:unite_source_history_yank_enable = 1
-"nnoremap <Leader>p :Unite file_rec/async -auto-preview<cr>
-nnoremap <c-x>/ :Unite grep:.<cr>
-nnoremap <space>y :Unite history/yank<cr>
-nnoremap <space>q :Unite -quick-match buffer<cr>
-nnoremap <c-x>b :Unite buffer<cr>
+let g:unite_enable_start_insert = 1
+let g:unite_source_line_enable_highlight = 1
+
+nnoremap <c-x>p :Unite file_rec/async -auto-preview<cr>
+nnoremap <c-x>/ :Unite  -start-insert -no-split grep:.<cr>
+nnoremap <space>y :Unite -start-insert -no-split history/yank<cr>
+nmap <c-x>b :Unite  -no-split -start-insert buffer<cr>
+vmap <c-x>b :Unite  -no-split -start-insert buffer<cr>
 nnoremap <space>a :UniteBookmarkAdd <cr>
 nnoremap <space>c :Unite bookmark<CR>
-"nnoremap <space>m :Unite file_mru<CR>
+
+Plugin 'Shougo/neomru.vim'
+nnoremap <c-x>m :Unite file_mru<CR>
 
 Plugin 'Shougo/vimfiler.vim'
 let g:vimfiler_safe_mode_by_default = 0
 nnoremap <c-x>f :VimFilerBufferDir<CR>
 
 Plugin 'Shougo/unite-outline'
-nnoremap <c-x>l :Unite outline<CR>
+nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
+
+Plugin 'Shougo/vimshell.vim'
+
+
+"Plugin 'jlanzarotta/bufexplorer'
+":vmap <c-x>b <esc>:BufExplorer<cr>
+":nmap <c-x>b <esc>:BufExplorer<cr>
+
+"Plugin 'scrooloose/nerdtree'
+"map <C-x>f :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"Plugin 'jistr/vim-nerdtree-tabs'
 
 Plugin 'ervandew/supertab'
 call vundle#end()
