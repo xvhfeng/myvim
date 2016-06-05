@@ -381,9 +381,8 @@ Plugin 'ervandew/supertab'
 "5. Search in files with specific extension
 ":CtrlSF -G .*\.cpp {pattern}"
 Plugin 'dyng/ctrlsf.vim'
-:nmap <c-c>g <ESC>:CtrlSF <CR>
-
-
+:nmap <c-c>g <ESC>:CtrlSF
+:nmap <c-c><c-g> <ESC>:CtrlSF -G
 
 call vundle#end()
 filetype plugin indent on
