@@ -43,9 +43,38 @@ Plugin 'tpope/vim-repeat'
 Plugin 'bronson/vim-trailing-whitespace'
 map <leader>es :FixWhitespace<cr>
 
-Plugin 'EasyMotion'
-let g:EasyMotion_leader_key = 'f'
+"Plugin 'EasyMotion'
+Plugin 'easymotion/vim-easymotion'
+" <Leader>f{char} to move to {char}
+ map  <c-c>f <Plug>(easymotion-bd-f)
+ nmap <c-c>f <Plug>(easymotion-overwin-f)
 
+ " s{char}{char} to move to {char}{char}
+ nmap <c-c>s <Plug>(easymotion-overwin-f2)
+
+ " Move to line
+ map <c-c>l <Plug>(easymotion-bd-jk)
+ nmap <c-c>l <Plug>(easymotion-overwin-line)
+
+ " Move to word
+ map  <c-c>w <Plug>(easymotion-bd-w)
+ nmap <c-c>w <Plug>(easymotion-overwin-w)
+
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+"单行快速定位
+Plugin 'unblevable/quick-scope'
+"let g:qs_highlight_on_keys = ['f', 'b']
+
+"多字节支持
 Plugin 'FencView.vim'
 
 Plugin 'auto_mkdir'
@@ -64,21 +93,25 @@ let g:indentLine_enabled = 1
 "let g:indentLine_char = '|'
 
 "undo tree
-Plugin 'mbbill/undotree'
-nnoremap <leader>ut :UndotreeToggle<cr>
-:nmap <c-x>u <ESC>:UndotreeToggle<CR>
-:nmap <c-x>u <ESC>:UndotreeToggle<CR>
-if has("persistent_undo")
-    let undodir = g:spx_home.'/.vim/undodir/'
-    set undofile
-endif
-let g:undotree_WindowLayout = 2
-let g:undotree_SetFocusWhenToggle = 1
+Plugin 'sjl/gundo.vim'
+nmap <c-x>u :GundoToggle<CR>
+let g:gundo_close_on_revert  = 1
+"Plugin 'mbbill/undotree'
+
+"nnoremap <leader>ut :UndotreeToggle<cr>
+":nmap <c-x>u <ESC>:UndotreeToggle<CR>
+":nmap <c-x>u <ESC>:UndotreeToggle<CR>
+"if has("persistent_undo")
+"    let udir = g:spx_home."/.vim/undodir/"
+"    set undodir=udir
+"
+"    set undofile
+"endif
+"let g:undotree_WindowLayout = 2
+"let g:undotree_SetFocusWhenToggle = 1
 
 Plugin 'grep.vim'
 :nmap <c-g> <ESC>:Grep<CR>
-
-
 
 "--------------------
 " for c
@@ -148,11 +181,13 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 Plugin 'tpope/vim-commentary'
 
+"加入代码快
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<Tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -314,6 +349,13 @@ Plugin 'Shougo/unite-outline'
 nnoremap <c-x>l :Unite outline<CR>
 
 Plugin 'ervandew/supertab'
+
+"搜索插件
+let g:ctrlsf_debug_mode = 1
+Plugin 'dyng/ctrlsf.vim'
+
+
+
 call vundle#end()
 filetype plugin indent on
 filetype on
