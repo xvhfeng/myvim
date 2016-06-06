@@ -357,7 +357,7 @@ Plugin 'majutsushi/tagbar'
 nmap <c-c>o :TagbarToggle<CR>
 " 启动时自动focus
 let g:tagbar_autofocus = 1
-map = :tagbar_map_openfold
+map + :tagbar_map_openfold
 map - :tagbar_map_closefold
 
 Plugin 'Shougo/vimshell.vim'

@@ -209,22 +209,22 @@ function! SpxInsertHeadDef(firstLine, lastLine)
     let definename = toupper(definename)
     exe 'normal '.a:firstLine.'GO'
     call setline('.', '#ifndef _'.definename."_")
-    normal ==o
+    normal o
     call setline('.', '#define _'.definename."_")
-    normal ==o
+    normal o
     call setline('.', '#ifdef __cplusplus')
-    normal ==o
+    normal o
     call setline('.', 'extern "C" {')
-    normal ==o
+    normal o
     call setline('.', '#endif')
-    normal ==o
+    normal o
     exe 'normal =='.(a:lastLine-a:firstLine+1).'jo'
     call setline('.', '#ifdef __cplusplus')
-    normal ==o
+    normal o
     call setline('.', '}')
-    normal ==o
+    normal o
     call setline('.', '#endif')
-    normal ==o
+    normal o
     call setline('.', '#endif')
     let goLn = a:firstLine+2
     exe 'normal =='.goLn.'G'
