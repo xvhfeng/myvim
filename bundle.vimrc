@@ -353,18 +353,18 @@ nnoremap <c-x>f :VimFilerBufferDir<CR>
 Plugin 'Shougo/unite-outline'
 nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
 
-Plugin 'Shougo/vimshell.vim'
+Plugin 'majutsushi/tagbar'
+nmap <c-c>o :TagbarToggle<CR>
+" 启动时自动focus
+let g:tagbar_autofocus = 1
+map = :tagbar_map_openfold
+map - :tagbar_map_closefold
 
+Plugin 'Shougo/vimshell.vim'
 
 "Plugin 'jlanzarotta/bufexplorer'
 ":vmap <c-x>b <esc>:BufExplorer<cr>
 ":nmap <c-x>b <esc>:BufExplorer<cr>
-
-"Plugin 'scrooloose/nerdtree'
-"map <C-x>f :NERDTreeToggle<CR>
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"Plugin 'jistr/vim-nerdtree-tabs'
 
 Plugin 'ervandew/supertab'
 
@@ -383,6 +383,8 @@ Plugin 'ervandew/supertab'
 Plugin 'dyng/ctrlsf.vim'
 :nmap <c-c>g <ESC>:CtrlSF
 :nmap <c-c><c-g> <ESC>:CtrlSF -G
+
+
 
 call vundle#end()
 filetype plugin indent on
