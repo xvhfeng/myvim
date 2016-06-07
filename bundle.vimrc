@@ -46,19 +46,19 @@ map <leader>es :FixWhitespace<cr>
 "Plugin 'EasyMotion'
 Plugin 'easymotion/vim-easymotion'
 " <Leader>f{char} to move to {char}
- map  <c-c>f <Plug>(easymotion-bd-f)
- nmap <c-c>f <Plug>(easymotion-overwin-f)
+map  <c-c>f <Plug>(easymotion-bd-f)
+nmap <c-c>f <Plug>(easymotion-overwin-f)
 
- " s{char}{char} to move to {char}{char}
- nmap <c-c>s <Plug>(easymotion-overwin-f2)
+" s{char}{char} to move to {char}{char}
+nmap <c-c>s <Plug>(easymotion-overwin-f2)
 
- " Move to line
- map <c-c>l <Plug>(easymotion-bd-jk)
- nmap <c-c>l <Plug>(easymotion-overwin-line)
+" Move to line
+map <c-c>l <Plug>(easymotion-bd-jk)
+nmap <c-c>l <Plug>(easymotion-overwin-line)
 
- " Move to word
- map  <c-c>w <Plug>(easymotion-bd-w)
- nmap <c-c>w <Plug>(easymotion-overwin-w)
+" Move to word
+map  <c-c>w <Plug>(easymotion-bd-w)
+nmap <c-c>w <Plug>(easymotion-overwin-w)
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -131,7 +131,7 @@ endif
 
 Plugin 'a.vim'
 if (!exists('g:alternateSearchPath'))
-  let g:alternateSearchPath = 'sfr:./,sfr:include/,sfr:../,sfr:header/,sfr:../src,sfr:../include,sfr:../header'
+    let g:alternateSearchPath = 'sfr:./,sfr:include/,sfr:../,sfr:header/,sfr:../src,sfr:../include,sfr:../header'
 endif
 
 "设置c语言的header和c文件转换
@@ -194,23 +194,23 @@ let g:UltiSnipsEditSplit="vertical"
 "括号显示增强
 Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['black',       'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+            \ ]
 let g:rbpt_max = 40
 let g:rbpt_loadcmd_toggle = 0
 au Syntax * RainbowParenthesesToggle
@@ -384,7 +384,18 @@ Plugin 'dyng/ctrlsf.vim'
 :nmap <c-c>g <ESC>:CtrlSF
 :nmap <c-c><c-g> <ESC>:CtrlSF -G
 
-
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<c-c>p'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_working_path_mode = 'ca'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 call vundle#end()
 filetype plugin indent on
