@@ -335,7 +335,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_source_line_enable_highlight = 1
 
-nnoremap <c-x>p :Unite file_rec/async -auto-preview<cr>
+"nnoremap <c-x>p :Unite file_rec/async -auto-preview<cr>
 nnoremap <c-x>/ :Unite  -start-insert -no-split grep:.<cr>
 nnoremap <space>y :Unite -start-insert -no-split history/yank<cr>
 nmap <c-x>b :Unite  -no-split -start-insert buffer<cr>
@@ -382,10 +382,10 @@ Plugin 'ervandew/supertab'
 ":CtrlSF -G .*\.cpp {pattern}"
 Plugin 'dyng/ctrlsf.vim'
 :nmap <c-c>g <ESC>:CtrlSF
-:nmap <c-c><c-g> <ESC>:CtrlSF -G
+:nmap <c-c><c-g> <ESC>:CtrlSF -G .*\.c
 
 Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<c-c>p'
+let g:ctrlp_map = '<c-x>p'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_working_path_mode = 'ca'
