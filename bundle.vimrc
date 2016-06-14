@@ -386,6 +386,7 @@ Plugin 'dyng/ctrlsf.vim'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-x>p'
+:nmap <c-x><c-p> <ESC>:CtrlP ../
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_working_path_mode = 'ca'
