@@ -381,8 +381,8 @@ Plugin 'ervandew/supertab'
 "5. Search in files with specific extension
 ":CtrlSF -G .*\.cpp {pattern}"
 Plugin 'dyng/ctrlsf.vim'
-:nmap <c-c>g <ESC>:CtrlSF
-:nmap <c-c><c-g> <ESC>:CtrlSF -G .*\.c
+:nmap <c-c>g <ESC>:CtrlSF <C-R>=expand("<cword>") <CR>
+:nmap <c-c><c-g> <ESC>:CtrlSF -G .*\.c <C-R>=expand("<cword>") <CR>
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-x>p'
@@ -397,6 +397,9 @@ let g:ctrlp_custom_ignore = {
             \ 'link': 'some_bad_symbolic_links',
             \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+"中文排版"
+Bundle "hotoo/pangu.vim"
 
 call vundle#end()
 filetype plugin indent on

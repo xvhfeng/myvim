@@ -258,3 +258,28 @@ endfunction
 nmap ha :call SpxInsertHeadDefN()<CR>
 autocmd BufNewFile *.h :call SpxInsertHeadDefN()
 
+function! SpxFormat()
+python << endpython
+import vim
+import sys
+spx_linecount = 40
+newlines = [ ]
+b = vim.current.buffer
+for line in b :
+    sline = line.decode("utf8")
+    llen = len(sline)
+    times = llen / spx_linecount
+    if 0 != (llen % spx_linecount) :
+        times = times + 1
+    for i in range(times) :
+        begin = i * spx_linecount
+        end = (i + 1) * spx_linecount
+        if end > llen :
+            end = llen
+        newline = sline[begin : end]
+        newlines.append(newline.encode("utf8"))
+
+del b[ : ]
+b.append(newlines)
+endpython
+endfunction
