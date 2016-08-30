@@ -1,10 +1,9 @@
-
 "=================================
 "  环境设置
 "=================================
 "此文件对github忽略，自行保存在工作环境中
 "如有需要请按照evn.vimrc.tmpl文件生成
-
+set nocompatible
 
 "自动启用vimrc配置
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -84,15 +83,15 @@ set magic
 "==========================================
 " Display Settings 展示/排版等界面格式设置
 "==========================================
-"设置一行字数
-set tw=78
-"折行
-set lbr
-"中文折行不断字
-set fo+=mB
-:set formatoptions+=mM "format for chinese
 " 高亮显示匹配的括号
 set showmatch
+"中文折行不断字
+set fo=tqmMB
+"set formatoptions=tcqmM "format for chinese
+"设置一行字数
+set textwidth=80
+"折行
+set lbr
 "带有如下符号的单词不要被换行分割
 set iskeyword+=_,$,@,%,#,-
 set ambiwidth=double
@@ -110,8 +109,8 @@ set scrolloff=7
  set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line
 set laststatus=2
-" 取消换行。
-" set nowrap
+" 换行。
+" set wrap
 " How many tenths of a second to blink when matching brackets
 set mat=2
 " 突出显示当前行等
@@ -190,12 +189,6 @@ set termencoding=utf-8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" 如遇Unicode值大于255的文本，不必等到空格再折行。
-set formatoptions+=m
-
-" 合并两行中文时，不在中间加空格：
-set formatoptions+=B
-
 if has("win32") || has("win64")
 	set fileencoding=chinese
 else
@@ -228,7 +221,10 @@ if has("gui_running")
     " set t_Co=256
     "定义givm的颜色和去掉gvim的工具栏
 	set guioptions-=T
-
+    " 关闭Vim的自动切换IME输入法(插入模式和检索模式)
+    set iminsert=0 imsearch=0
+    " 插入模式输入法状态未被记录时，默认关闭IME
+    "inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
     "高亮显示
     if &t_Co > 2
         syntax on
@@ -284,4 +280,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
 
