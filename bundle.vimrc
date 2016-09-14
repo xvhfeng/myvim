@@ -382,8 +382,25 @@ Plugin 'ervandew/supertab'
 "5. Search in files with specific extension
 ":CtrlSF -G .*\.cpp {pattern}"
 Plugin 'dyng/ctrlsf.vim'
-:nmap <c-c>g <ESC>:CtrlSF <C-R>=expand("<cword>") <CR>
-:nmap <c-c><c-g> <ESC>:CtrlSF -G .*\.c <C-R>=expand("<cword>") <CR>
+:nmap <c-c>g <ESC>:CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+:nmap <c-c><c-g> <ESC>:CtrlSF <C-R>=expand("<cword>") <CR>
+ let g:ctrlsf_mapping  = {
+     \ "openb"    : ["<CR>", "o"],
+    \ "open"   : "O",
+    \ "split"   : "<C-O>",
+    \ "vsplit"  : "",
+    \ "tab"     : "t",
+    \ "tabb"    : "T",
+    \ "popen"   : "p",
+    \ "quit"    : "q",
+    \ "next"    : "<C-J>",
+    \ "prev"    : "<C-K>",
+    \ "pquit"   : "q",
+    \ "loclist" : "",
+    \ }
+
+
+
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-x>p'

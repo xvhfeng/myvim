@@ -15,9 +15,6 @@ let g:spx_bundle_file_path = spx_home."/.vim/myvim/bundle.vimrc"
 let g:spx_keymapping_file_path = spx_home."/.vim/myvim/keymapping.vimrc"
 let g:spx_function_file_path = spx_home."/.vim/myvim/function.vimrc"
 
-if filereadable(expand(g:spx_env_file_path))
-  exec ":source ".g:spx_env_file_path
-endif
 
 if filereadable(expand(g:spx_bundle_file_path))
   exec ":source ".g:spx_bundle_file_path
@@ -36,4 +33,7 @@ if filereadable(expand(g:spx_function_file_path))
   exec ":source ".g:spx_function_file_path
 endif
 
+if filereadable(expand(g:spx_env_file_path))
+  exec ":source ".g:spx_env_file_path
+endif
 
