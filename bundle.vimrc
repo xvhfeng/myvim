@@ -87,7 +87,7 @@ let g:airline_section_b = '%{strftime("%Y-%m-%d %T")}'
 
 Plugin 'Yggdroot/indentLine'
 "config for indentLine
-let g:indentLine_indentLevel = 7
+let g:indentLine_indentLevel = 15
 let g:indentLine_enabled = 1
 "hi Conceal ctermfg=red ctermbg=red
 "let g:indentLine_char = '|'
@@ -222,9 +222,9 @@ au Syntax * RainbowParenthesesLoadBraces
 Plugin 'ShowTrailingWhitespace'
 
 Plugin 'DoxygenToolkit.vim'
-let g:DoxygenToolkit_briefTag_pre="@Remark:"
-let g:DoxygenToolkit_paramTag_pre="@Param:"
 let g:DoxygenToolkit_returnTag="@Returns:"
+let g:DoxygenToolkit_paramTag_pre="@"
+let g:DoxygenToolkit_briefTag_pre="@Remark:"
 map <c-x><c-f> <ESC>:Dox<cr>
 
 
@@ -418,6 +418,15 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 "中文排版"
 Bundle "hotoo/pangu.vim"
+
+Bundle "will133/vim-dirdiff"
+
+"cmake的提示
+Bundle "pboettch/vim-cmake-syntax"
+
+"光标下的单词高亮"
+Bundle "pboettch/vim-highlight-cursor-words"
+let g:HiCursorWords_linkStyle='VisualNOS'
 
 call vundle#end()
 filetype plugin indent on
