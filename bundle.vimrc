@@ -116,11 +116,12 @@ let g:gundo_close_on_revert  = 1
 "--------------------
 " for c
 "--------------------
+"有的时候gloable可以 有的local设置可以，需要是一下环境
 Plugin 'xvhfeng/c.vim'
-"let g:C_GlobalTemplateFile	= 'usr/share/vim/vimfile/c-support/templates/Templates'
-"let g:C_GlobalTemplateDir		= 'usr/share/vim/vimfile/c-support/templates'
-let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+"let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+"let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 map <c-x>c \cc
 map <c-x>cc \co
 
@@ -137,7 +138,7 @@ endif
 "设置c语言的header和c文件转换
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
 
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
