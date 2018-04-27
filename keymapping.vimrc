@@ -32,8 +32,8 @@ nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 
               "set paste
-nnoremap <F5> :set invpaste paste<CR>
-set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
+nnoremap <c-c><c-p> :set paste<CR>
+set pastetoggle=<c-c><c-p>            "    when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
                                 "    that won't be autoindented
 

@@ -13,8 +13,34 @@ Plugin 'gmarik/Vundle.vim'
 "--------------------
 Plugin 'genutils'
 
-Plugin 'vim-scripts/ZoomWin'
 
+"move bunch
+"Plugin 'EasyMotion'
+Plugin 'easymotion/vim-easymotion'
+" <Leader>f{char} to move to {char}
+map  <c-i><c-f> <Plug>(easymotion-bd-f)
+nmap <c-i><c-f> <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <c-i><c-c> <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <c-i><c-l> <Plug>(easymotion-bd-jk)
+nmap <c-i><c-l> <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <c-i><c-w> <Plug>(easymotion-bd-w)
+nmap <c-i><c-w> <Plug>(easymotion-overwin-w)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+
+Plugin 'vim-scripts/ZoomWin'
 
 "Plugin 'jlanzarotta/bufexplorer'
 ":vmap <c-x>b <esc>:BufExplorer<cr>
@@ -43,32 +69,10 @@ Plugin 'tpope/vim-repeat'
 Plugin 'bronson/vim-trailing-whitespace'
 map <leader>es :FixWhitespace<cr>
 
-"Plugin 'EasyMotion'
-Plugin 'easymotion/vim-easymotion'
-" <Leader>f{char} to move to {char}
-map  <c-c>f <Plug>(easymotion-bd-f)
-nmap <c-c>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap <c-c>s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <c-c>l <Plug>(easymotion-bd-jk)
-nmap <c-c>l <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <c-c>w <Plug>(easymotion-bd-w)
-nmap <c-c>w <Plug>(easymotion-overwin-w)
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
-" EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 
 "单行快速定位
 "Plugin 'unblevable/quick-scope'
@@ -122,8 +126,8 @@ let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/
 let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 "let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
 "let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
-map <c-x>c \cc
-map <c-x>cc \co
+"nnoremap <c-i>k \cc
+"nnoremap <c-i>u \co
 
 Plugin 'CRefVim'
 if !hasmapto('<Plug>CRV_CRefVimInvoke')
@@ -137,6 +141,23 @@ endif
 
 "设置c语言的header和c文件转换
 :nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
+
+Plugin 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+ let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+ let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+ let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+ let g:NERDAltDelims_c = 1
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+ let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+ let g:NERDTrimTrailingWhitespace = 1
 
 "Plugin 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
@@ -428,6 +449,41 @@ Bundle "pboettch/vim-cmake-syntax"
 "光标下的单词高亮"
 Bundle "pboettch/vim-highlight-cursor-words"
 let g:HiCursorWords_linkStyle='VisualNOS'
+
+
+Bundle "xvhfeng/vim-clang-format"
+let g:clang_format#auto_format = 1
+" map to <Leader>cf in C++ code
+ autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" " if you install vim-operator-user
+ "autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" " Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+let g:clang_format#style_options = {
+            \ "AllowShortFunctionsOnASingleLine" : "None",
+            \"AllowShortIfStatementsOnASingleLine" : "false",
+            \"AllowShortLoopsOnASingleLine" : "false",
+            \"AllowAllParametersOfDeclarationOnNextLine" : "false",
+            \"BinPackArguments" :   "true",
+            \"BinPackParameters" :  "false",
+            \"BreakBeforeBinaryOperators" : "All",
+            \"BreakBeforeTernaryOperators" : "true",
+            \"ConstructorInitializerAllOnOneLineOrOnePerLine" : "true",
+            \"ColumnLimit" : "0",
+            \"Cpp11BracedListStyle" : "false",
+            \"ExperimentalAutoDetectBinPacking" : "true",
+            \"ReflowComments" : "true",
+            \"SortIncludes" :   "true",
+            \"SpaceAfterCStyleCast" : "true",
+            \"SpaceInEmptyParentheses" : "true",
+            \"SpacesInParentheses" :    "true",
+            \"SpacesInSquareBrackets" : "true",
+            \"SpaceBeforeAssignmentOperators" : "true",
+            \"UseTab" : "Never",
+            \}
+
+Plugin 'xvhfeng/gft4c'
 
 call vundle#end()
 filetype plugin indent on
