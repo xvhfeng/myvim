@@ -136,7 +136,7 @@ endif
 
 Plugin 'a.vim'
 if (!exists('g:alternateSearchPath'))
-    let g:alternateSearchPath = 'sfr:./,sfr:include/,sfr:../,sfr:header/,sfr:../src,sfr:../include,sfr:../header'
+    let g:alternateSearchPath = 'sfr:./,sfr:include/,sfr:../,sfr:header/,sfr:../src,sfr:../include,sfr:../header,sfr:../../include,sfr:../../src'
 endif
 
 "设置c语言的header和c文件转换
@@ -477,10 +477,12 @@ let g:clang_format#style_options = {
             \"SortIncludes" :   "true",
             \"SpaceAfterCStyleCast" : "true",
             \"SpaceInEmptyParentheses" : "true",
-            \"SpacesInParentheses" :    "true",
+            \"SpacesInParentheses" :    "false",
             \"SpacesInSquareBrackets" : "true",
             \"SpaceBeforeAssignmentOperators" : "true",
             \"UseTab" : "Never",
+            \"AlignTrailingComments" : "true",
+            \"CommentPragmas" :  "'^ IWYU pragma:'"
             \}
 
 Plugin 'xvhfeng/gft4c'

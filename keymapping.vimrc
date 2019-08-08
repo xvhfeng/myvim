@@ -226,6 +226,12 @@ nnoremap <silent> g* g*zz
 "allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+"set terminal keymapping or command-alias in vim81
+map <silent><leader>vt :vert term<cr>
+map <silent><leader>st :term<cr>
+cabbrev vt vert term
+cabbrev st term
+
 ":command W w
 ":command WQ wq
 ":command Wq wq
