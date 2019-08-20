@@ -226,6 +226,13 @@ nnoremap <silent> g* g*zz
 "allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+"split a windown for terminal
+nmap <leader>vt :vert term<cr>
+nmap <leader>st :term<cr>
+"command alias
+cnoreabbrev vt vert term
+cnoreabbrev st term
+
 ":command W w
 ":command WQ wq
 ":command Wq wq

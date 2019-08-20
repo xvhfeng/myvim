@@ -50,8 +50,8 @@ set wildignore+=*.o,*.obj,*.pyc,*.db,*.swp,*.bak,*.class
 "默认就是全buffer搜索
 set gdefault
 "切换到当前tab打开文件的路径下
-autocmd BufEnter * cd %:p:h
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * cd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 "检测文件类型
 filetype on
 "针对不同的文件类型采用不同的缩进格式
@@ -196,7 +196,7 @@ else
 endif
 
 if !has("gui_running")
-	:set tenc=utf-8,gb2312,chinese
+	:set tenc=utf-8
 endif
 
 "解决consle输出乱码
@@ -281,5 +281,8 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+"设置垂直分割的窗口在右边
+set splitright
+set splitbelow
 
 
