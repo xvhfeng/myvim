@@ -123,10 +123,15 @@ let g:gundo_close_on_revert  = 1
 "--------------------
 "有的时候gloable可以 有的local设置可以，需要是一下环境
 Plug 'xvhfeng/c.vim'
-let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
-let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+
+if g:ENV == 'LINUX'
+    let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+else "for mac
+    let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+endif
+
 "nnoremap <c-i>k \cc
 "nnoremap <c-i>u \co
 map <c-x>c \cc
