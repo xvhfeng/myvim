@@ -18,24 +18,25 @@ noremap <F1> <Esc>
 
 ""为方便复制，用<F2>开启/关闭行号显示:
 function! HideNumber()
-  if(&relativenumber == &number)
-    set relativenumber! number!
-  elseif(&number)
-    set number!
-  else
-    set relativenumber!
-  endif
-  set number?
+    if(&relativenumber == &number)
+        set relativenumber! number!
+    elseif(&number)
+        set number!
+    else
+        set relativenumber!
+    endif
+    set number?
 endfunc
 nnoremap <F2> :call HideNumber()<CR>
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 
-              "set paste
+"set paste
 nnoremap <c-c><c-p> :set paste<CR>
-set pastetoggle=<c-c><c-p>            "    when in insert mode, press <F5> to go to
-                                "    paste mode, where you can paste mass data
-                                "    that won't be autoindented
+set pastetoggle=<c-c><c-p>
+"when in insert mode, press <F5> to go to
+"paste mode, where you can paste mass data
+"that won't be autoindented
 
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
