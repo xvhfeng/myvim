@@ -282,6 +282,7 @@ if has("autocmd")
 endif
 
 "set open mini-win on right or below
+"设置垂直分割的窗口在右边
 set splitright
 set splitbelow
 
