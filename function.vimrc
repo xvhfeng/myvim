@@ -316,7 +316,7 @@ function! GenFileRandom()
     normal o
     call setline('.', '*  so do not delete and keep name start with current filename */')
     normal o
-    call setline('.', 'static int '.definename.'_RANDOMS = '.randFF)
+    call setline('.', 'static int '.definename.'_RANDOMS = '.randFF.';')
     normal o
 endfunction
 
