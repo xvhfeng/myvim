@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 Language:        Cpp
 # BasedOnStyle:  Google
@@ -106,3 +107,63 @@ TabWidth:        8
 UseTab:          Never
 ...
 
+=======
+BasedOnStyle : Google
+IndentWidth : 4
+AlignAfterOpenBracket : Align
+AlignEscapedNewlines  : Left
+AlignTrailingComments : true
+AllowAllParametersOfDeclarationOnNextLine : false
+AllowShortBlocksOnASingleLine : false
+AllowShortCaseLabelsOnASingleLine : false
+AllowShortFunctionsOnASingleLine : None
+AllowShortIfStatementsOnASingleLine :false
+AllowShortLoopsOnASingleLine : false
+AlwaysBreakAfterReturnType : None
+AlwaysBreakBeforeMultilineStrings : false
+BinPackArguments : false
+BinPackParameters : false
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass : true
+    AfterControlStatement : false
+    AfterEnum : false
+    AfterFunction : false
+    AfterNamespace : false
+    AfterStruct : false
+    AfterUnion : false
+    AfterExternBlock : false
+    BeforeCatch : false
+    BeforeElse : false
+    IndentBraces : true
+    SplitEmptyFunction : true
+    SplitEmptyRecord : true
+    SplitEmptyNamespace : true
+BreakAfterJavaFieldAnnotations : true
+BreakBeforeBinaryOperators : NonAssignment
+BreakBeforeBraces : Linux
+BreakBeforeTernaryOperators : true
+BreakConstructorInitializers : AfterColon
+BreakStringLiterals : true
+IndentPPDirectives : AfterHash
+IndentWrappedFunctionNames : false
+KeepEmptyLinesAtTheStartOfBlocks : false
+MaxEmptyLinesToKeep : false
+NamespaceIndentation : All
+PointerAlignment : Right
+ReflowComments : true
+SpaceAfterCStyleCast : true
+SpaceBeforeAssignmentOperators : true
+SpaceBeforeCpp11BracedList : true
+SpaceBeforeParens : ControlStatements
+SpaceBeforeRangeBasedForLoopColon : false
+SpaceInEmptyParentheses : false
+SpacesInAngles : false
+SpacesInCStyleCastParentheses : false
+SpacesInContainerLiterals : false
+SpacesInParentheses : false
+SpacesInSquareBrackets : false
+TabWidth : 4
+UseTab : Never
+ColumnLimit : 0
+>>>>>>> 12c4c9292cafc884298151bfd0431b249ab32dad
