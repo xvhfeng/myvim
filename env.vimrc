@@ -285,4 +285,5 @@ endif
 set splitright
 set splitbelow
 
+set mouse-=a
 

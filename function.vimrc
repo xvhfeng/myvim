@@ -1,18 +1,17 @@
-"==========================================
 " Base Settings  基本设置
 " all function by myself
 "==========================================
 
 function! RunShell(Msg, Shell)
-	echo a:Msg . '...'
-	call system(a:Shell)
-	echon 'done'
+    echo a:Msg . '...'
+    call system(a:Shell)
+    echon 'done'
 endfunction
 
 function! ReName()
     let old_name = expand("<cword>")
     let old_name = input("old name:",old_name)
-	let new_name = input("new name:",old_name)
+    let new_name = input("new name:",old_name)
     let exec = input("are sure to refactor(y/n|Y/N):")
     if 'y' == exec || 'Y' == exec
         let cmd = printf("/opt/sys/settings/bin/vim/shell/ref.sh %s %s",old_name,new_name)
@@ -173,9 +172,9 @@ endfunc
 " 保存文件时删除多余空格
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.c :call DeleteTrailingWS()
@@ -190,11 +189,11 @@ au FocusGained * :set relativenumber
 autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber number
-  else
-    set relativenumber
-  endif
+    if(&relativenumber == 1)
+        set norelativenumber number
+    else
+        set relativenumber
+    endif
 endfunc
 nnoremap <C-t> :call NumberToggle()<cr>
 
@@ -283,3 +282,46 @@ del b[ : ]
 b.append(newlines)
 endpython
 endfunction
+
+let g:rnd = localtime() % 0x10000
+
+function! Random(n) abort
+    "let i = 0
+    "let al = []
+    "while i < 100
+        let g:rnd = (g:rnd * 31421 + 6927) % 0x10000
+        let r = g:rnd * a:n/0x10000
+        "call add(al,r)
+        "let i = i + 1
+    "endwhile
+    "echo al
+    return r
+endfunction
+
+function! RandomHex() abort
+    return Random(0x7FFFFFFF)
+endfunction
+
+function! GenFileRandom()
+    let currLine = line('.')
+    let sourcefilename=expand("%:t")
+    let definename=substitute(sourcefilename,' ','','g')
+    let definename=substitute(definename,'\.','_','g')
+    let definename = toupper(definename)
+    exe 'normal '.currLine.'GO'
+    let randFF = RandomHex()
+    call setline('.', '/* random integer for file generate by automatic ')
+    normal o
+    call setline('.', '*  it use for memory allocator and debug ')
+    normal o
+    call setline('.', '*  so do not delete and keep name start with current filename */')
+    normal o
+    call setline('.', 'static int '.definename.'_RANDOMS = '.randFF)
+    normal o
+endfunction
+
+nmap la :call GenFileRandom()<CR>
+
+
+
+

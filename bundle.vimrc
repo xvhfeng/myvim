@@ -487,6 +487,11 @@ let g:clang_format#style_options = {
 
 Plugin 'xvhfeng/gft4c'
 
+Plugin 'neoclide/coc.nvim'
+
+Plugin 'scrooloose/nerdtree'
+map <c-x><c-o> :NERDTreeToggle<CR>
+
 call vundle#end()
 filetype plugin indent on
 filetype on
