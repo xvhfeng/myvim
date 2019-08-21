@@ -9,13 +9,27 @@
 """""""""""""""""""""""""""""""""""""""""""
 " install Vundle bundles
 
-let g:ENV='MAC'
-let g:spx_home = "/Users/xuhaifeng"
-let g:spx_env_file_path = spx_home."/.vim/env.vimrc"
-let g:spx_bundle_file_path = spx_home."/.vim/bundle.vimrc"
-let g:spx_keymapping_file_path = spx_home."/.vim/keymapping.vimrc"
-let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
+let g:ENV= toupper(trim(system('uname -s')))
 
+let g:spx_home = ""
+let g:spx_env_file_path = ""
+let g:spx_bundle_file_path = ""
+let g:spx_keymapping_file_path = ""
+let g:spx_function_file_path = ""
+
+if g:ENV == "LINUX"
+    let g:spx_home = "/root"
+    let g:spx_env_file_path = spx_home."/.vim/env.vimrc"
+    let g:spx_bundle_file_path = spx_home."/.vim/bundle.vimrc"
+    let g:spx_keymapping_file_path = spx_home."/.vim/keymapping.vimrc"
+    let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
+else
+    let g:spx_home = "/Users/xuhaifeng"
+    let g:spx_env_file_path = spx_home."/.vim/env.vimrc"
+    let g:spx_bundle_file_path = spx_home."/.vim/bundle.vimrc"
+    let g:spx_keymapping_file_path = spx_home."/.vim/keymapping.vimrc"
+    let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
+endif
 
 if filereadable(expand(g:spx_bundle_file_path))
   exec ":source ".g:spx_bundle_file_path
