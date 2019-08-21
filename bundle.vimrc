@@ -168,38 +168,39 @@ Plug 'scrooloose/nerdcommenter'
  let g:NERDTrimTrailingWhitespace = 1
 
 "Plug 'Valloric/YouCompleteMe'
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>*'
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 0
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
+"Plug 'Valloric/YouCompleteMe'
+
+"let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
+"let g:ycm_error_symbol = '>>'
+"let g:ycm_warning_symbol = '>*'
+"let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_min_num_identifier_candidate_chars = 0
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_server_log_level = 'debug'
 
 " 直接触发自动补全
-let g:ycm_key_invoke_completion = '<c-x><c-o>'
-let g:ycm_cache_omnifunc = 1
-let g:ycm_auto_trigger = 0
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_echo_current_diagnostic = 1
+"let g:ycm_key_invoke_completion = '<c-x><c-o>'
+"let g:ycm_cache_omnifunc = 1
+"let g:ycm_auto_trigger = 0
+"let g:ycm_enable_diagnostic_signs = 0
+"let g:ycm_enable_diagnostic_highlighting = 1
+"let g:ycm_echo_current_diagnostic = 1
 "youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion=['<c-n>']
+"let g:ycm_key_list_select_completion=['<c-n>']
 " let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion=['<c-p>']
+"let g:ycm_key_list_previous_completion=['<c-p>']
 " let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
-let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
-let g:ycm_collect_identifiers_from_tags_files = 1
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <leader>yd :YcmDiags<CR>
-nmap <F11> :YcmRestartServer<CR>
+"let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+"let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nmap <leader>yd :YcmDiags<CR>
+"nmap <F11> :YcmRestartServer<CR>
 
 " 多语言语法检查
 Plug 'scrooloose/syntastic'
@@ -496,7 +497,7 @@ Plug 'scrooloose/nerdtree'
 map <c-x><c-o> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "set shell=/bin/sh
 
 call plug#end()

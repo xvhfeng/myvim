@@ -288,3 +288,4 @@ set splitbelow
 
 set mouse-=a
 
+set helplang=cn
