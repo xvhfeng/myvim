@@ -9,13 +9,12 @@
 """""""""""""""""""""""""""""""""""""""""""
 " install Vundle bundles
 
-"set env,MAC or LINUX now not support for win
-let g:ENV='MAC' 
+let g:ENV='MAC'
 let g:spx_home = "/Users/xuhaifeng"
-let g:spx_env_file_path = spx_home."/.vim/myvim/env.vimrc"
-let g:spx_bundle_file_path = spx_home."/.vim/myvim/bundle.vimrc"
-let g:spx_keymapping_file_path = spx_home."/.vim/myvim/keymapping.vimrc"
-let g:spx_function_file_path = spx_home."/.vim/myvim/function.vimrc"
+let g:spx_env_file_path = spx_home."/.vim/env.vimrc"
+let g:spx_bundle_file_path = spx_home."/.vim/bundle.vimrc"
+let g:spx_keymapping_file_path = spx_home."/.vim/keymapping.vimrc"
+let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
 
 
 if filereadable(expand(g:spx_bundle_file_path))
