@@ -65,7 +65,7 @@ flags = [
 # This path will only work on OS X, but extra paths that don't exist are not
 # harmful
 # '/System/Library/Frameworks/Python.framework/Headers',
-'-isystem',
+#'-isystem',
 # '../llvm/include',
 # '/opt/sys/pkg/clang_llvm/include',
 # '-isystem',
@@ -94,6 +94,8 @@ flags = [
 '/opt/src/spx/src/include',
 '-isystem',
 '/opt/src/ydb/common/src/',
+'-I',
+'../../include',
 # '-isystem',
 # '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 # '-isystem',

@@ -31,12 +31,13 @@ else
     let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
 endif
 
-if filereadable(expand(g:spx_bundle_file_path))
-  exec ":source ".g:spx_bundle_file_path
-endif
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
+
+if filereadable(expand(g:spx_env_file_path))
+  exec ":source ".g:spx_env_file_path
+endif
 
 "loading key-mapping
 if filereadable(expand(g:spx_keymapping_file_path))
@@ -48,7 +49,8 @@ if filereadable(expand(g:spx_function_file_path))
   exec ":source ".g:spx_function_file_path
 endif
 
-if filereadable(expand(g:spx_env_file_path))
-  exec ":source ".g:spx_env_file_path
+
+if filereadable(expand(g:spx_bundle_file_path))
+  exec ":source ".g:spx_bundle_file_path
 endif
 

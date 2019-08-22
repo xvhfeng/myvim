@@ -3,11 +3,7 @@ set nocompatible
 filetype off
 
 "set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
 call plug#begin('~/.vim/bundle')
-
-"git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"Plug 'gmarik/Vundle.vim'
 
 "--------------------
 " for common
@@ -17,7 +13,6 @@ Plug 'vim-scripts/genutils'
 Plug 'vim-scripts/ZoomWin'
 
 "move bunch
-"Plug 'EasyMotion'
 Plug 'easymotion/vim-easymotion'
 " <Leader>f{char} to move to {char}
 map  <c-i><c-f> <Plug>(easymotion-bd-f)
@@ -74,17 +69,10 @@ map <leader>es :FixWhitespace<cr>
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
-
-"单行快速定位
-"Plug 'unblevable/quick-scope'
-"let g:qs_highlight_on_keys = ['f', 'b']
-
 "多字节支持
 Plug 'vim-scripts/FencView.vim'
 
 Plug 'vim-scripts/auto_mkdir'
-
-"Plug 'ShowMarks'
 
 Plug 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 0
@@ -101,22 +89,6 @@ let g:indentLine_enabled = 1
 Plug 'sjl/gundo.vim'
 nmap <c-x>u :GundoToggle<CR>
 let g:gundo_close_on_revert  = 1
-"Plug 'mbbill/undotree'
-
-"nnoremap <leader>ut :UndotreeToggle<cr>
-":nmap <c-x>u <ESC>:UndotreeToggle<CR>
-":nmap <c-x>u <ESC>:UndotreeToggle<CR>
-"if has("persistent_undo")
-"    let udir = g:spx_home."/.vim/undodir/"
-"    set undodir=udir
-"
-"    set undofile
-"endif
-"let g:undotree_WindowLayout = 2
-"let g:undotree_SetFocusWhenToggle = 1
-
-"Plug 'grep.vim'
-":nmap <c-c>g <ESC>:Grep<CR>
 
 "--------------------
 " for c
@@ -167,40 +139,55 @@ Plug 'scrooloose/nerdcommenter'
 " Enable trimming of trailing whitespace when uncommenting
  let g:NERDTrimTrailingWhitespace = 1
 
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'Valloric/YouCompleteMe'
-
-"let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
-"let g:ycm_error_symbol = '>>'
-"let g:ycm_warning_symbol = '>*'
-"let g:ycm_min_num_of_chars_for_completion = 2
-"let g:ycm_min_num_identifier_candidate_chars = 0
-"let g:ycm_confirm_extra_conf = 0
-"let g:ycm_server_use_vim_stdout = 1
-"let g:ycm_server_log_level = 'debug'
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-c><c-j>'
+"set completeopt=menu,menuone
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+let g:ycm_filetype_whitelist = {
+			\ "c":1,
+			\ "cpp":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "zimbu":1,
+			\ }
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+highlight PMenu ctermfg=green ctermbg=black guifg=red guibg=red
+highlight PMenuSel ctermfg=red ctermbg=black  guifg=red guibg=red
 
 " 直接触发自动补全
-"let g:ycm_key_invoke_completion = '<c-x><c-o>'
+"let g:ycm_key_invoke_completion = '<c-x><c-l>'
 "let g:ycm_cache_omnifunc = 1
 "let g:ycm_auto_trigger = 0
 "let g:ycm_enable_diagnostic_signs = 0
 "let g:ycm_enable_diagnostic_highlighting = 1
 "let g:ycm_echo_current_diagnostic = 1
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-" let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
+""youcompleteme  默认tab  s-tab 和自动补全冲突
+let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 "let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
 "let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
 "let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 "let g:ycm_collect_identifiers_from_tags_files = 1
-"nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-"nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
-"nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"nmap <leader>yd :YcmDiags<CR>
-"nmap <F11> :YcmRestartServer<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <leader>yd :YcmDiags<CR>
+nmap <F11> :YcmRestartServer<CR>
 
 " 多语言语法检查
 Plug 'scrooloose/syntastic'
@@ -222,33 +209,6 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<Tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
-"括号显示增强
-Plug 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-            \ ['brown',       'RoyalBlue3'],
-            \ ['Darkblue',    'SeaGreen3'],
-            \ ['darkgray',    'DarkOrchid3'],
-            \ ['darkgreen',   'firebrick3'],
-            \ ['darkcyan',    'RoyalBlue3'],
-            \ ['darkred',     'SeaGreen3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['brown',       'firebrick3'],
-            \ ['gray',        'RoyalBlue3'],
-            \ ['black',       'SeaGreen3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['Darkblue',    'firebrick3'],
-            \ ['darkgreen',   'RoyalBlue3'],
-            \ ['darkcyan',    'SeaGreen3'],
-            \ ['darkred',     'DarkOrchid3'],
-            \ ['red',         'firebrick3'],
-            \ ]
-let g:rbpt_max = 40
-let g:rbpt_loadcmd_toggle = 0
-au Syntax * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Plug 'The-NERD-Commenter'
 Plug 'vim-scripts/ShowTrailingWhitespace'
@@ -277,25 +237,6 @@ Plug 'Rykka/riv.vim'
 Plug 'Rykka/InstantRst'
 
 "--------------------
-" for python
-"--------------------
-"###### Python #########
-"Plug 'klen/python-mode'
-
-" python fly check, 弥补syntastic只能打开和保存才检查语法的不足
-"Plug 'kevinw/pyflakes-vim'
-let g:pyflakes_use_quickfix = 0
-
-" for python.vim syntax highlight
-"Plug 'hdima/python-syntax'
-let python_highlight_all = 1
-
-"Plug 'pyflakes/pyflakes'
-
-" Plug 'mitechie/pyflakes-pathogen' " deprecated
-"  Plug 'pyflakes.vim' " deprecated
-
-"--------------------
 " for subject
 "--------------------
 "主题 solarized
@@ -310,7 +251,6 @@ Plug 'tomasr/molokai'
 "let g:molokai_original = 1
 
 Plug 'Glench/Vim-Jinja2-Syntax'
-"Plug 'evanmiller/nginx-vim-syntax'
 Plug 'kamichidu/vim-edit-properties'
 
 "--------------------
@@ -350,13 +290,6 @@ Plug 'vim-scripts/SQLComplete.vim'
 let g:sql_type_default = 'mysql'
 
 
-"--------------------
-" for shell
-"--------------------
-Plug 'lrvick/Conque-Shell'
-let g:ConqueTerm_TERM ='xterm'
-nmap <c-x>s :ConqueTerm bash<CR>
-
 Plug 'Shougo/vimproc'
 Plug 'Shougo/unite.vim'
 let g:unite_enable_split_vertically = 1
@@ -391,26 +324,8 @@ let g:tagbar_autofocus = 1
 map + :tagbar_map_openfold
 map - :tagbar_map_closefold
 
-"Plug 'Shougo/vimshell.vim'
-
-"Plug 'jlanzarotta/bufexplorer'
-":vmap <c-x>b <esc>:BufExplorer<cr>
-":nmap <c-x>b <esc>:BufExplorer<cr>
-
 Plug 'ervandew/supertab'
 
-"搜索插件
-"let g:ctrlsf_debug_mode = 1
-"1. Search in a specific sub-directory
-":CtrlSF {pattern} /path/to/dir
-"2. Search case-insensitively
-":CtrlSF -I {pattern}
-"3. Search with regular expression
-":CtrlSF -R {regex}
-"4. Show result with specific context setting
-":CtrlSF -A 3 -B 1 {pattern}
-"5. Search in files with specific extension
-":CtrlSF -G .*\.cpp {pattern}"
 Plug 'dyng/ctrlsf.vim'
 :nmap <c-c>g <ESC>:CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
 :nmap <c-c><c-g> <ESC>:CtrlSF <C-R>=expand("<cword>") <CR>
@@ -497,10 +412,44 @@ Plug 'scrooloose/nerdtree'
 map <c-x><c-o> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-"set shell=/bin/sh
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeFileExtensionHighlightFullName    = 1
+let g:NERDTreeExactMatchHighlightFullName       = 1
+let g:NERDTreePatternMatchHighlightFullName     = 1
+let g:NERDTreeHighlightFolders                  = 1
+let g:NERDTreeHighlightFoldersFullName          = 1
+let g:NERDTreeDirArrowExpandable                = '▷'
+let g:NERDTreeDirArrowCollapsible               = '▼'
+
+" nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ 'Ignored'   : '☒',
+            \ "Unknown"   : "?"
+            \ }
+
+Plug 'tenfyzhong/CompleteParameter.vim'
+let g:complete_parameter_echo_signature = 1
+let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
+inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+
+"括号对齐颜色
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 call plug#end()
-"call vundle#end()
 filetype plugin indent on
 filetype on
