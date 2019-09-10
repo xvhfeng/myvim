@@ -411,6 +411,16 @@ Plug 'xvhfeng/gft4c'
 Plug 'scrooloose/nerdtree'
 map <c-x><c-o> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
+"没有buffer，自动关闭vim
+autocmd bufenter * if (winnr("$")== 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeShowLineNumbers=1
+""打开vim时自动打开NERDTree
+autocmd vimenter * NERDTree
+
+ " jump to the main window.
+ autocmd VimEnter * wincmd p
+
+
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -439,7 +449,7 @@ let g:NERDTreeIndicatorMapCustom = {
 Plug 'tenfyzhong/CompleteParameter.vim'
 let g:complete_parameter_echo_signature = 1
 let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
+"inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
