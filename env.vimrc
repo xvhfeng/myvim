@@ -11,8 +11,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 "设置光标可以到最后一个字面后
 set virtualedit=onemore
 "设置快捷键等待时间
- " set timeout timeoutlen=300
- set timeout ttimeoutlen=-1
+" set timeout timeoutlen=300
+set timeout ttimeoutlen=-1
 "设置退格键为删除键
 set backspace=indent,eol,start
 "设置移动命令在行首或者行尾时依然有效
@@ -106,7 +106,7 @@ set showmode
 " Set 7 lines to the cursor - when moving vertically using j/k 上下滚动,始终在中间
 set scrolloff=7
 " 命令行（在状态行下）的高度，默认为1，这里是2
- set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line
 set laststatus=2
 " 换行。
@@ -190,13 +190,13 @@ set termencoding=utf-8
 set ffs=unix,dos,mac
 
 if has("win32") || has("win64")
-	set fileencoding=chinese
+    set fileencoding=chinese
 else
-	set fileencodings=utf-8,chinese,latin-1
+    set fileencodings=utf-8,chinese,latin-1
 endif
 
 if !has("gui_running")
-	:set tenc=utf-8
+    :set tenc=utf-8
 endif
 
 "解决consle输出乱码
@@ -220,7 +220,7 @@ if has("gui_running")
     set noimd
     " set t_Co=256
     "定义givm的颜色和去掉gvim的工具栏
-	set guioptions-=T
+    set guioptions-=T
     " 关闭Vim的自动切换IME输入法(插入模式和检索模式)
     set iminsert=0 imsearch=0
     " 插入模式输入法状态未被记录时，默认关闭IME
@@ -234,7 +234,7 @@ endif
 
 "当终端支持颜色显示时打开彩色显示
 if &t_Co > 1
-	syntax enable
+    syntax enable
 endif
 
 " theme主题
@@ -278,7 +278,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 "set open mini-win on right or below
@@ -289,3 +289,48 @@ set splitbelow
 set mouse-=a
 
 set helplang=cn
+
+" vim 打开ALT按键
+function! Terminal_MetaMode(mode)
+    set ttimeout
+    if $TMUX != ''
+        set ttimeoutlen=30
+    elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
+        set ttimeoutlen=80
+    endif
+    if has('nvim') || has('gui_running')
+        return
+    endif
+    function! s:metacode(mode, key)
+        if a:mode == 0
+            exec "set <M-".a:key.">=\e".a:key
+        else
+            exec "set <M-".a:key.">=\e]{0}".a:key."~"
+        endif
+    endfunc
+    for i in range(10)
+        call s:metacode(a:mode, nr2char(char2nr('0') + i))
+    endfor
+    for i in range(26)
+        call s:metacode(a:mode, nr2char(char2nr('a') + i))
+        call s:metacode(a:mode, nr2char(char2nr('A') + i))
+    endfor
+    if a:mode != 0
+        for c in [',', '.', '/', ';', '[', ']', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    else
+        for c in [',', '.', '/', ';', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    endif
+endfunc
+
+call Terminal_MetaMode(0)
+
