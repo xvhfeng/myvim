@@ -108,6 +108,7 @@ endif
 "nnoremap <c-i>u \co
 map <c-x>c \cc
 map <c-x>cc \co
+map <M-x><M-c> \cc
 
 Plug 'vim-scripts/CRefVim'
 if !hasmapto('<Plug>CRV_CRefVimInvoke')
@@ -120,7 +121,7 @@ if (!exists('g:alternateSearchPath'))
 endif
 
 "设置c语言的header和c文件转换
-:nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
+:nmap <C-x><c-h> <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -415,10 +416,10 @@ let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
 autocmd bufenter * if (winnr("$")== 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeShowLineNumbers=1
 ""打开vim时自动打开NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 
  " jump to the main window.
- autocmd VimEnter * wincmd p
+" autocmd VimEnter * wincmd p
 
 
 
@@ -429,7 +430,7 @@ let g:NERDTreeExactMatchHighlightFullName       = 1
 let g:NERDTreePatternMatchHighlightFullName     = 1
 let g:NERDTreeHighlightFolders                  = 1
 let g:NERDTreeHighlightFoldersFullName          = 1
-let g:NERDTreeDirArrowExpandable                = '▷'
+let g:NERDTreeDirArrowExpandable                = '>'
 let g:NERDTreeDirArrowCollapsible               = '▼'
 
 " nerdtree-git-plugin
