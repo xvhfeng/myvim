@@ -108,7 +108,7 @@ endif
 "nnoremap <c-i>u \co
 map <c-x>c \cc
 map <c-x>cc \co
-map <M-x><M-c> \cc
+"map <M-x><M-c> \cc
 
 Plug 'vim-scripts/CRefVim'
 if !hasmapto('<Plug>CRV_CRefVimInvoke')
@@ -121,7 +121,7 @@ if (!exists('g:alternateSearchPath'))
 endif
 
 "设置c语言的header和c文件转换
-:nmap <C-x><c-h> <ESC>:w!<ESC>:A!<CR>
+nnoremap <c-x><c-h> <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -140,7 +140,7 @@ Plug 'scrooloose/nerdcommenter'
 " Enable trimming of trailing whitespace when uncommenting
  let g:NERDTrimTrailingWhitespace = 1
 
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
@@ -319,7 +319,7 @@ Plug 'Shougo/unite-outline'
 nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
 
 Plug 'majutsushi/tagbar'
-nmap <c-c>o :TagbarToggle<CR>
+nnoremap <c-c>o :TagbarToggle<CR>
 " 启动时自动focus
 let g:tagbar_autofocus = 1
 map + :tagbar_map_openfold
