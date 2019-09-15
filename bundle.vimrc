@@ -108,6 +108,7 @@ endif
 "nnoremap <c-i>u \co
 map <c-x>c \cc
 map <c-x>cc \co
+"map <M-x><M-c> \cc
 
 Plug 'vim-scripts/CRefVim'
 if !hasmapto('<Plug>CRV_CRefVimInvoke')
@@ -120,7 +121,7 @@ if (!exists('g:alternateSearchPath'))
 endif
 
 "设置c语言的header和c文件转换
-:nmap <C-x>h <ESC>:w!<ESC>:A!<CR>
+nnoremap <c-x><c-h> <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -138,6 +139,56 @@ Plug 'scrooloose/nerdcommenter'
  let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
  let g:NERDTrimTrailingWhitespace = 1
+
+"Plug 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-c><c-j>'
+"set completeopt=menu,menuone
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+let g:ycm_filetype_whitelist = {
+			\ "c":1,
+			\ "cpp":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "zimbu":1,
+			\ }
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+highlight PMenu ctermfg=green ctermbg=black guifg=red guibg=red
+highlight PMenuSel ctermfg=red ctermbg=black  guifg=red guibg=red
+
+" 直接触发自动补全
+"let g:ycm_key_invoke_completion = '<c-x><c-l>'
+"let g:ycm_cache_omnifunc = 1
+"let g:ycm_auto_trigger = 0
+"let g:ycm_enable_diagnostic_signs = 0
+"let g:ycm_enable_diagnostic_highlighting = 1
+"let g:ycm_echo_current_diagnostic = 1
+""youcompleteme  默认tab  s-tab 和自动补全冲突
+let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+"let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+"let g:ycm_collect_identifiers_from_tags_files = 1
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <leader>yd :YcmDiags<CR>
+nmap <F11> :YcmRestartServer<CR>
 
 " 多语言语法检查
 Plug 'scrooloose/syntastic'
@@ -268,7 +319,7 @@ Plug 'Shougo/unite-outline'
 nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
 
 Plug 'majutsushi/tagbar'
-nmap <c-c>o :TagbarToggle<CR>
+nnoremap <c-c>o :TagbarToggle<CR>
 " 启动时自动focus
 let g:tagbar_autofocus = 1
 map + :tagbar_map_openfold
@@ -361,6 +412,16 @@ Plug 'xvhfeng/gft4c'
 Plug 'scrooloose/nerdtree'
 map <c-x><c-o> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
+"没有buffer，自动关闭vim
+autocmd bufenter * if (winnr("$")== 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeShowLineNumbers=1
+""打开vim时自动打开NERDTree
+"autocmd vimenter * NERDTree
+
+ " jump to the main window.
+" autocmd VimEnter * wincmd p
+
+
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -369,7 +430,7 @@ let g:NERDTreeExactMatchHighlightFullName       = 1
 let g:NERDTreePatternMatchHighlightFullName     = 1
 let g:NERDTreeHighlightFolders                  = 1
 let g:NERDTreeHighlightFoldersFullName          = 1
-let g:NERDTreeDirArrowExpandable                = '▷'
+let g:NERDTreeDirArrowExpandable                = '>'
 let g:NERDTreeDirArrowCollapsible               = '▼'
 
 " nerdtree-git-plugin
@@ -386,79 +447,19 @@ let g:NERDTreeIndicatorMapCustom = {
             \ "Unknown"   : "?"
             \ }
 
-Plug 'ycm-core/YouCompleteMe'
-"Plug 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf = g:spx_home.'/.ycm_extra_conf.py'
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<tab>'
-set completeopt=menu,menuone
-let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,lua,javascript': ['re!\w{2}'],
-			\ }
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cpp":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "zimbu":1,
-			\ }
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>*'
-
-" 直接触发自动补全
-"let g:ycm_cache_omnifunc = 1
-let g:ycm_auto_trigger = 0
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_echo_current_diagnostic = 1
-""youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-"let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
-let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-highlight PMenu ctermfg=green ctermbg=black guifg=red guibg=red
-highlight PMenuSel ctermfg=red ctermbg=black  guifg=red guibg=red
-
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <leader>yd :YcmDiags<CR>
-nmap <F11> :YcmRestartServer<CR>
-
-
 Plug 'tenfyzhong/CompleteParameter.vim'
 let g:complete_parameter_echo_signature = 1
-"let g:AutoPairs = {'[':']', '(':')','{':'}',"'":"'",'"':'"', '`':'`'}
-"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 "inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-nmap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-nmap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-let g:complete_parameter_log_level = 5
-set noshowmode
 
 "括号对齐颜色
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-"显示函数签名
-Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 filetype plugin indent on
