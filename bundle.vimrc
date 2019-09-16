@@ -320,6 +320,9 @@ nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
 
 Plug 'majutsushi/tagbar'
 nnoremap <c-c>o :TagbarToggle<CR>
+
+let g:tagbar_width=60
+let g:tagbar_right=1
 " 启动时自动focus
 let g:tagbar_autofocus = 1
 map + :tagbar_map_openfold
@@ -348,7 +351,7 @@ Plug 'dyng/ctrlsf.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-x>p'
-:nmap <c-x><c-p> <ESC>:CtrlP ../
+nmap <c-x><c-p> <ESC>:CtrlP ../
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_working_path_mode = 'ca'
@@ -359,15 +362,37 @@ let g:ctrlp_custom_ignore = {
             \ 'link': 'some_bad_symbolic_links',
             \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode = 1
+let g:ctrlp_match_window_bottom = 1
+"修改QuickFix窗口显示的最大条目数
+let g:ctrlp_max_height = 50
+let g:ctrlp_match_window_reversed = 0
+""设置MRU最大条目数为500
+let g:ctrlp_mruf_max = 500
+let g:ctrlp_follow_symlinks = 1
+"默认使用全路径搜索，置1后按文件名搜索，准确率会有所提高，可以用<C-d>进行切换
+let g:ctrlp_by_filename = 1
+""默认不使用正则表达式，置1改为默认使用正则表达式，可以用<C-r>进行切换
+let g:ctrlp_regexp = 0
+"自定义搜索列表的提示符
+let g:ctrlp_line_prefix = '♪ '
+"let g:ctrlp_match_window = 'right,order:ttb,min:1,max:10,results:25'
 
+Plug 'tacahiroy/ctrlp-funky'
+nnoremap fu :CtrlPFunky<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_extensions = ['funky']
 
 set rtp+=/opt/soft/fzf
 Plug 'junegunn/fzf.vim'
-nnoremap ff :Files!<CR>
+nnoremap fs :Files!<CR>
 "nmap <C-e> :Buffers<CR>
 let g:fzf_action = { 'ctrl-e': 'edit' }
 cnoreabbrev fzf FZF
 
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap ff :Ack<space>
 
 "中文排版"
 Plug 'hotoo/pangu.vim'
