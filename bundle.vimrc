@@ -360,6 +360,15 @@ let g:ctrlp_custom_ignore = {
             \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+set rtp+=/opt/soft/fzf
+Plug 'junegunn/fzf.vim'
+nnoremap ff :Files!<CR>
+"nmap <C-e> :Buffers<CR>
+let g:fzf_action = { 'ctrl-e': 'edit' }
+cnoreabbrev fzf FZF
+
+
 "中文排版"
 Plug 'hotoo/pangu.vim'
 
