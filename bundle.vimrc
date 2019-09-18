@@ -15,19 +15,19 @@ Plug 'vim-scripts/ZoomWin'
 "move bunch
 Plug 'easymotion/vim-easymotion'
 " <Leader>f{char} to move to {char}
-map  <c-i><c-f> <Plug>(easymotion-bd-f)
-nmap <c-i><c-f> <Plug>(easymotion-overwin-f)
+map  gf <Plug>(easymotion-bd-f)
+nmap gf <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap <c-i><c-c> <Plug>(easymotion-overwin-f2)
+nmap gc <Plug>(easymotion-overwin-f2)
 
 " Move to line
-map <c-i><c-l> <Plug>(easymotion-bd-jk)
-nmap <c-i><c-l> <Plug>(easymotion-overwin-line)
+map gl <Plug>(easymotion-bd-jk)
+nmap gl <Plug>(easymotion-overwin-line)
 
 " Move to word
-map  <c-i><c-w> <Plug>(easymotion-bd-w)
-nmap <c-i><c-w> <Plug>(easymotion-overwin-w)
+map  gw <Plug>(easymotion-bd-w)
+nmap gw <Plug>(easymotion-overwin-w)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
@@ -106,8 +106,8 @@ endif
 
 "nnoremap <c-i>k \cc
 "nnoremap <c-i>u \co
-map <c-x>c \cc
-map <c-x>cc \co
+map cc \cc
+map cu \co
 "map <M-x><M-c> \cc
 
 Plug 'vim-scripts/CRefVim'
@@ -331,8 +331,8 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'dyng/ctrlsf.vim'
-:nmap <c-c>g <ESC>:CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-:nmap <c-c><c-g> <ESC>:CtrlSF <C-R>=expand("<cword>") <CR>
+nmap fn :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+nmap fN :CtrlSF <C-R>=expand("<cword>") <CR>
  let g:ctrlsf_mapping  = {
      \ "openb"    : ["<CR>", "o"],
     \ "open"   : "O",
@@ -392,7 +392,7 @@ cnoreabbrev fzf FZF
 
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
-nnoremap ff :Ack<space>
+nnoremap fl :Ack<space>
 
 "中文排版"
 Plug 'hotoo/pangu.vim'
