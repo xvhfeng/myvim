@@ -14,8 +14,6 @@ endif
 source ~/.vim/bundle/plug.vim
 call plug#begin('~/.vim/bundle')
 
-Plug 'junegunn/plug'
-
 "--------------------
 " for common
 "--------------------
@@ -345,6 +343,10 @@ nnoremap fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
+Plug 'airblade/vim-rooter'
+let g:rooter_silent_chdir = 1
+let g:rooter_change_directory_for_non_project_files = 'current'
+
 set rtp+=/opt/soft/fzf
 set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
@@ -407,7 +409,9 @@ let g:clang_format#style_options = {
 Plug 'xvhfeng/gft4c'
 
 Plug 'scrooloose/nerdtree'
-map <c-x><c-o> :NERDTreeToggle<CR>
+set autochdir
+let NERDTreeChDirMode=2
+map <c-x><c-o> :NERDTree .<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
 ""修改树的显示图标
 let g:NERDTreeWinSize = 50 "设定 NERDTree 视窗大小
