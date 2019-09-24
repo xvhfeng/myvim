@@ -343,10 +343,6 @@ nnoremap fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
-Plug 'airblade/vim-rooter'
-let g:rooter_silent_chdir = 1
-let g:rooter_change_directory_for_non_project_files = 'current'
-
 set rtp+=/opt/soft/fzf
 set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
