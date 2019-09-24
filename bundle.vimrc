@@ -382,10 +382,12 @@ let g:ctrlp_line_prefix = '♪ '
 
 Plug 'tacahiroy/ctrlp-funky'
 nnoremap fu :CtrlPFunky<Cr>
+nnoremap fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 set rtp+=/opt/soft/fzf
+set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
 nnoremap fs :Files!<CR>
 "nmap <C-e> :Buffers<CR>
@@ -393,8 +395,13 @@ let g:fzf_action = { 'ctrl-e': 'edit' }
 cnoreabbrev fzf FZF
 
 Plug 'mileszs/ack.vim'
+<<<<<<< HEAD
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap fl :Ack<space>
+=======
+let g:ackprg = 'ack --nogroup --color --column'
+nnoremap ff :Ack<space>
+>>>>>>> 734dc3275eb7cdf1e6fd054ecd83d7af4d2d799c
 
 "中文排版"
 Plug 'hotoo/pangu.vim'
