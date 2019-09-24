@@ -121,7 +121,7 @@ if (!exists('g:alternateSearchPath'))
 endif
 
 "设置c语言的header和c文件转换
-nnoremap <c-x><c-h> <ESC>:w!<ESC>:A!<CR>
+nnoremap he <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -331,8 +331,8 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'dyng/ctrlsf.vim'
-nmap fn :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-nmap fN :CtrlSF <C-R>=expand("<cword>") <CR>
+nmap fwq :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+nmap fw :CtrlSF <C-R>=expand("<cword>") <CR>
  let g:ctrlsf_mapping  = {
      \ "openb"    : ["<CR>", "o"],
     \ "open"   : "O",
@@ -446,8 +446,11 @@ Plug 'xvhfeng/gft4c'
 Plug 'scrooloose/nerdtree'
 map <c-x><c-o> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
+""修改树的显示图标
+let g:NERDTreeWinSize = 50 "设定 NERDTree 视窗大小
 "没有buffer，自动关闭vim
 autocmd bufenter * if (winnr("$")== 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeQuitOnOpen=1
 let g:NERDTreeShowLineNumbers=1
 ""打开vim时自动打开NERDTree
 "autocmd vimenter * NERDTree
