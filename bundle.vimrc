@@ -2,7 +2,9 @@ set nocompatible
 "配置插件管理
 filetype off
 
-"set rtp+=~/.vim/bundle/Vundle.vim
+"set rtp+=~/.vim/bundle/plug.vim
+"load plug.vim bundle
+source ~/.vim/bundle/plug.vim
 call plug#begin('~/.vim/bundle')
 
 "--------------------
