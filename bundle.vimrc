@@ -313,6 +313,7 @@ let g:ctrlp_map = '<c-x>p'
 nmap <c-x><c-p> <ESC>:CtrlP ../
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_reuse_window = 'netrw'
 let g:ctrlp_working_path_mode = 'ca'
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
@@ -336,6 +337,42 @@ let g:ctrlp_regexp = 0
 "自定义搜索列表的提示符
 let g:ctrlp_line_prefix = '♪ '
 "let g:ctrlp_match_window = 'right,order:ttb,min:1,max:10,results:25'
+ let g:ctrlp_prompt_mappings = {
+     \ 'PrtBS()':              ['<bs>', '<c-]>'],
+     \ 'PrtDelete()':          ['<del>'],
+     \ 'PrtDeleteWord()':      ['<c-w>'],
+     \ 'PrtClear()':           ['<c-u>'],
+     \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+     \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+     \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+     \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+     \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+     \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+     \ 'PrtHistory(-1)':       ['<c-j>'],
+     \ 'PrtHistory(1)':        ['<c-k>'],
+     \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+     \ 'AcceptSelection("t")': ['<c-t>'],
+     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+     \ 'ToggleFocus()':        ['<s-tab>'],
+     \ 'ToggleRegex()':        ['<c-r>'],
+     \ 'ToggleByFname()':      ['<c-d>'],
+     \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+     \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+     \ 'PrtExpandDir()':       ['<tab>'],
+     \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+     \ 'PrtInsert()':          ['<c-\>'],
+     \ 'PrtCurStart()':        ['<c-a>'],
+     \ 'PrtCurEnd()':          ['<c-e>'],
+     \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
+     \ 'PrtCurRight()':        ['<c-l>', '<right>'],
+     \ 'PrtClearCache()':      ['<F5>'],
+     \ 'PrtDeleteEnt()':       ['<F7>'],
+     \ 'CreateNewFile()':      ['<c-y>'],
+     \ 'MarkToOpen()':         ['<c-z>'],
+     \ 'OpenMulti()':          ['<c-o>'],
+     \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+     \ }
 
 Plug 'tacahiroy/ctrlp-funky'
 nnoremap fu :CtrlPFunky<Cr>
@@ -352,7 +389,7 @@ let g:fzf_action = { 'ctrl-e': 'edit' }
 cnoreabbrev fzf FZF
 
 Plug 'mileszs/ack.vim'
-let g:ackprg = 'ack --nogroup --color --column'
+"let g:ackprg = 'ag --nogroup --color --column'
 nnoremap ff :Ack<space>
 
 "中文排版"
