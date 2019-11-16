@@ -6,7 +6,7 @@ let $BUNDLE = expand("$HOME/.vim/bundle")
 
 if empty(glob(expand("$BUNDLE/plug.vim")))
     silent !curl -fLo $BUNDLE/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
 
@@ -106,11 +106,11 @@ let g:gundo_close_on_revert  = 1
 Plug 'xvhfeng/c.vim'
 
 if g:ENV == "LINUX"
-    let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+    let g:C_GlobalTemplateFile  = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_GlobalTemplateDir       =  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 else "for mac
-    let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+    let g:C_LocalTemplateFile       = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_LocalTemplateDir        = g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 endif
 
 "nnoremap <c-i>k \cc
@@ -134,20 +134,20 @@ nnoremap he <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
- let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
- let g:NERDCompactSexyComs = 1
+let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code
 " indentation
- let g:NERDDefaultAlign = 'left'
+let g:NERDDefaultAlign = 'left'
 " Set a language to use its alternate delimiters by default
- let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_c = 1
 " Add your own custom formats or override the defaults
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " Allow commenting and inverting empty lines (useful when commenting a region)
- let g:NERDCommentEmptyLines = 1
+let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
- let g:NERDTrimTrailingWhitespace = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 " 多语言语法检查
 Plug 'scrooloose/syntastic'
@@ -292,20 +292,20 @@ Plug 'ervandew/supertab'
 Plug 'dyng/ctrlsf.vim'
 nmap fwq :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
 nmap fw :CtrlSF <C-R>=expand("<cword>") <CR>
- let g:ctrlsf_mapping  = {
-     \ "openb"    : ["<CR>", "o"],
-    \ "open"   : "O",
-    \ "split"   : "<C-O>",
-    \ "vsplit"  : "",
-    \ "tab"     : "t",
-    \ "tabb"    : "T",
-    \ "popen"   : "p",
-    \ "quit"    : "q",
-    \ "next"    : "<C-J>",
-    \ "prev"    : "<C-K>",
-    \ "pquit"   : "q",
-    \ "loclist" : "",
-    \ }
+let g:ctrlsf_mapping  = {
+            \ "openb"    : ["<CR>", "o"],
+            \ "open"   : "O",
+            \ "split"   : "<C-O>",
+            \ "vsplit"  : "",
+            \ "tab"     : "t",
+            \ "tabb"    : "T",
+            \ "popen"   : "p",
+            \ "quit"    : "q",
+            \ "next"    : "<C-J>",
+            \ "prev"    : "<C-K>",
+            \ "pquit"   : "q",
+            \ "loclist" : "",
+            \ }
 
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -408,10 +408,10 @@ let g:HiCursorWords_linkStyle='VisualNOS'
 Plug 'xvhfeng/vim-clang-format'
 let g:clang_format#auto_format = 1
 " map to <Leader>cf in C++ code
- autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
- autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 " " if you install vim-operator-user
- "autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+"autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 let g:clang_format#style_options = {
@@ -455,7 +455,7 @@ let g:NERDTreeShowLineNumbers=1
 ""打开vim时自动打开NERDTree
 "autocmd vimenter * NERDTree
 
- " jump to the main window.
+" jump to the main window.
 " autocmd VimEnter * wincmd p
 
 
@@ -497,6 +497,11 @@ smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 "括号对齐颜色
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+Plug 'Chiel92/vim-autoformat'
+let g:formatdef_my_cpp = '"astyle --style=google"'
+let g:formatters_cpp = ['my_cpp']
+au BufWrite * :Autoformat
 
 call plug#end()
 filetype plugin indent on

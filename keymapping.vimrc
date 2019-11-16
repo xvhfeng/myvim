@@ -190,10 +190,9 @@ nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
 
-"Jump to start and end of line using the home row keys
-nmap t o<ESC>k
-nmap T O<ESC>j
-
+"add blank newline and keep cursor not move
+nnoremap t m`o<Esc>k``
+nnoremap T m`O<Esc>j``
 
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
