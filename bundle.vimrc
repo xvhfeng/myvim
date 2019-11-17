@@ -161,8 +161,8 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Plug 'tpope/vim-commentary'
 
 "加入代码快
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
@@ -337,42 +337,42 @@ let g:ctrlp_regexp = 0
 "自定义搜索列表的提示符
 let g:ctrlp_line_prefix = '♪ '
 "let g:ctrlp_match_window = 'right,order:ttb,min:1,max:10,results:25'
- let g:ctrlp_prompt_mappings = {
-     \ 'PrtBS()':              ['<bs>', '<c-]>'],
-     \ 'PrtDelete()':          ['<del>'],
-     \ 'PrtDeleteWord()':      ['<c-w>'],
-     \ 'PrtClear()':           ['<c-u>'],
-     \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-     \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-     \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
-     \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
-     \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
-     \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-     \ 'PrtHistory(-1)':       ['<c-j>'],
-     \ 'PrtHistory(1)':        ['<c-k>'],
-     \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
-     \ 'AcceptSelection("t")': ['<c-t>'],
-     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
-     \ 'ToggleFocus()':        ['<s-tab>'],
-     \ 'ToggleRegex()':        ['<c-r>'],
-     \ 'ToggleByFname()':      ['<c-d>'],
-     \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
-     \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
-     \ 'PrtExpandDir()':       ['<tab>'],
-     \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
-     \ 'PrtInsert()':          ['<c-\>'],
-     \ 'PrtCurStart()':        ['<c-a>'],
-     \ 'PrtCurEnd()':          ['<c-e>'],
-     \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-     \ 'PrtCurRight()':        ['<c-l>', '<right>'],
-     \ 'PrtClearCache()':      ['<F5>'],
-     \ 'PrtDeleteEnt()':       ['<F7>'],
-     \ 'CreateNewFile()':      ['<c-y>'],
-     \ 'MarkToOpen()':         ['<c-z>'],
-     \ 'OpenMulti()':          ['<c-o>'],
-     \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
-     \ }
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtBS()':              ['<bs>', '<c-]>'],
+            \ 'PrtDelete()':          ['<del>'],
+            \ 'PrtDeleteWord()':      ['<c-w>'],
+            \ 'PrtClear()':           ['<c-u>'],
+            \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+            \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+            \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+            \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+            \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+            \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+            \ 'PrtHistory(-1)':       ['<c-j>'],
+            \ 'PrtHistory(1)':        ['<c-k>'],
+            \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+            \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+            \ 'AcceptSelection("t")': ['<c-t>'],
+            \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+            \ 'ToggleFocus()':        ['<s-tab>'],
+            \ 'ToggleRegex()':        ['<c-r>'],
+            \ 'ToggleByFname()':      ['<c-d>'],
+            \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+            \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+            \ 'PrtExpandDir()':       ['<tab>'],
+            \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+            \ 'PrtInsert()':          ['<c-\>'],
+            \ 'PrtCurStart()':        ['<c-a>'],
+            \ 'PrtCurEnd()':          ['<c-e>'],
+            \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
+            \ 'PrtCurRight()':        ['<c-l>', '<right>'],
+            \ 'PrtClearCache()':      ['<F5>'],
+            \ 'PrtDeleteEnt()':       ['<F7>'],
+            \ 'CreateNewFile()':      ['<c-y>'],
+            \ 'MarkToOpen()':         ['<c-z>'],
+            \ 'OpenMulti()':          ['<c-o>'],
+            \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+            \ }
 
 Plug 'tacahiroy/ctrlp-funky'
 nnoremap fu :CtrlPFunky<Cr>
@@ -498,10 +498,15 @@ smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
+"default use albian.c.rc to make softlink to home floder
+"ln -s /root/myvim/astyle.c.rc ~/.astylerc
 Plug 'Chiel92/vim-autoformat'
-let g:formatdef_my_cpp = '"astyle --style=google"'
-let g:formatters_cpp = ['my_cpp']
+"let g:formatdef_af = '"!astyle --style=google --attach-inlines / -xl"'
+"let g:formatters_cpp = ['af']
+"let g:formatters_c = ['af']
 au BufWrite * :Autoformat
+
+"Plug 'vim-scripts/google.vim'
 
 call plug#end()
 filetype plugin indent on
