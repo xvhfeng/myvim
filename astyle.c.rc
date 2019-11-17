@@ -10,7 +10,7 @@ indent=force-tab=2
 indent-after-parens
 attach-closing-while
 indent-switches
-indent-continuation=2
+#indent-continuation=2
 indent-labels
 indent-preproc-block
 indent-preproc-define

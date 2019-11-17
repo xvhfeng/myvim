@@ -194,6 +194,9 @@ nnoremap <C-y> 2<C-y>
 nnoremap t m`o<Esc>k``
 nnoremap T m`O<Esc>j``
 
+nnoremap E el
+nnoremap B bh
+
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
 " column, so swap them
@@ -242,3 +245,14 @@ nnoremap  <silent> wr viwp
 ":command Q q
 ":command Qa qa
 ":command QA qa
+"
+"""""""""""""""""""""""""""""""""""""""""""""""
+" Seting clang-format
+"""""""""""""""""""""""""""""""""""""""""""""""
+map <C-F> :pyf ~/.vim/clang-format.py<cr>
+imap <C-F> <c-o>:pyf ~/.vim/clang-format.py<cr>
+function! Formatonsave()
+    let l:formatdiff = 1
+    pyf ~/.vim/clang-format.py
+endfunction
+"autocmd BufWritePre *.c,*.h,*.cc,*.cpp call Formatonsave()

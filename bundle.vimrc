@@ -500,13 +500,13 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 "default use albian.c.rc to make softlink to home floder
 "ln -s /root/myvim/astyle.c.rc ~/.astylerc
-Plug 'Chiel92/vim-autoformat'
+"Plug 'Chiel92/vim-autoformat'
 "let g:formatdef_af = '"!astyle --style=google --attach-inlines / -xl"'
 "let g:formatters_cpp = ['af']
 "let g:formatters_c = ['af']
-au BufWrite * :Autoformat
+"au BufWrite * :Autoformat
 
-"Plug 'vim-scripts/google.vim'
+Plug 'xvhfeng/google.vim'
 
 call plug#end()
 filetype plugin indent on
