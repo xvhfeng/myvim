@@ -66,6 +66,8 @@ map + <Plug>(expand_region_expand)
 map _ <Plug>(expand_region_shrink)
 
 " 快速加入修改环绕字符
+" put ds' delete '
+" put cd' ( change ' to ()
 Plug 'tpope/vim-surround'
 
 " for repeat -> enhance surround.vim, . to repeat command
@@ -95,9 +97,9 @@ let g:indentLine_enabled = 1
 "let g:indentLine_char = '|'
 
 "undo tree
-Plug 'sjl/gundo.vim'
-nmap <c-x>u :GundoToggle<CR>
-let g:gundo_close_on_revert  = 1
+"Plug 'sjl/gundo.vim'
+"nmap <c-x>u :GundoToggle<CR>
+"let g:gundo_close_on_revert  = 1
 
 "--------------------
 " for c
@@ -119,10 +121,10 @@ map cc \cc
 map cu \co
 "map <M-x><M-c> \cc
 
-Plug 'vim-scripts/CRefVim'
-if !hasmapto('<Plug>CRV_CRefVimInvoke')
-    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
-endif
+"Plug 'vim-scripts/CRefVim'
+""if !hasmapto('<Plug>CRV_CRefVimInvoke')
+"    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
+"endif
 
 Plug 'vim-scripts/a.vim'
 if (!exists('g:alternateSearchPath'))
@@ -185,16 +187,16 @@ map <c-x><c-f> <ESC>:Dox<cr>
 "--------------------
 
 "###### Markdown #########
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_conceal = 0
+"Plug 'plasticboy/vim-markdown'
+"let g:vim_markdown_folding_disabled=1
+"let g:vim_markdown_conceal = 0
 
 
 "---------------------
 "for ReST
 "_____________________
-Plug 'Rykka/riv.vim'
-Plug 'Rykka/InstantRst'
+"Plug 'Rykka/riv.vim'
+"Plug 'Rykka/InstantRst'
 
 "--------------------
 " for subject
@@ -210,35 +212,35 @@ let g:solarized_visibility="normal"
 Plug 'tomasr/molokai'
 "let g:molokai_original = 1
 
-Plug 'Glench/Vim-Jinja2-Syntax'
+"Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'kamichidu/vim-edit-properties'
 
 "--------------------
 " for javascript
 "--------------------
-Plug 'nono/jquery.vim'
-Plug 'pangloss/vim-javascript'
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+"Plug 'nono/jquery.vim'
+"Plug 'pangloss/vim-javascript'
+"let g:html_indent_inctags = "html,body,head,tbody"
+"let g:html_indent_script1 = "inc"
+"let g:html_indent_style1 = "inc"
 
 "--------------------
 " for php
 "--------------------
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
-Plug 'erikfercak/php-search-doc'
-Plug 'lucapette/vim-jquery-doc'
+"Plug 'stephpy/vim-php-cs-fixer'
+"Plug 'arnaud-lb/vim-php-namespace'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
+"Plug 'erikfercak/php-search-doc'
+"Plug 'lucapette/vim-jquery-doc'
 
 "--------------------
 " for html, haml, sass
 "--------------------
-Plug 'tpope/vim-haml'
-" 自动补全html/xml标签
-Plug 'docunext/closetag.vim'
-let g:closetag_html_style=1
+"Plug 'tpope/vim-haml'
+"" 自动补全html/xml标签
+"Plug 'docunext/closetag.vim'
+"let g:closetag_html_style=1
 
 Plug 'vim-scripts/JSON.vim'
 
@@ -398,7 +400,7 @@ Plug 'hotoo/pangu.vim'
 Plug 'will133/vim-dirdiff'
 
 "cmake的提示
-Plug 'pboettch/vim-cmake-syntax'
+"Plug 'pboettch/vim-cmake-syntax'
 
 "光标下的单词高亮"
 Plug 'pboettch/vim-highlight-cursor-words'
@@ -484,15 +486,16 @@ let g:NERDTreeIndicatorMapCustom = {
             \ "Unknown"   : "?"
             \ }
 
-Plug 'tenfyzhong/CompleteParameter.vim'
-let g:complete_parameter_echo_signature = 1
-let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+"nm 会tm自动括号，极其讨厌
+"Plug 'tenfyzhong/CompleteParameter.vim'
+"let g:complete_parameter_echo_signature = 1
+"let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 "inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
-inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 
 "括号对齐颜色
 Plug 'luochen1990/rainbow'
@@ -507,7 +510,8 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 "au BufWrite * :Autoformat
 
 Plug 'xvhfeng/google.vim'
-
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 filetype plugin indent on
 filetype on
