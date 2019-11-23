@@ -67,7 +67,10 @@ map _ <Plug>(expand_region_shrink)
 
 " 快速加入修改环绕字符
 " put ds' delete '
-" put cd' ( change ' to ()
+" put cs' ( change ' to ()
+" ysiw' insert ' round word with space
+" ysiwb insert () round word without space
+" yss' insert ' round line
 Plug 'tpope/vim-surround'
 
 " for repeat -> enhance surround.vim, . to repeat command
