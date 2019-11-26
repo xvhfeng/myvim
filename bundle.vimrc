@@ -314,7 +314,7 @@ let g:ctrlsf_mapping  = {
 
 
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<c-x>p'
+let g:ctrlp_map = '<c-x><c-p>'
 nmap <c-x><c-p> <ESC>:CtrlP ../
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
