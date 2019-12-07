@@ -191,9 +191,11 @@ nnoremap <C-y> 2<C-y>
 
 
 "Jump to start and end of line using the home row keys
-nmap t o<ESC>k
-nmap T O<ESC>j
+"nmap t o<ESC>k
+"nmap T O<ESC>j
 
+nnoremap t  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
+nnoremap T  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and

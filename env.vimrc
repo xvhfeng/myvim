@@ -27,7 +27,7 @@ set selectmode+=mouse
 "设置自动读取外面对于文件的变更
 set autoread
 "设置命令行高度为2
-set cmdheight=1
+set cmdheight=2
 set nobackup
 set nowb
 set noswapfile
@@ -39,7 +39,8 @@ set wildmenu
 "开启鼠标
 set mouse=a
 " 启动的时候不显示那个援助索马里儿童的提示
-set shortmess=atI
+:silent !<command>
+set shortmess=a
 " 不让vim发出讨厌的滴滴声
 set novisualbell         " don't beep
 set noerrorbells
