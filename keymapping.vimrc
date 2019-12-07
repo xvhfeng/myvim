@@ -249,8 +249,8 @@ nnoremap  <silent> wr viwp
 """""""""""""""""""""""""""""""""""""""""""""""
 " Seting clang-format
 """""""""""""""""""""""""""""""""""""""""""""""
-map <C-F> :pyf ~/.vim/clang-format.py<cr>
-imap <C-F> <c-o>:pyf ~/.vim/clang-format.py<cr>
+"map <C-F> :pyf ~/.vim/clang-format.py<cr>
+"imap <C-F> <c-o>:pyf ~/.vim/clang-format.py<cr>
 function! Formatonsave()
     let l:formatdiff = 1
     pyf ~/.vim/clang-format.py

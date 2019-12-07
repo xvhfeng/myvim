@@ -295,8 +295,8 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'dyng/ctrlsf.vim'
-nmap fwq :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-nmap fw :CtrlSF <C-R>=expand("<cword>") <CR>
+nmap gsf :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+nmap gaw :CtrlSF <C-R>=expand("<cword>") <CR>
 let g:ctrlsf_mapping  = {
             \ "openb"    : ["<CR>", "o"],
             \ "open"   : "O",
@@ -380,22 +380,22 @@ let g:ctrlp_prompt_mappings = {
             \ }
 
 Plug 'tacahiroy/ctrlp-funky'
-nnoremap fu :CtrlPFunky<Cr>
-nnoremap fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap gu :CtrlPFunky<Cr>
+nnoremap gU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 set rtp+=/opt/soft/fzf
 set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
-nnoremap fs :Files!<CR>
+nnoremap gs :Files!<CR>
 "nmap <C-e> :Buffers<CR>
 let g:fzf_action = { 'ctrl-e': 'edit' }
-cnoreabbrev fzf FZF
+cnoreabbrev gzf FZF
 
 Plug 'mileszs/ack.vim'
 "let g:ackprg = 'ag --nogroup --color --column'
-nnoremap ff :Ack<space>
+nnoremap ga :Ack<space>
 
 "中文排版"
 Plug 'hotoo/pangu.vim'
