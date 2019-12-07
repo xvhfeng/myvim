@@ -295,8 +295,8 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'dyng/ctrlsf.vim'
-nmap gsf :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-nmap gaw :CtrlSF <C-R>=expand("<cword>") <CR>
+nmap gfw :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+nmap gfa :CtrlSF <C-R>=expand("<cword>") <CR>
 let g:ctrlsf_mapping  = {
             \ "openb"    : ["<CR>", "o"],
             \ "open"   : "O",
@@ -316,11 +316,13 @@ let g:ctrlsf_mapping  = {
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-x><c-p>'
 nmap <c-x><c-p> <ESC>:CtrlP ../
+nmap gh :CtrlPMRU<CR>
+nmap gp :CtrlPMixed<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_reuse_window = 'netrw'
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 let g:ctrlp_working_path_mode = 'ca'
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn)$',
             \ 'file': '\v\.(exe|so|dll)$',
