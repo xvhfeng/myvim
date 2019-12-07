@@ -24,11 +24,11 @@ Plug 'vim-scripts/ZoomWin'
 "move bunch
 Plug 'easymotion/vim-easymotion'
 " <Leader>f{char} to move to {char}
-map  gf <Plug>(easymotion-bd-f)
-nmap gf <Plug>(easymotion-overwin-f)
+map  gc <Plug>(easymotion-bd-f)
+nmap gc <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap gc <Plug>(easymotion-overwin-f2)
+nmap gb <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map gl <Plug>(easymotion-bd-jk)
@@ -388,7 +388,7 @@ let g:ctrlp_extensions = ['funky']
 set rtp+=/opt/soft/fzf
 set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
-nnoremap gs :Files!<CR>
+nnoremap gf :Files!<CR>
 "nmap <C-e> :Buffers<CR>
 let g:fzf_action = { 'ctrl-e': 'edit' }
 cnoreabbrev gzf FZF
