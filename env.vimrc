@@ -144,7 +144,7 @@ set foldlevel=1
 " 缩进配置
 set smartindent   " Smart indent
 set autoindent    " always set autoindenting on
-set copyindent
+"set copyindent
 " never add copyindent, case error   " copy the previous indentation on autoindenting
 "c程序可以在v模式中按=格式化
 set cin

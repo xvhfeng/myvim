@@ -6,7 +6,7 @@ let $BUNDLE = expand("$HOME/.vim/bundle")
 
 if empty(glob(expand("$BUNDLE/plug.vim")))
     silent !curl -fLo $BUNDLE/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
 
@@ -24,11 +24,11 @@ Plug 'vim-scripts/ZoomWin'
 "move bunch
 Plug 'easymotion/vim-easymotion'
 " <Leader>f{char} to move to {char}
-map  gf <Plug>(easymotion-bd-f)
-nmap gf <Plug>(easymotion-overwin-f)
+map  gc <Plug>(easymotion-bd-f)
+nmap gc <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap gc <Plug>(easymotion-overwin-f2)
+nmap gb <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map gl <Plug>(easymotion-bd-jk)
@@ -66,6 +66,11 @@ map + <Plug>(expand_region_expand)
 map _ <Plug>(expand_region_shrink)
 
 " 快速加入修改环绕字符
+" put ds' delete '
+" put cs' ( change ' to ()
+" ysiw' insert ' round word with space
+" ysiwb insert () round word without space
+" yss' insert ' round line
 Plug 'tpope/vim-surround'
 
 " for repeat -> enhance surround.vim, . to repeat command
@@ -95,9 +100,9 @@ let g:indentLine_enabled = 1
 "let g:indentLine_char = '|'
 
 "undo tree
-Plug 'sjl/gundo.vim'
-nmap <c-x>u :GundoToggle<CR>
-let g:gundo_close_on_revert  = 1
+"Plug 'sjl/gundo.vim'
+"nmap <c-x>u :GundoToggle<CR>
+"let g:gundo_close_on_revert  = 1
 
 "--------------------
 " for c
@@ -106,11 +111,11 @@ let g:gundo_close_on_revert  = 1
 Plug 'xvhfeng/c.vim'
 
 if g:ENV == "LINUX"
-    let g:C_GlobalTemplateFile	= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_GlobalTemplateDir		=  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+    let g:C_GlobalTemplateFile  = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_GlobalTemplateDir       =  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 else "for mac
-    let g:C_LocalTemplateFile		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_LocalTemplateDir		= g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
+    let g:C_LocalTemplateFile       = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
+    let g:C_LocalTemplateDir        = g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 endif
 
 "nnoremap <c-i>k \cc
@@ -119,10 +124,10 @@ map cc \cc
 map cu \co
 "map <M-x><M-c> \cc
 
-Plug 'vim-scripts/CRefVim'
-if !hasmapto('<Plug>CRV_CRefVimInvoke')
-    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
-endif
+"Plug 'vim-scripts/CRefVim'
+""if !hasmapto('<Plug>CRV_CRefVimInvoke')
+"    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
+"endif
 
 Plug 'vim-scripts/a.vim'
 if (!exists('g:alternateSearchPath'))
@@ -134,20 +139,20 @@ nnoremap he <ESC>:w!<ESC>:A!<CR>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
- let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
- let g:NERDCompactSexyComs = 1
+let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code
 " indentation
- let g:NERDDefaultAlign = 'left'
+let g:NERDDefaultAlign = 'left'
 " Set a language to use its alternate delimiters by default
- let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_c = 1
 " Add your own custom formats or override the defaults
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " Allow commenting and inverting empty lines (useful when commenting a region)
- let g:NERDCommentEmptyLines = 1
+let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
- let g:NERDTrimTrailingWhitespace = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 " 多语言语法检查
 Plug 'scrooloose/syntastic'
@@ -161,8 +166,8 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Plug 'tpope/vim-commentary'
 
 "加入代码快
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
@@ -185,16 +190,16 @@ map <c-x><c-f> <ESC>:Dox<cr>
 "--------------------
 
 "###### Markdown #########
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_conceal = 0
+"Plug 'plasticboy/vim-markdown'
+"let g:vim_markdown_folding_disabled=1
+"let g:vim_markdown_conceal = 0
 
 
 "---------------------
 "for ReST
 "_____________________
-Plug 'Rykka/riv.vim'
-Plug 'Rykka/InstantRst'
+"Plug 'Rykka/riv.vim'
+"Plug 'Rykka/InstantRst'
 
 "--------------------
 " for subject
@@ -210,35 +215,35 @@ let g:solarized_visibility="normal"
 Plug 'tomasr/molokai'
 "let g:molokai_original = 1
 
-Plug 'Glench/Vim-Jinja2-Syntax'
+"Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'kamichidu/vim-edit-properties'
 
 "--------------------
 " for javascript
 "--------------------
-Plug 'nono/jquery.vim'
-Plug 'pangloss/vim-javascript'
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+"Plug 'nono/jquery.vim'
+"Plug 'pangloss/vim-javascript'
+"let g:html_indent_inctags = "html,body,head,tbody"
+"let g:html_indent_script1 = "inc"
+"let g:html_indent_style1 = "inc"
 
 "--------------------
 " for php
 "--------------------
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
-Plug 'erikfercak/php-search-doc'
-Plug 'lucapette/vim-jquery-doc'
+"Plug 'stephpy/vim-php-cs-fixer'
+"Plug 'arnaud-lb/vim-php-namespace'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
+"Plug 'erikfercak/php-search-doc'
+"Plug 'lucapette/vim-jquery-doc'
 
 "--------------------
 " for html, haml, sass
 "--------------------
-Plug 'tpope/vim-haml'
-" 自动补全html/xml标签
-Plug 'docunext/closetag.vim'
-let g:closetag_html_style=1
+"Plug 'tpope/vim-haml'
+"" 自动补全html/xml标签
+"Plug 'docunext/closetag.vim'
+"let g:closetag_html_style=1
 
 Plug 'vim-scripts/JSON.vim'
 
@@ -290,32 +295,34 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'dyng/ctrlsf.vim'
-nmap fwq :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-nmap fw :CtrlSF <C-R>=expand("<cword>") <CR>
- let g:ctrlsf_mapping  = {
-     \ "openb"    : ["<CR>", "o"],
-    \ "open"   : "O",
-    \ "split"   : "<C-O>",
-    \ "vsplit"  : "",
-    \ "tab"     : "t",
-    \ "tabb"    : "T",
-    \ "popen"   : "p",
-    \ "quit"    : "q",
-    \ "next"    : "<C-J>",
-    \ "prev"    : "<C-K>",
-    \ "pquit"   : "q",
-    \ "loclist" : "",
-    \ }
+nmap gfw :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+nmap gfa :CtrlSF <C-R>=expand("<cword>") <CR>
+let g:ctrlsf_mapping  = {
+            \ "openb"    : ["<CR>", "o"],
+            \ "open"   : "O",
+            \ "split"   : "<C-O>",
+            \ "vsplit"  : "",
+            \ "tab"     : "t",
+            \ "tabb"    : "T",
+            \ "popen"   : "p",
+            \ "quit"    : "q",
+            \ "next"    : "<C-J>",
+            \ "prev"    : "<C-K>",
+            \ "pquit"   : "q",
+            \ "loclist" : "",
+            \ }
 
 
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<c-x>p'
+let g:ctrlp_map = '<c-x><c-p>'
 nmap <c-x><c-p> <ESC>:CtrlP ../
+nmap gh :CtrlPMRU<CR>
+nmap gp :CtrlPMixed<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_reuse_window = 'netrw'
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 let g:ctrlp_working_path_mode = 'ca'
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn)$',
             \ 'file': '\v\.(exe|so|dll)$',
@@ -337,60 +344,60 @@ let g:ctrlp_regexp = 0
 "自定义搜索列表的提示符
 let g:ctrlp_line_prefix = '♪ '
 "let g:ctrlp_match_window = 'right,order:ttb,min:1,max:10,results:25'
- let g:ctrlp_prompt_mappings = {
-     \ 'PrtBS()':              ['<bs>', '<c-]>'],
-     \ 'PrtDelete()':          ['<del>'],
-     \ 'PrtDeleteWord()':      ['<c-w>'],
-     \ 'PrtClear()':           ['<c-u>'],
-     \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-     \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-     \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
-     \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
-     \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
-     \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-     \ 'PrtHistory(-1)':       ['<c-j>'],
-     \ 'PrtHistory(1)':        ['<c-k>'],
-     \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
-     \ 'AcceptSelection("t")': ['<c-t>'],
-     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
-     \ 'ToggleFocus()':        ['<s-tab>'],
-     \ 'ToggleRegex()':        ['<c-r>'],
-     \ 'ToggleByFname()':      ['<c-d>'],
-     \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
-     \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
-     \ 'PrtExpandDir()':       ['<tab>'],
-     \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
-     \ 'PrtInsert()':          ['<c-\>'],
-     \ 'PrtCurStart()':        ['<c-a>'],
-     \ 'PrtCurEnd()':          ['<c-e>'],
-     \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-     \ 'PrtCurRight()':        ['<c-l>', '<right>'],
-     \ 'PrtClearCache()':      ['<F5>'],
-     \ 'PrtDeleteEnt()':       ['<F7>'],
-     \ 'CreateNewFile()':      ['<c-y>'],
-     \ 'MarkToOpen()':         ['<c-z>'],
-     \ 'OpenMulti()':          ['<c-o>'],
-     \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
-     \ }
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtBS()':              ['<bs>', '<c-]>'],
+            \ 'PrtDelete()':          ['<del>'],
+            \ 'PrtDeleteWord()':      ['<c-w>'],
+            \ 'PrtClear()':           ['<c-u>'],
+            \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+            \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+            \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
+            \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
+            \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
+            \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
+            \ 'PrtHistory(-1)':       ['<c-j>'],
+            \ 'PrtHistory(1)':        ['<c-k>'],
+            \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+            \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
+            \ 'AcceptSelection("t")': ['<c-t>'],
+            \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+            \ 'ToggleFocus()':        ['<s-tab>'],
+            \ 'ToggleRegex()':        ['<c-r>'],
+            \ 'ToggleByFname()':      ['<c-d>'],
+            \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
+            \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+            \ 'PrtExpandDir()':       ['<tab>'],
+            \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
+            \ 'PrtInsert()':          ['<c-\>'],
+            \ 'PrtCurStart()':        ['<c-a>'],
+            \ 'PrtCurEnd()':          ['<c-e>'],
+            \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
+            \ 'PrtCurRight()':        ['<c-l>', '<right>'],
+            \ 'PrtClearCache()':      ['<F5>'],
+            \ 'PrtDeleteEnt()':       ['<F7>'],
+            \ 'CreateNewFile()':      ['<c-y>'],
+            \ 'MarkToOpen()':         ['<c-z>'],
+            \ 'OpenMulti()':          ['<c-o>'],
+            \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+            \ }
 
 Plug 'tacahiroy/ctrlp-funky'
-nnoremap fu :CtrlPFunky<Cr>
-nnoremap fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap gu :CtrlPFunky<Cr>
+nnoremap gU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 set rtp+=/opt/soft/fzf
 set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf.vim'
-nnoremap fs :Files!<CR>
+nnoremap gf :Files!<CR>
 "nmap <C-e> :Buffers<CR>
 let g:fzf_action = { 'ctrl-e': 'edit' }
-cnoreabbrev fzf FZF
+cnoreabbrev gzf FZF
 
 Plug 'mileszs/ack.vim'
 "let g:ackprg = 'ag --nogroup --color --column'
-nnoremap ff :Ack<space>
+nnoremap ga :Ack<space>
 
 "中文排版"
 Plug 'hotoo/pangu.vim'
@@ -398,7 +405,7 @@ Plug 'hotoo/pangu.vim'
 Plug 'will133/vim-dirdiff'
 
 "cmake的提示
-Plug 'pboettch/vim-cmake-syntax'
+"Plug 'pboettch/vim-cmake-syntax'
 
 "光标下的单词高亮"
 Plug 'pboettch/vim-highlight-cursor-words'
@@ -408,10 +415,10 @@ let g:HiCursorWords_linkStyle='VisualNOS'
 Plug 'xvhfeng/vim-clang-format'
 let g:clang_format#auto_format = 1
 " map to <Leader>cf in C++ code
- autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
- autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 " " if you install vim-operator-user
- "autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+"autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 let g:clang_format#style_options = {
@@ -455,7 +462,7 @@ let g:NERDTreeShowLineNumbers=1
 ""打开vim时自动打开NERDTree
 "autocmd vimenter * NERDTree
 
- " jump to the main window.
+" jump to the main window.
 " autocmd VimEnter * wincmd p
 
 
@@ -484,19 +491,34 @@ let g:NERDTreeIndicatorMapCustom = {
             \ "Unknown"   : "?"
             \ }
 
-Plug 'tenfyzhong/CompleteParameter.vim'
-let g:complete_parameter_echo_signature = 1
-let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+"nm 会tm自动括号，极其讨厌
+"Plug 'tenfyzhong/CompleteParameter.vim'
+"let g:complete_parameter_echo_signature = 1
+"let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 "inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
-inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 
 "括号对齐颜色
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+"default use albian.c.rc to make softlink to home floder
+"ln -s /root/myvim/astyle.c.rc ~/.astylerc
+"Plug 'Chiel92/vim-autoformat'
+"let g:formatdef_af = '"!astyle --style=google --attach-inlines / -xl"'
+"let g:formatters_cpp = ['af']
+"let g:formatters_c = ['af']
+"au BufWrite * :Autoformat
+
+Plug 'xvhfeng/google.vim'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 filetype plugin indent on

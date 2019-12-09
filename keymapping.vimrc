@@ -190,12 +190,12 @@ nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
 
-"Jump to start and end of line using the home row keys
-"nmap t o<ESC>k
-"nmap T O<ESC>j
+"add blank newline and keep cursor not move
+nnoremap t m`o<Esc>k``
+nnoremap T m`O<Esc>j``
 
-nnoremap t  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>
-nnoremap T  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+nnoremap E el
+nnoremap B bh
 
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
@@ -245,3 +245,14 @@ nnoremap  <silent> wr viwp
 ":command Q q
 ":command Qa qa
 ":command QA qa
+"
+"""""""""""""""""""""""""""""""""""""""""""""""
+" Seting clang-format
+"""""""""""""""""""""""""""""""""""""""""""""""
+"map <C-F> :pyf ~/.vim/clang-format.py<cr>
+"imap <C-F> <c-o>:pyf ~/.vim/clang-format.py<cr>
+function! Formatonsave()
+    let l:formatdiff = 1
+    pyf ~/.vim/clang-format.py
+endfunction
+"autocmd BufWritePre *.c,*.h,*.cc,*.cpp call Formatonsave()

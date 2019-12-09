@@ -330,3 +330,26 @@ fun! SetupCommandAlias(from, to)
         \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
+
+function! IndentIgnoringComments()
+ let in_comment = 0
+  for i in range(1, line('$'))
+    if !in_comment
+      " Check if this line starts a comment
+      if getline(i) =~# '^\s*/\*'
+      "if getline(i) =~# '^\s*/\*\*'
+        let in_comment = 1
+      else
+        " Indent line 'i'
+        execute i . "normal =="
+      endif
+    else
+      " Check if this line ends the comment
+      if getline(i) =~# '\*\/\s*$'
+        let in_comment = 0
+      endif
+    endif
+  endfor
+endfunction
+nnoremap <leader>= :call IndentIgnoringComments()<CR>
+
