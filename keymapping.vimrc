@@ -233,8 +233,8 @@ cmap w!! w !sudo tee > /dev/null %
 nmap <leader>vt :vert term<cr>
 nmap <leader>st :term<cr>
 "command alias
-cnoreabbrev bt vert term
-cnoreabbrev bt term
+cnoreabbrev vt vert term
+cnoreabbrev st  term
 
 "使用剪贴板替换当前单词
 nnoremap  <silent> wr viwp

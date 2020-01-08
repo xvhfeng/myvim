@@ -72,6 +72,8 @@ map _ <Plug>(expand_region_shrink)
 " ysiwb insert () round word without space
 " yss' insert ' round line
 Plug 'tpope/vim-surround'
+nmap yw ysiwb
+nmap  yl yssb
 
 " for repeat -> enhance surround.vim, . to repeat command
 Plug 'tpope/vim-repeat'
