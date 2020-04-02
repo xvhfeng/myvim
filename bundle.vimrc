@@ -522,6 +522,51 @@ Plug 'xvhfeng/google.vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+Plug 'rust-lang/rust.vim'
+
+"new file windows mgr in vim
+"must install nnn,you can install by github
+Plug 'mcchrish/nnn.vim'
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+" Then set your own
+nnoremap <silent> <leader>nn :NnnPicker<CR>
+" Or override
+" Start nnn in the current file's directory
+nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+" Opens the nnn window in a split
+let g:nnn#layout = 'new' " or vnew, tabnew etc.
+"
+" Or pass a dictionary with window size
+let g:nnn#layout = { 'left': '~20%' } " or right, up, down
+"
+" Floating window (neovim latest and vim with patch 8.2.191)
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+let g:nnn#command = 'nnn -d'
+
+" or pass some env variables
+let g:nnn#command = 'NNN_TRASH=1 nnn -d'
+
+Plug 'wellle/context.vim'
+let g:context_enabled = 1
+autocmd VimEnter     * ContextActivate
+autocmd BufAdd       * call context#update('BufAdd')
+autocmd BufEnter     * call context#update('BufEnter')
+autocmd CursorMoved  * call context#update('CursorMoved')
+autocmd VimResized   * call context#update('VimResized')
+autocmd CursorHold   * call context#update('CursorHold')
+autocmd User GitGutter call context#update('GitGutter')
+nnoremap <silent> <C-Y> <C-Y>:call context#update('C-Y')<CR>
+nnoremap <silent> <C-E> <C-E>:call context#update('C-E')<CR>
+nnoremap <silent> zz       zz:call context#update('zz')<CR>
+nnoremap <silent> zb       zb:call context#update('zb')<CR>
+nnoremap <silent> <expr> zt context#util#map_zt()
+nnoremap <silent> <expr> H  context#util#map_H()
+
 call plug#end()
 filetype plugin indent on
 filetype on
