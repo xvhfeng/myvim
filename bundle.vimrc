@@ -551,6 +551,22 @@ let g:nnn#command = 'nnn -d'
 " or pass some env variables
 let g:nnn#command = 'NNN_TRASH=1 nnn -d'
 
+Plug 'wellle/context.vim'
+let g:context_enabled = 1
+autocmd VimEnter     * ContextActivate
+autocmd BufAdd       * call context#update('BufAdd')
+autocmd BufEnter     * call context#update('BufEnter')
+autocmd CursorMoved  * call context#update('CursorMoved')
+autocmd VimResized   * call context#update('VimResized')
+autocmd CursorHold   * call context#update('CursorHold')
+autocmd User GitGutter call context#update('GitGutter')
+nnoremap <silent> <C-Y> <C-Y>:call context#update('C-Y')<CR>
+nnoremap <silent> <C-E> <C-E>:call context#update('C-E')<CR>
+nnoremap <silent> zz       zz:call context#update('zz')<CR>
+nnoremap <silent> zb       zb:call context#update('zb')<CR>
+nnoremap <silent> <expr> zt context#util#map_zt()
+nnoremap <silent> <expr> H  context#util#map_H()
+
 call plug#end()
 filetype plugin indent on
 filetype on
