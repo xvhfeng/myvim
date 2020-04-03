@@ -45,12 +45,7 @@ nmap gw <Plug>(easymotion-overwin-w)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-
 Plug 'vim-scripts/ZoomWin'
-
-"Plug 'jlanzarotta/bufexplorer'
-":vmap <c-x>b <esc>:BufExplorer<cr>
-":nmap <c-x>b <esc>:BufExplorer<cr>
 
 Plug 'trotter/autojump.vim'
 
@@ -101,11 +96,6 @@ let g:indentLine_enabled = 1
 "hi Conceal ctermfg=red ctermbg=red
 "let g:indentLine_char = '|'
 
-"undo tree
-"Plug 'sjl/gundo.vim'
-"nmap <c-x>u :GundoToggle<CR>
-"let g:gundo_close_on_revert  = 1
-
 "--------------------
 " for c
 "--------------------
@@ -120,16 +110,9 @@ else "for mac
     let g:C_LocalTemplateDir        = g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
 endif
 
-"nnoremap <c-i>k \cc
-"nnoremap <c-i>u \co
 map cc \cc
 map cu \co
 "map <M-x><M-c> \cc
-
-"Plug 'vim-scripts/CRefVim'
-""if !hasmapto('<Plug>CRV_CRefVimInvoke')
-"    map <silent> <unique> <Leader>ci <Plug>CRV_CRefVimInvoke
-"endif
 
 Plug 'vim-scripts/a.vim'
 if (!exists('g:alternateSearchPath'))
@@ -167,25 +150,11 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 Plug 'tpope/vim-commentary'
 
-"加入代码快
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<Tab>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Plug 'The-NERD-Commenter'
-Plug 'vim-scripts/ShowTrailingWhitespace'
-
 Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_returnTag="@Returns:"
 let g:DoxygenToolkit_paramTag_pre="@"
 let g:DoxygenToolkit_briefTag_pre="@Remark:"
 map <c-x><c-f> <ESC>:Dox<cr>
-
 
 "--------------------
 " for markdown
@@ -195,13 +164,6 @@ map <c-x><c-f> <ESC>:Dox<cr>
 "Plug 'plasticboy/vim-markdown'
 "let g:vim_markdown_folding_disabled=1
 "let g:vim_markdown_conceal = 0
-
-
-"---------------------
-"for ReST
-"_____________________
-"Plug 'Rykka/riv.vim'
-"Plug 'Rykka/InstantRst'
 
 "--------------------
 " for subject
@@ -230,32 +192,15 @@ Plug 'kamichidu/vim-edit-properties'
 "let g:html_indent_style1 = "inc"
 
 "--------------------
-" for php
-"--------------------
-"Plug 'stephpy/vim-php-cs-fixer'
-"Plug 'arnaud-lb/vim-php-namespace'
-"Plug 'shawncplus/phpcomplete.vim'
-"Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
-"Plug 'erikfercak/php-search-doc'
-"Plug 'lucapette/vim-jquery-doc'
-
-"--------------------
 " for html, haml, sass
 "--------------------
-"Plug 'tpope/vim-haml'
-"" 自动补全html/xml标签
-"Plug 'docunext/closetag.vim'
-"let g:closetag_html_style=1
-
 Plug 'vim-scripts/JSON.vim'
 
 "--------------------
 " for database
 "--------------------
-
 Plug 'vim-scripts/SQLComplete.vim'
 let g:sql_type_default = 'mysql'
-
 
 Plug 'Shougo/vimproc'
 Plug 'Shougo/unite.vim'
@@ -265,21 +210,6 @@ let g:unite_ignore_source_files = ['*.o']
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_source_line_enable_highlight = 1
-
-"nnoremap <c-x>p :Unite file_rec/async -auto-preview<cr>
-nnoremap <c-x>/ :Unite  -start-insert -no-split grep:.<cr>
-nnoremap <space>y :Unite -start-insert -no-split history/yank<cr>
-nmap <c-x>b :Unite  -no-split -start-insert buffer<cr>
-vmap <c-x>b :Unite  -no-split -start-insert buffer<cr>
-nnoremap <space>a :UniteBookmarkAdd <cr>
-nnoremap <space>c :Unite bookmark<CR>
-
-Plug 'Shougo/neomru.vim'
-nnoremap <c-x>m :Unite file_mru<CR>
-
-Plug 'Shougo/vimfiler.vim'
-let g:vimfiler_safe_mode_by_default = 0
-nnoremap <c-x>f :VimFilerBufferDir<CR>
 
 Plug 'Shougo/unite-outline'
 nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
@@ -314,89 +244,6 @@ let g:ctrlsf_mapping  = {
             \ "loclist" : "",
             \ }
 
-
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<c-x><c-p>'
-nmap <c-x><c-p> <ESC>:CtrlP ../
-nmap gh :CtrlPMRU<CR>
-nmap gp :CtrlPMixed<CR>
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_reuse_window = 'netrw'
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-let g:ctrlp_working_path_mode = 'ca'
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_working_path_mode = 1
-let g:ctrlp_match_window_bottom = 1
-"修改QuickFix窗口显示的最大条目数
-let g:ctrlp_max_height = 50
-let g:ctrlp_match_window_reversed = 0
-""设置MRU最大条目数为500
-let g:ctrlp_mruf_max = 500
-let g:ctrlp_follow_symlinks = 1
-"默认使用全路径搜索，置1后按文件名搜索，准确率会有所提高，可以用<C-d>进行切换
-let g:ctrlp_by_filename = 1
-""默认不使用正则表达式，置1改为默认使用正则表达式，可以用<C-r>进行切换
-let g:ctrlp_regexp = 0
-"自定义搜索列表的提示符
-let g:ctrlp_line_prefix = '♪ '
-"let g:ctrlp_match_window = 'right,order:ttb,min:1,max:10,results:25'
-let g:ctrlp_prompt_mappings = {
-            \ 'PrtBS()':              ['<bs>', '<c-]>'],
-            \ 'PrtDelete()':          ['<del>'],
-            \ 'PrtDeleteWord()':      ['<c-w>'],
-            \ 'PrtClear()':           ['<c-u>'],
-            \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-            \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-            \ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
-            \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
-            \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
-            \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-            \ 'PrtHistory(-1)':       ['<c-j>'],
-            \ 'PrtHistory(1)':        ['<c-k>'],
-            \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-            \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>'],
-            \ 'AcceptSelection("t")': ['<c-t>'],
-            \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
-            \ 'ToggleFocus()':        ['<s-tab>'],
-            \ 'ToggleRegex()':        ['<c-r>'],
-            \ 'ToggleByFname()':      ['<c-d>'],
-            \ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
-            \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
-            \ 'PrtExpandDir()':       ['<tab>'],
-            \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
-            \ 'PrtInsert()':          ['<c-\>'],
-            \ 'PrtCurStart()':        ['<c-a>'],
-            \ 'PrtCurEnd()':          ['<c-e>'],
-            \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-            \ 'PrtCurRight()':        ['<c-l>', '<right>'],
-            \ 'PrtClearCache()':      ['<F5>'],
-            \ 'PrtDeleteEnt()':       ['<F7>'],
-            \ 'CreateNewFile()':      ['<c-y>'],
-            \ 'MarkToOpen()':         ['<c-z>'],
-            \ 'OpenMulti()':          ['<c-o>'],
-            \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
-            \ }
-
-Plug 'tacahiroy/ctrlp-funky'
-nnoremap gu :CtrlPFunky<Cr>
-nnoremap gU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_extensions = ['funky']
-
-set rtp+=/opt/soft/fzf
-set rtp+=/usr/local/opt/fzf
-Plug 'junegunn/fzf.vim'
-nnoremap gf :Files!<CR>
-"nmap <C-e> :Buffers<CR>
-let g:fzf_action = { 'ctrl-e': 'edit' }
-cnoreabbrev gzf FZF
-
 Plug 'mileszs/ack.vim'
 "let g:ackprg = 'ag --nogroup --color --column'
 nnoremap ga :Ack<space>
@@ -412,7 +259,6 @@ Plug 'will133/vim-dirdiff'
 "光标下的单词高亮"
 Plug 'pboettch/vim-highlight-cursor-words'
 let g:HiCursorWords_linkStyle='VisualNOS'
-
 
 Plug 'xvhfeng/vim-clang-format'
 let g:clang_format#auto_format = 1
@@ -450,75 +296,11 @@ let g:clang_format#style_options = {
 
 Plug 'xvhfeng/gft4c'
 
-Plug 'scrooloose/nerdtree'
-set autochdir
-let NERDTreeChDirMode=2
-map <c-x><c-o> :NERDTree .<CR>
-let NERDTreeIgnore=['\.d$[[dir]]', '\.o$[[file]]']
-""修改树的显示图标
-let g:NERDTreeWinSize = 50 "设定 NERDTree 视窗大小
-"没有buffer，自动关闭vim
-autocmd bufenter * if (winnr("$")== 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeQuitOnOpen=1
-let g:NERDTreeShowLineNumbers=1
-""打开vim时自动打开NERDTree
-"autocmd vimenter * NERDTree
-
-" jump to the main window.
-" autocmd VimEnter * wincmd p
-
-
-
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeFileExtensionHighlightFullName    = 1
-let g:NERDTreeExactMatchHighlightFullName       = 1
-let g:NERDTreePatternMatchHighlightFullName     = 1
-let g:NERDTreeHighlightFolders                  = 1
-let g:NERDTreeHighlightFoldersFullName          = 1
-let g:NERDTreeDirArrowExpandable                = '>'
-let g:NERDTreeDirArrowCollapsible               = '▼'
-
-" nerdtree-git-plugin
-let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "✹",
-            \ "Staged"    : "✚",
-            \ "Untracked" : "✭",
-            \ "Renamed"   : "➜",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "✖",
-            \ "Dirty"     : "✗",
-            \ "Clean"     : "✔︎",
-            \ 'Ignored'   : '☒',
-            \ "Unknown"   : "?"
-            \ }
-
-"nm 会tm自动括号，极其讨厌
-"Plug 'tenfyzhong/CompleteParameter.vim'
-"let g:complete_parameter_echo_signature = 1
-"let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-"inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
-"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-
 "括号对齐颜色
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
-"default use albian.c.rc to make softlink to home floder
-"ln -s /root/myvim/astyle.c.rc ~/.astylerc
-"Plug 'Chiel92/vim-autoformat'
-"let g:formatdef_af = '"!astyle --style=google --attach-inlines / -xl"'
-"let g:formatters_cpp = ['af']
-"let g:formatters_c = ['af']
-"au BufWrite * :Autoformat
-
 Plug 'xvhfeng/google.vim'
-"Plug 'ryanoasis/vim-devicons'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -569,6 +351,10 @@ nnoremap <silent> <expr> H  context#util#map_H()
 
 Plug 'vifm/vifm.vim'
 nnoremap <silent> <leader>mm :Vifm<CR>
+
+ Plug 'jlanzarotta/bufexplorer'
+ nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
+ nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
 
 call plug#end()
 filetype plugin indent on
