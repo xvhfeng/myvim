@@ -533,7 +533,7 @@ let g:nnn#set_default_mappings = 0
 nnoremap <silent> <leader>nn :NnnPicker<CR>
 " Or override
 " Start nnn in the current file's directory
-nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+nnoremap <silent> <leader>n :NnnPicker '%:p:h'<CR>
 " Opens the nnn window in a split
 let g:nnn#layout = 'new' " or vnew, tabnew etc.
 "
@@ -566,6 +566,9 @@ nnoremap <silent> zz       zz:call context#update('zz')<CR>
 nnoremap <silent> zb       zb:call context#update('zb')<CR>
 nnoremap <silent> <expr> zt context#util#map_zt()
 nnoremap <silent> <expr> H  context#util#map_H()
+
+Plug 'vifm/vifm.vim'
+nnoremap <silent> <leader>mm :Vifm<CR>
 
 call plug#end()
 filetype plugin indent on
