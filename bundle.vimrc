@@ -49,12 +49,14 @@ Plug 'vim-scripts/ZoomWin'
 
 Plug 'trotter/autojump.vim'
 
-Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_use_default_mapping=1
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-k>'
-let g:multi_cursor_quit_key='<Esc>'
+"Plug 'terryma/vim-multiple-cursors'
+"let g:multi_cursor_use_default_mapping=1
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-k>'
+"let g:multi_cursor_quit_key='<Esc>'
+
+Plug 'mg979/vim-visual-multi'
 
 Plug 'terryma/vim-expand-region'
 map + <Plug>(expand_region_expand)
@@ -333,6 +335,9 @@ let g:nnn#command = 'nnn -d'
 " or pass some env variables
 let g:nnn#command = 'NNN_TRASH=1 nnn -d'
 
+Plug 'vifm/vifm.vim'
+nnoremap <silent> <leader>mm :Vifm<CR>
+
 Plug 'wellle/context.vim'
 let g:context_enabled = 1
 autocmd VimEnter     * ContextActivate
@@ -348,9 +353,6 @@ nnoremap <silent> zz       zz:call context#update('zz')<CR>
 nnoremap <silent> zb       zb:call context#update('zb')<CR>
 nnoremap <silent> <expr> zt context#util#map_zt()
 nnoremap <silent> <expr> H  context#util#map_H()
-
-Plug 'vifm/vifm.vim'
-nnoremap <silent> <leader>mm :Vifm<CR>
 
  Plug 'jlanzarotta/bufexplorer'
  nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
