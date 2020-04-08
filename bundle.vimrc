@@ -312,10 +312,10 @@ Plug 'mcchrish/nnn.vim'
 " Disable default mappings
 let g:nnn#set_default_mappings = 0
 " Then set your own
-nnoremap <silent> <leader>nn :NnnPicker<CR>
+nnoremap <silent> <leader>n :NnnPicker<CR>
 " Or override
 " Start nnn in the current file's directory
-nnoremap <silent> <leader>n :NnnPicker '%:p:h'<CR>
+nnoremap <silent> <leader>nn :NnnPicker '%:p:h'<CR>
 " Opens the nnn window in a split
 let g:nnn#layout = 'new' " or vnew, tabnew etc.
 "
