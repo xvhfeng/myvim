@@ -49,14 +49,12 @@ Plug 'vim-scripts/ZoomWin'
 
 Plug 'trotter/autojump.vim'
 
-"Plug 'terryma/vim-multiple-cursors'
-"let g:multi_cursor_use_default_mapping=1
-"let g:multi_cursor_next_key='<C-n>'
-"let g:multi_cursor_prev_key='<C-p>'
-"let g:multi_cursor_skip_key='<C-k>'
-"let g:multi_cursor_quit_key='<Esc>'
-
-Plug 'mg979/vim-visual-multi'
+Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping=1
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-k>'
+let g:multi_cursor_quit_key='<Esc>'
 
 Plug 'terryma/vim-expand-region'
 map + <Plug>(expand_region_expand)
@@ -314,10 +312,10 @@ Plug 'mcchrish/nnn.vim'
 " Disable default mappings
 let g:nnn#set_default_mappings = 0
 " Then set your own
-nnoremap <silent> <leader>nn :NnnPicker<CR>
+nnoremap <silent> <leader>n :NnnPicker<CR>
 " Or override
 " Start nnn in the current file's directory
-nnoremap <silent> <leader>n :NnnPicker '%:p:h'<CR>
+nnoremap <silent> <leader>nn :NnnPicker '%:p:h'<CR>
 " Opens the nnn window in a split
 let g:nnn#layout = 'new' " or vnew, tabnew etc.
 "
@@ -327,16 +325,13 @@ let g:nnn#layout = { 'left': '~20%' } " or right, up, down
 " Floating window (neovim latest and vim with patch 8.2.191)
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
+            \ '<c-t>': 'tab split',
+            \ '<c-x>': 'split',
+            \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -d'
 
 " or pass some env variables
 let g:nnn#command = 'NNN_TRASH=1 nnn -d'
-
-Plug 'vifm/vifm.vim'
-nnoremap <silent> <leader>mm :Vifm<CR>
 
 Plug 'wellle/context.vim'
 let g:context_enabled = 1
@@ -354,9 +349,89 @@ nnoremap <silent> zb       zb:call context#update('zb')<CR>
 nnoremap <silent> <expr> zt context#util#map_zt()
 nnoremap <silent> <expr> H  context#util#map_H()
 
- Plug 'jlanzarotta/bufexplorer'
- nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
- nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
+Plug 'vifm/vifm.vim'
+nnoremap <silent> <leader>mm :Vifm<CR>
+
+Plug 'jlanzarotta/bufexplorer'
+nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
+nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-tsserver',
+            \'coc-template',
+            \'coc-highlight' ,
+            \'coc-yaml',
+            \'coc-vimlsp',
+            \'coc-tsserver',
+            \'coc-rls',
+            \'coc-java',
+            \'coc-go',
+            \'coc-clangd']
+inoremap <silent><expr> <c-j>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr>  <c-j> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> <c-k> :call <SID>show_documentation()<CR>
+inoremap <silent><expr>  <c-j> coc#refresh()
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format-selected)
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 call plug#end()
 filetype plugin indent on
