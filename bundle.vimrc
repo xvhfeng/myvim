@@ -254,7 +254,7 @@ Plug 'hotoo/pangu.vim'
 Plug 'will133/vim-dirdiff'
 
 "cmake的提示
-"Plug 'pboettch/vim-cmake-syntax'
+Plug 'pboettch/vim-cmake-syntax'
 
 "光标下的单词高亮"
 Plug 'pboettch/vim-highlight-cursor-words'
@@ -356,13 +356,12 @@ Plug 'jlanzarotta/bufexplorer'
 nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
 nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 let g:coc_global_extensions = ['coc-tsserver',
             \'coc-template',
             \'coc-highlight' ,
             \'coc-yaml',
             \'coc-vimlsp',
-            \'coc-tsserver',
             \'coc-rls',
             \'coc-java',
             \'coc-go',
