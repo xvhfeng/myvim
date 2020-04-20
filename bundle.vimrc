@@ -349,8 +349,13 @@ nnoremap <silent> zb       zb:call context#update('zb')<CR>
 nnoremap <silent> <expr> zt context#util#map_zt()
 nnoremap <silent> <expr> H  context#util#map_H()
 
-Plug 'vifm/vifm.vim'
-nnoremap <silent> <leader>mm :Vifm<CR>
+"Plug 'vifm/vifm.vim'
+"nnoremap <silent> <leader>mm :Vifm<CR>
+
+"need install ranger
+"replace vifm
+Plug 'francoiscabrol/ranger.vim'
+nnoremap <silent> <leader>mm :Ranger<CR>
 
 Plug 'jlanzarotta/bufexplorer'
 nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
@@ -430,6 +435,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+
 
 
 call plug#end()
