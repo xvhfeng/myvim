@@ -4,14 +4,14 @@ filetype off
 
 let $BUNDLE = expand("$HOME/.vim/bundle")
 
-if empty(glob(expand("$BUNDLE/plug.vim")))
+if empty(glob(expand("$BUNDLE/vim-plug")))
     silent !curl -fLo $BUNDLE/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
 
 "load plug.vim bundle
-source ~/.vim/bundle/plug.vim
+source ~/.vim/bundle/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
 
 "--------------------

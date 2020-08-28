@@ -158,6 +158,7 @@ set expandtab     " 将Tab自动转化成空格    [需要输入真正的Tab键�
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set cindent shiftwidth=4
 set autoindent shiftwidth=4
+set listchars=tab:>-,trail:- "每行起始的tab显示为“>----”；结尾的空格显示为"-"
 
 " A buffer becomes hidden when it is abandoned
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
