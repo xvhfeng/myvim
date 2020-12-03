@@ -2,7 +2,7 @@ set nocompatible
 "配置插件管理
 filetype off
 
-let $BUNDLE = expand("$HOME/.vim/bundle")
+"let $BUNDLE = expand("$HOME/.vim/bundle")
 
 ""if empty(glob(expand("$BUNDLE/vim-plug")))
 "    silent !curl -fLo $BUNDLE/plug.vim --create-dirs
@@ -11,8 +11,8 @@ let $BUNDLE = expand("$HOME/.vim/bundle")
 "endif
 
 "load plug.vim bundle
-source ~/.vim/bundle/vim-plug/plug.vim
-call plug#begin('~/.vim/bundle/')
+source /root/.vim/bundle/vim-plug/plug.vim
+call plug#begin('/root/.vim/bundle/')
 
 "--------------------
 " for common
@@ -368,8 +368,8 @@ let g:coc_global_extensions = ['coc-tsserver',
             \'coc-yaml',
             \'coc-vimlsp',
             \'coc-rls',
-            \'coc-java',
             \'coc-go',
+            \'coc-java',
             \'coc-clangd']
 inoremap <silent><expr> <c-j>
             \ pumvisible() ? "\<C-n>" :

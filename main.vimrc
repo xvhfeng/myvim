@@ -9,7 +9,7 @@
 """""""""""""""""""""""""""""""""""""""""""
 " install Vundle bundles
 
-let g:ENV= toupper(trim(system('uname -s')))
+silent let g:ENV= toupper(trim(system('uname -s')))
 
 let g:spx_home = ""
 let g:spx_env_file_path = ""
