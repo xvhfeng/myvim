@@ -359,6 +359,7 @@ nnoremap <silent> <leader>mm :Ranger<CR>
 
 Plug 'jlanzarotta/bufexplorer'
 nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
+nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
