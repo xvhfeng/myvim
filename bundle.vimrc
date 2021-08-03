@@ -4,8 +4,8 @@ filetype off
 
 let s:bundle_home = g:spx_home.'/.vim/bundle/'
 let s:bundle_plug = s:bundle_home.'vim-plug/plug.vim'
-echo s:bundle_home
-echo s:bundle_plug
+"echo s:bundle_home
+"echo s:bundle_plug
 
 ""if empty(glob(expand("$BUNDLE/vim-plug")))
 "    silent !curl -fLo $BUNDLE/plug.vim --create-dirs
