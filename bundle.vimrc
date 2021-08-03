@@ -2,7 +2,10 @@ set nocompatible
 "配置插件管理
 filetype off
 
-"let $BUNDLE = expand("$HOME/.vim/bundle")
+let s:bundle_home = g:spx_home.'/.vim/bundle/'
+let s:bundle_plug = s:bundle_home.'vim-plug/plug.vim'
+echo s:bundle_home
+echo s:bundle_plug
 
 ""if empty(glob(expand("$BUNDLE/vim-plug")))
 "    silent !curl -fLo $BUNDLE/plug.vim --create-dirs
@@ -11,8 +14,9 @@ filetype off
 "endif
 
 "load plug.vim bundle
-source /root/.vim/bundle/vim-plug/plug.vim
-call plug#begin('/root/.vim/bundle/')
+" source g:spx_home.'/.vim/bundle/vim-plug/plug.vim'
+exec ":source ".s:bundle_plug
+call plug#begin(s:bundle_home)
 
 "--------------------
 " for common
