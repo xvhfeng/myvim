@@ -364,6 +364,7 @@ nnoremap <silent> <leader>mm :Ranger<CR>
 Plug 'jlanzarotta/bufexplorer'
 nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
 nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
+nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 let g:coc_global_extensions = ['coc-tsserver',
