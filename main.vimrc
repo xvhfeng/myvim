@@ -33,7 +33,6 @@ else
     let g:spx_function_file_path = spx_home."/.vim/function.vimrc"
 endif
 
-echo g:spx_env_file_path
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
