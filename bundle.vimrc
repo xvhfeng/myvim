@@ -2,7 +2,10 @@ set nocompatible
 "配置插件管理
 filetype off
 
-let $BUNDLE = expand("$HOME/.vim/bundle")
+let s:bundle_home = g:spx_home.'/.vim/bundle/'
+let s:bundle_plug = s:bundle_home.'vim-plug/plug.vim'
+"echo s:bundle_home
+"echo s:bundle_plug
 
 ""if empty(glob(expand("$BUNDLE/vim-plug")))
 "    silent !curl -fLo $BUNDLE/plug.vim --create-dirs
@@ -11,8 +14,9 @@ let $BUNDLE = expand("$HOME/.vim/bundle")
 "endif
 
 "load plug.vim bundle
-source ~/.vim/bundle/vim-plug/plug.vim
-call plug#begin('~/.vim/bundle/')
+" source g:spx_home.'/.vim/bundle/vim-plug/plug.vim'
+exec ":source ".s:bundle_plug
+call plug#begin(s:bundle_home)
 
 "--------------------
 " for common
@@ -361,81 +365,82 @@ Plug 'jlanzarotta/bufexplorer'
 nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
 nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
+nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-let g:coc_global_extensions = ['coc-tsserver',
-            \'coc-template',
-            \'coc-highlight' ,
-            \'coc-yaml',
-            \'coc-vimlsp',
-            \'coc-rls',
-            \'coc-java',
-            \'coc-go',
-            \'coc-clangd']
-inoremap <silent><expr> <c-j>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+"let g:coc_global_extensions = ['coc-tsserver',
+"            \'coc-template',
+"            \'coc-highlight' ,
+"            \'coc-yaml',
+"            \'coc-vimlsp',
+"            \'coc-rls',
+"            \'coc-go',
+""            \'coc-java',
+"            \'coc-clangd']
+"inoremap <silent><expr> <c-j>
+"            \ pumvisible() ? "\<C-n>" :
+"            \ <SID>check_back_space() ? "\<TAB>" :
+"            \ coc#refresh()
 "inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr>  <c-j> coc#refresh()
+"inoremap <silent><expr>  <c-j> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+"if exists('*complete_info')
+"    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+"    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> <c-k> :call <SID>show_documentation()<CR>
-inoremap <silent><expr>  <c-j> coc#refresh()
+"nnoremap <silent> <c-k> :call <SID>show_documentation()<CR>
+"inoremap <silent><expr>  <c-j> coc#refresh()
 
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+"function! s:show_documentation()
+"    if (index(['vim','help'], &filetype) >= 0)
+"        execute 'h '.expand('<cword>')
+"    else
+"        call CocAction('doHover')
+"    endif
+"endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+"nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>fm  <Plug>(coc-format-selected)
-nmap <leader>fm  <Plug>(coc-format-selected)
+"xmap <leader>fm  <Plug>(coc-format-selected)
+"nmap <leader>fm  <Plug>(coc-format-selected)
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
+"command! -nargs=0 Format :call CocAction('format')
+"
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+"command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 

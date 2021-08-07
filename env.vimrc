@@ -39,8 +39,8 @@ set wildmenu
 "开启鼠标
 set mouse=a
 " 启动的时候不显示那个援助索马里儿童的提示
-:silent !<command>
-set shortmess=a
+set shortmess=atI
+
 " 不让vim发出讨厌的滴滴声
 set novisualbell         " don't beep
 set noerrorbells
