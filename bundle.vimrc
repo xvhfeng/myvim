@@ -21,6 +21,9 @@ call plug#begin(s:bundle_home)
 "--------------------
 " for common
 "--------------------
+
+Plug 'xvhfeng/vim-plug'
+
 Plug 'vim-scripts/genutils'
 
 Plug 'vim-scripts/ZoomWin'
@@ -215,6 +218,23 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_source_line_enable_highlight = 1
 
+Plug 'tpope/vim-unimpaired'
+
+
+"内置exploer
+let g:netrw_hide = 1 "设置默认隐藏
+let g:netrw_liststyle = 3 " tree 模式显示风格
+let g:netrw_banner = 0 " 显示帮助信息
+let g:netrw_browse_split = 0 "控制 <CR> 直接在当前窗口打开光标下文件
+let g:netrw_winsize = 30 " 占用宽度
+let g:netrw_list_hide= '\(^\|\s\s\)\zs\.\S\+' " 需要隐藏的文件
+let g:netrw_localrmdir = 'trash' "默认的删除工具使用 trash
+let g:netrw_altv = 1 " 控制 v 分裂的窗口位于右边
+let g:netrw_preview = 1 " 默认是水平分割, 此项设置使之垂直分割
+let g:netrw_alto = 0 " 控制预览窗口位于左侧或右侧, 与 netrw_preview 共同作用
+" let g:netrw_chgwin = 2 " 控制按下 <CR> 的新文件在位于屏幕右侧的 2 号窗口打开, Lex 默认会设为 2
+
+
 Plug 'Shougo/unite-outline'
 nnoremap <c-x>o :Unite  -start-insert -no-split outline<CR>
 
@@ -230,27 +250,40 @@ map - :tagbar_map_closefold
 
 Plug 'ervandew/supertab'
 
-Plug 'dyng/ctrlsf.vim'
-nmap gfw :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
-nmap gfa :CtrlSF <C-R>=expand("<cword>") <CR>
-let g:ctrlsf_mapping  = {
-            \ "openb"    : ["<CR>", "o"],
-            \ "open"   : "O",
-            \ "split"   : "<C-O>",
-            \ "vsplit"  : "",
-            \ "tab"     : "t",
-            \ "tabb"    : "T",
-            \ "popen"   : "p",
-            \ "quit"    : "q",
-            \ "next"    : "<C-J>",
-            \ "prev"    : "<C-K>",
-            \ "pquit"   : "q",
-            \ "loclist" : "",
-            \ }
+Plug 'Yggdroot/LeaderF'
+nnoremap <c-c><c-f> :Leaderf rg <SPACE>
+noremap <c-x><c-f> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+"<C-C>, <ESC> : 退出 LeaderF.
+"<C-R> : 在模糊匹配和正则式匹配之间切换
+"<C-F> : 在全路径搜索和名字搜索之间切换
+"<Tab> : 在检索模式和选择模式之间切换
+"<C-J>, <C-K> : 在结果列表里选择
+"<C-X> : 在水平窗口打开
+"<C-]> : 在垂直窗口打开
+"<C-T> : 在新标签打开
+"<C-P> : 预览结果
 
-Plug 'mileszs/ack.vim'
-"let g:ackprg = 'ag --nogroup --color --column'
-nnoremap ga :Ack<space>
+"Plug 'dyng/ctrlsf.vim'
+"nmap gfw :CtrlSFQuickfix <C-R>=expand("<cword>") <CR>
+"nmap gfa :CtrlSF <C-R>=expand("<cword>") <CR>
+"let g:ctrlsf_mapping  = {
+"            \ "openb"    : ["<CR>", "o"],
+"            \ "open"   : "O",
+"            \ "split"   : "<C-O>",
+"            \ "vsplit"  : "",
+"            \ "tab"     : "t",
+"            \ "tabb"    : "T",
+""            \ "popen"   : "p",
+"            \ "quit"    : "q",
+"            \ "next"    : "<C-J>",
+"            \ "prev"    : "<C-K>",
+"            \ "pquit"   : "q",
+"            \ "loclist" : "",
+"            \ }
+
+"Plug 'mileszs/ack.vim'
+"""let g:ackprg = 'ag --nogroup --color --column'
+"nnoremap ga :Ack<space>
 
 "中文排版"
 Plug 'hotoo/pangu.vim'

@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/opt/pkg/myvim/bundle'
-let g:netrw_dirhist_2='/mnt/d/work/src/java/eventsys-platform-dataflow-job/.git'
-let g:netrw_dirhist_1='/opt/source/libbgm/src/heap'
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/xuhaifeng/pkgs/myvim'
+let g:netrw_dirhist_5='/Users/xuhaifeng/pkgs/myvim/bundle'
+let g:netrw_dirhist_4='/Users/xuhaifeng/pkgs/myvim'
+let g:netrw_dirhist_3='/Users/xuhaifeng/works/src/ydb2/client'
+let g:netrw_dirhist_2='/Users/xuhaifeng/works/src/ydb2'
+let g:netrw_dirhist_1='/Users/xuhaifeng/works/src'
+let g:netrw_dirhist_0='/Users/xuhaifeng/works/src/ydb2/storage'
+let g:netrw_dirhist_9='/Users/xuhaifeng/works/src/ydb2'
+let g:netrw_dirhist_8='/Users/xuhaifeng/works/src'
+let g:netrw_dirhist_7='/Users/xuhaifeng/works/src/idcreator'
