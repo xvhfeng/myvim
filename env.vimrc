@@ -45,14 +45,14 @@ set shortmess=atI
 set novisualbell         " don't beep
 set noerrorbells
 "自动切换当前目录为当前文件所在目录
-"set autochdir
+set autochdir
 "打开时忽略文件名后缀
 set wildignore+=*.o,*.obj,*.pyc,*.db,*.swp,*.bak,*.class
 "默认就是全buffer搜索
 set gdefault
 "切换到当前tab打开文件的路径下
-"autocmd BufEnter * cd %:p:h
-"autocmd BufEnter * silent! lcd %:p:h
+autocmd BufEnter * cd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 "检测文件类型
 filetype on
 "针对不同的文件类型采用不同的缩进格式
@@ -270,6 +270,7 @@ highlight SpellLocal term=underline cterm=underline
 "==========================================
 autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
 autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
+
 
 " 自动补全配置
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)

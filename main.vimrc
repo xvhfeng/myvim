@@ -60,3 +60,5 @@ if filereadable(expand(g:spx_bundle_file_path))
   exec ":source ".g:spx_bundle_file_path
 endif
 
+set autochdir
+

@@ -222,6 +222,8 @@ Plug 'tpope/vim-unimpaired'
 
 
 "内置exploer
+nnoremap <c-g> :Explore <CR>
+nnoremap <silent> <leader>gg :Explore <CR>
 let g:netrw_hide = 1 "设置默认隐藏
 let g:netrw_liststyle = 3 " tree 模式显示风格
 let g:netrw_banner = 0 " 显示帮助信息
@@ -251,6 +253,7 @@ map - :tagbar_map_closefold
 Plug 'ervandew/supertab'
 
 Plug 'Yggdroot/LeaderF'
+ let g:Lf_WorkingDirectoryMode = 'F'
 nnoremap <c-c><c-f> :Leaderf rg <SPACE>
 noremap <c-x><c-f> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 "<C-C>, <ESC> : 退出 LeaderF.
