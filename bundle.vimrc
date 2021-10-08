@@ -395,6 +395,8 @@ nnoremap <silent> <expr> H  context#util#map_H()
 "need install ranger
 "replace vifm
 Plug 'francoiscabrol/ranger.vim'
+ "open ranger when vim open a directory
+let g:ranger_replace_netrw = 1
 nnoremap <silent> <leader>mm :Ranger<CR>
 
 Plug 'jlanzarotta/bufexplorer'
