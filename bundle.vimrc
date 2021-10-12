@@ -394,6 +394,7 @@ nnoremap <silent> <expr> H  context#util#map_H()
 
 "need install ranger
 "replace vifm
+Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
  "open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
@@ -404,6 +405,8 @@ nnoremap <silent> <c-x>b :ToggleBufExplorer<CR>
 nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 nnoremap <silent> <c-x><c-b> :BufExplorerVerticalSplit<CR>
 nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
+
+Plug 'vim-scripts/lemon.vim'
 
 
 call plug#end()
