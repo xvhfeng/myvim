@@ -128,6 +128,7 @@ endif
 
 "设置c语言的header和c文件转换
 nnoremap he <ESC>:w!<ESC>:A!<CR>
+nnoremap <c-x>h <ESC>:w!<ESC>:A!<cr>
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
