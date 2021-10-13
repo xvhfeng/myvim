@@ -267,6 +267,9 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 "select from current buffer
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
 
 "<C-C>, <ESC> : 退出 LeaderF.
 "<C-R> : 在模糊匹配和正则式匹配之间切换
