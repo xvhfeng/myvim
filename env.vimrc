@@ -27,7 +27,7 @@ set selectmode+=mouse
 "设置自动读取外面对于文件的变更
 set autoread
 "设置命令行高度为2
-set cmdheight=2
+set cmdheight=1
 set nobackup
 set nowb
 set noswapfile
