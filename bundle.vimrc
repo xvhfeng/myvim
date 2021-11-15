@@ -255,8 +255,11 @@ Plug 'ervandew/supertab'
 
 Plug 'Yggdroot/LeaderF'
  let g:Lf_WorkingDirectoryMode = 'F'
- let g:Lf_WindowPosition = 'popup'
+ let g:Lf_WindowPosition = 'fullScreen'
  let g:Lf_PreviewInPopup = 1
+ let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+ "let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
 nnoremap <c-c><c-f> :Leaderf rg <SPACE>
 noremap <c-x><c-f> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 "select file from current floder
@@ -267,6 +270,8 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 "select from current buffer
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap fh :<C-U>Leaderf! rg --recall<CR>
 
 "<C-C>, <ESC> : 退出 LeaderF.
 "<C-R> : 在模糊匹配和正则式匹配之间切换

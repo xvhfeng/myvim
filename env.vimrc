@@ -234,6 +234,12 @@ if has("gui_running")
     endif
 endif
 
+colo desert
+
+filetype plugin on
+set ofu=syntaxcomplete#Complete
+highlight Pmenu guibg=brown gui=bold
+
 "当终端支持颜色显示时打开彩色显示
 if &t_Co > 1
     syntax enable
