@@ -106,20 +106,6 @@ let g:indentLine_enabled = 1
 "--------------------
 " for c
 "--------------------
-"有的时候gloable可以 有的local设置可以，需要是一下环境
-Plug 'xvhfeng/c.vim'
-
-if g:ENV == "LINUX"
-    let g:C_GlobalTemplateFile  = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_GlobalTemplateDir       =  g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
-else "for mac
-    let g:C_LocalTemplateFile       = g:spx_home.'/.vim/bundle/c.vim/c-support/templates/Templates'
-    let g:C_LocalTemplateDir        = g:spx_home.'/.vim/bundle/c.vim/c-support/templates'
-endif
-
-map cc \cc
-map cu \co
-"map <M-x><M-c> \cc
 
 Plug 'vim-scripts/a.vim'
 if (!exists('g:alternateSearchPath'))
@@ -131,6 +117,8 @@ nnoremap he <ESC>:w!<ESC>:A!<CR>
 nnoremap <c-x>h <ESC>:w!<ESC>:A!<cr>
 
 Plug 'scrooloose/nerdcommenter'
+map cc \cc
+map cu \co
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -426,10 +414,13 @@ nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 Plug 'vim-scripts/lemon.vim'
 
 Plug 'preservim/nerdtree'
-nnoremap <silent> <leader>ll  :NERDTreeToggle<CR>
+"nnoremap <silent> <leader>ll  :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+
+Plug 'octol/vim-cpp-enhanced-highlight'
+let g:cpp_class_scope_highlight = 1
 
 call plug#end()
 filetype plugin indent on

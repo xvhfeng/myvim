@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/xuhaifeng/pkgs/myvim'
 let g:netrw_dirhist_3='/Users/xuhaifeng/works/databases/sqlite/sqlite-src-3360000/src'
 let g:netrw_dirhist_2='/Users/xuhaifeng/pkgs/myvim'
 let g:netrw_dirhist_1='/Users/xuhaifeng/works/opensrc/lemon'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_8='/Users/xuhaifeng/Documents'
 let g:netrw_dirhist_7='/Users/xuhaifeng'
 let g:netrw_dirhist_6='/Users/xuhaifeng/pkgs/myvim'
 let g:netrw_dirhist_5='/Users/xuhaifeng/pkgs/myvim/install'
-let g:netrw_dirhist_4='/Users/xuhaifeng/pkgs/myvim'

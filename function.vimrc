@@ -197,66 +197,6 @@ function! NumberToggle()
 endfunc
 nnoremap <C-t> :call NumberToggle()<cr>
 
-function! SpxInsertHeadDef(firstLine, lastLine)
-    if a:firstLine <1 || a:lastLine> line('$')
-        echoerr 'InsertHeadDef : Range overflow !(FirstLine:'.a:firstLine.';LastLine:'.a:lastLine.';ValidRange:1~'.line('$').')'
-        return ''
-    endif
-    let sourcefilename=expand("%:t")
-    let definename=substitute(sourcefilename,' ','','g')
-    let definename=substitute(definename,'\.','_','g')
-    let definename = toupper(definename)
-    exe 'normal '.a:firstLine.'GO'
-    call setline('.', '#ifndef _'.definename."_")
-    normal o
-    call setline('.', '#define _'.definename."_")
-    normal o
-    call setline('.', '#ifdef __cplusplus')
-    normal o
-    call setline('.', 'extern "C" {')
-    normal o
-    call setline('.', '#endif')
-    normal o
-    exe 'normal =='.(a:lastLine-a:firstLine+1).'jo'
-    call setline('.', '#ifdef __cplusplus')
-    normal o
-    call setline('.', '}')
-    normal o
-    call setline('.', '#endif')
-    normal o
-    call setline('.', '#endif')
-    let goLn = a:firstLine+2
-    exe 'normal =='.goLn.'G'
-endfunction
-
-function! SpxInsertHeadDefN()
-    let firstLine = 1
-    let lastLine = line('$')
-    let n=1
-    "50 is the magic number
-    "if you file init context size is more than 50,
-    "plesae set  larger again.
-    while n < 50
-        let line = getline(n)
-        if n==1
-            if line =~ '^\/\*.*$'
-                let n = n + 1
-                continue
-            else
-                break
-            endif
-        endif
-        if line =~ '^.*\*\/$'
-            let firstLine = n+1
-            break
-        endif
-        let n = n + 1
-    endwhile
-    call SpxInsertHeadDef(firstLine, lastLine)
-endfunction
-nmap ha :call SpxInsertHeadDefN()<CR>
-autocmd BufNewFile *.h :call SpxInsertHeadDefN()
-
 function! SpxFormat()
 python << endpython
 import vim
@@ -352,4 +292,159 @@ function! IndentIgnoringComments()
   endfor
 endfunction
 nnoremap <leader>= :call IndentIgnoringComments()<CR>
+
+" -- New file .h .C .cpp, add file header --
+autocmd BufNeWFile *.[ch] exec ":call CFileHeader( )"
+autocmd BufNeWFile *.hpp,*.cc exec ":call CPPFileHeader( )"
+
+func CFileHeader()
+    call setline(1,"/*************************************************************")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"* You can copy the software or lib under the terms of the gnu")
+    normal o
+    call setline(("."),"* general public license v3,which may be found in the source")
+    normal o
+    call setline(("."),"* kit.")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"* Warning:")
+    normal o
+    call setline(("."),"*   If use the code for bussiness or any act of gain, you must")
+    normal o
+    call setline(("."),"* get my green light with mail or any documentary evidence.")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline((".") ,"* Author:  Seapeak.Xu (www.94geek.com)")
+    normal o
+    call setline((".") ,"* Mail:    xvhfeng@gmail.com")
+    normal o
+    call setline((".") , "* Date: " .strftime ("%Y/%m/%d %H:%M:%S"))
+    normal o
+    call setline((".") ,"*")
+    normal o
+    call setline((".") ,"*")
+    normal o
+    call setline((".") , "* File: ".strftime( expand( '%d')))
+    normal o
+    call setline((".") ,"*    -- ")
+    normal o
+    call setline(("."),"***************************************************************/")
+    normal o
+    call setline((".") , "")
+    normal o
+    exec "$"
+endfunc
+
+
+func CPPFileHeader()
+    call setline(1,"/*************************************************************")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"* You can copy the software or lib under the terms of the gnu")
+    normal o
+    call setline(("."),"* general public license v3,which may be found in the source")
+    normal o
+    call setline(("."),"* kit.")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"* Warning:")
+    normal o
+    call setline(("."),"*   If use the code for bussiness or any act of gain, you must")
+    normal o
+    call setline(("."),"* get my green light with mail or any documentary evidence.")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline(("."),"*")
+    normal o
+    call setline((".") ,"* Author:  Seapeak.Xu (www.94geek.com)")
+    normal o
+    call setline((".") ,"* Mail:    xvhfeng@gmail.com")
+    normal o
+    call setline((".") , "* Date: " .strftime ("%Y/%m/%d %H:%M:%S"))
+    normal o
+    call setline((".") ,"*")
+    normal o
+    call setline((".") ,"*")
+    normal o
+    call setline((".") , "* File: ".strftime( expand( '%d')))
+    normal o
+    call setline((".") ,"*    -- ")
+    normal o
+    call setline(("."),"***************************************************************/")
+    normal o
+    call setline((".") , "")
+    normal o
+    exec "$"
+endfunc
+
+function! SpxInsertHeadDef(firstLine, lastLine)
+    if a:firstLine <1 || a:lastLine> line('$')
+        echoerr 'InsertHeadDef : Range overflow !(FirstLine:'.a:firstLine.';LastLine:'.a:lastLine.';ValidRange:1~'.line('$').')'
+        return ''
+    endif
+    let sourcefilename=expand("%:t")
+    let definename=substitute(sourcefilename,' ','','g')
+    let definename=substitute(definename,'\.','_','g')
+    let definename = toupper(definename)
+    exe 'normal '.a:firstLine.'GO'
+    call setline('.', '#ifndef _'.definename."_")
+    normal o
+    call setline('.', '#define _'.definename."_")
+    normal o
+    call setline('.', '#ifdef __cplusplus')
+    normal o
+    call setline('.', 'extern "C" {')
+    normal o
+    call setline('.', '#endif')
+    normal o
+    exe 'normal =='.(a:lastLine-a:firstLine+1).'jo'
+    call setline('.', '#ifdef __cplusplus')
+    normal o
+    call setline('.', '}')
+    normal o
+    call setline('.', '#endif')
+    normal o
+    call setline('.', '#endif')
+    let goLn = a:firstLine+2
+    exe 'normal =='.goLn.'G'
+endfunction
+
+function! SpxInsertHeadDefN()
+    let firstLine = 21
+    let lastLine = line('$')
+    let n=21
+    "50 is the magic number
+    "if you file init context size is more than 50,
+    "plesae set  larger again.
+    while n < 80
+        let line = getline(n)
+        if n==21
+            if line =~ '^\/\*.*$'
+                let n = n + 1
+                continue
+            else
+                break
+            endif
+        endif
+        if line =~ '^.*\*\/$'
+            let firstLine = n+1
+            break
+        endif
+        let n = n + 1
+    endwhile
+    call SpxInsertHeadDef(firstLine, lastLine)
+endfunction
+
+nmap ha :call SpxInsertHeadDefN()<CR>
+autocmd BufNewFile *.h,*.hpp :call SpxInsertHeadDefN()
+
 
