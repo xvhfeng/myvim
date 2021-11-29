@@ -413,41 +413,53 @@ nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 
 Plug 'vim-scripts/lemon.vim'
 
-Plug 'preservim/nerdtree'          " File tree manager
+"Plug 'preservim/nerdtree'          " File tree manager
 "开启/关闭nerdtree快捷键
-nnoremap <silent> <leader>ll :NERDTreeToggle<CR>
-"let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
+"nnoremap <silent> <leader>ll :NERDTreeToggle<CR>
+" Function to open the file or NERDTree or netrw.
+"   Returns: 1 if either file explorer was opened; otherwise, 0.
+function! s:OpenFileOrExplorer(...)
+    if a:0 == 0 || a:1 == ''
+        NERDTree
+    elseif filereadable(a:1)
+        execute 'edit '.a:1
+        return 0
+    elseif a:1 =~? '^\(scp\|ftp\)://' " Add other protocols as needed.
+        execute 'Vexplore '.a:1
+    elseif isdirectory(a:1)
+"        execute 'NERDTree '.a:1
+    endif
+    return 1
+endfunction
+
+" Auto commands to handle OS commandline arguments
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc()==1 && !exists('s:std_in') | if <SID>OpenFileOrExplorer(argv()[0]) | endif | endif
+
 "打开vim时如果没有文件自动打开NERDTree
 "autocmd vimenter * if !argc()|NERDTree|endif
-"当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "设置树的显示图标
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-"Making it prettier
-"let NERDTreeMinimalUI = 1
-"let NERDTreeDirArrows = 1
-">> Basic settings
-let g:NERDTreeChDirMode = 2  "Change current folder as root
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | endif
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
+"let g:NERDTreeChDirMode = 2  "Change current folder as root
+"autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
+"当NERDTree为剩下的唯一窗口时自动关闭
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
     "\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-">> UI settings
-let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
-let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-let g:NERDTreeHidden=1     " Don't show hidden files
-let NERDTreeWinSize=30     " Initial NERDTree width
-let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
-let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
+"let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+"let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+"let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+"let g:NERDTreeHidden=1     " Don't show hidden files
+"let NERDTreeWinSize=30     " Initial NERDTree width
+"let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+"let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
 "let g:NERDTreeShowLineNumbers=1  " Show Line Number
 " Or, auto-open Nerdtree
 "autocmd vimenter * NERDTree
-Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+"Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+"Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+"Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
 
 Plug 'octol/vim-cpp-enhanced-highlight'
