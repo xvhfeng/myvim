@@ -353,30 +353,30 @@ Plug 'rust-lang/rust.vim'
 
 "new file windows mgr in vim
 "must install nnn,you can install by github
-Plug 'mcchrish/nnn.vim'
+""Plug 'mcchrish/nnn.vim'
 " Disable default mappings
-let g:nnn#set_default_mappings = 0
+""let g:nnn#set_default_mappings = 0
 " Then set your own
-nnoremap <silent> <leader>nn :NnnPicker<CR>
+""nnoremap <silent> <leader>nn :NnnPicker<CR>
 " Or override
 " Start nnn in the current file's directory
-nnoremap <silent> <leader>n :NnnPicker '%:p:h'<CR>
+""nnoremap <silent> <leader>n :NnnPicker '%:p:h'<CR>
 " Opens the nnn window in a split
-let g:nnn#layout = 'new' " or vnew, tabnew etc.
+""let g:nnn#layout = 'new' " or vnew, tabnew etc.
 "
 " Or pass a dictionary with window size
-let g:nnn#layout = { 'left': '~20%' } " or right, up, down
+""let g:nnn#layout = { 'left': '~20%' } " or right, up, down
 "
 " Floating window (neovim latest and vim with patch 8.2.191)
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
-let g:nnn#action = {
-            \ '<c-t>': 'tab split',
-            \ '<c-x>': 'split',
-            \ '<c-v>': 'vsplit' }
-let g:nnn#command = 'nnn -d'
+""let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+""let g:nnn#action = {
+            ""\ '<c-t>': 'tab split',
+            ""\ '<c-x>': 'split',
+            ""\ '<c-v>': 'vsplit' }
+""let g:nnn#command = 'nnn -d'
 
 " or pass some env variables
-let g:nnn#command = 'NNN_TRASH=1 nnn -d'
+""let g:nnn#command = 'NNN_TRASH=1 nnn -d'
 
 Plug 'wellle/context.vim'
 let g:context_enabled = 1
@@ -413,54 +413,28 @@ nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 
 Plug 'vim-scripts/lemon.vim'
 
-"Plug 'preservim/nerdtree'          " File tree manager
+Plug 'scrooloose/nerdtree'
+Plug 'xvhfeng/nerdtree'          " File tree manager
 "开启/关闭nerdtree快捷键
-"nnoremap <silent> <leader>ll :NERDTreeToggle<CR>
-" Function to open the file or NERDTree or netrw.
-"   Returns: 1 if either file explorer was opened; otherwise, 0.
-function! s:OpenFileOrExplorer(...)
-    if a:0 == 0 || a:1 == ''
-        NERDTree
-    elseif filereadable(a:1)
-        execute 'edit '.a:1
-        return 0
-    elseif a:1 =~? '^\(scp\|ftp\)://' " Add other protocols as needed.
-        execute 'Vexplore '.a:1
-    elseif isdirectory(a:1)
-"        execute 'NERDTree '.a:1
-    endif
-    return 1
-endfunction
-
-" Auto commands to handle OS commandline arguments
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc()==1 && !exists('s:std_in') | if <SID>OpenFileOrExplorer(argv()[0]) | endif | endif
-
-"打开vim时如果没有文件自动打开NERDTree
-"autocmd vimenter * if !argc()|NERDTree|endif
+nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
 "设置树的显示图标
-"let g:NERDTreeDirArrowExpandable = '▸'
-"let g:NERDTreeDirArrowCollapsible = '▾'
-"let g:NERDTreeChDirMode = 2  "Change current folder as root
-"autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeChDirMode = 3  "Change current folder as root
 "当NERDTree为剩下的唯一窗口时自动关闭
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-    "\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-"let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
-"let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-"let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-"let g:NERDTreeHidden=1     " Don't show hidden files
-"let NERDTreeWinSize=30     " Initial NERDTree width
-"let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
-"let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
-"let g:NERDTreeShowLineNumbers=1  " Show Line Number
-" Or, auto-open Nerdtree
-"autocmd vimenter * NERDTree
-"Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-"Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-"Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
-
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+let g:NERDTreeHidden=1     " Don't show hidden files
+let NERDTreeWinSize=30     " Initial NERDTree width
+let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
+let g:NERDTreeShowLineNumbers=1  " Show Line Number
+Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
 Plug 'octol/vim-cpp-enhanced-highlight'
 let g:cpp_class_scope_highlight = 1
