@@ -413,28 +413,28 @@ nnoremap <silent> <leader>bb :ToggleBufExplorer<CR>
 
 Plug 'vim-scripts/lemon.vim'
 
-Plug 'scrooloose/nerdtree'
-Plug 'xvhfeng/nerdtree'          " File tree manager
-"开启/关闭nerdtree快捷键
-nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
-"设置树的显示图标
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeChDirMode = 3  "Change current folder as root
-"当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
-let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-let g:NERDTreeHidden=1     " Don't show hidden files
-let NERDTreeWinSize=30     " Initial NERDTree width
-let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
-let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
-let g:NERDTreeShowLineNumbers=1  " Show Line Number
-Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
-Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
-Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
+    Plug 'scrooloose/nerdtree'
+    Plug 'xvhfeng/nerdtree'          " File tree manager
+    "开启/关闭nerdtree快捷键
+    nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
+    "设置树的显示图标
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
+    let g:NERDTreeChDirMode = 3  "Change current folder as root
+    "当NERDTree为剩下的唯一窗口时自动关闭
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+    let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+    let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+    let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+    let g:NERDTreeHidden=1     " Don't show hidden files
+    let NERDTreeWinSize=30     " Initial NERDTree width
+    let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+    let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__','\.o']   " Hide temp files in NERDTree
+    let g:NERDTreeShowLineNumbers=1  " Show Line Number
+    Plug 'jistr/vim-nerdtree-tabs'      " enhance nerdtree's tabs
+    Plug 'ryanoasis/vim-devicons'       " add beautiful icons besides files
+    Plug 'Xuyuanp/nerdtree-git-plugin'  " display git status within Nerdtree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " enhance devicons
 
 Plug 'octol/vim-cpp-enhanced-highlight'
 let g:cpp_class_scope_highlight = 1
